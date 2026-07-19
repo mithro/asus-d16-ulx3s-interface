@@ -1,0 +1,11 @@
+build/
+__pycache__/
+*.pyc
+*.bit
+*.svf
+*.json
+*.config
+.venv/
+csr.csv
+analyzer.csv
+soc.svd

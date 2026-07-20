@@ -200,3 +200,25 @@ explicit white background rect (theme-safe), a legend, and a fail-loud
 drawn-cell-count assertion (56 = 28 `gp` + 28 `gn` for the ULX3S headers, 40
 for the Pi J8) followed by re-parsing the written file with
 `xml.etree.ElementTree` to confirm it's valid XML.
+
+## Pretty pinout-library diagrams (`pinout_diagrams.py`)
+
+`wiring/pinout_diagrams.py` renders the same data as polished connector
+diagrams using the [`pinout`](https://pinout.readthedocs.io/) library
+(styled labels fanning off a drawn connector body). It imports its pin data
+from `make_pinmap.py` (same single source of truth) and shares
+`wiring/pinout-styles.css` (embedded into each SVG, so they stay
+self-contained). Regenerate with:
+
+```sh
+uv run wiring/pinout_diagrams.py
+```
+
+- **`wiring/rpi-pinout.svg`** — the Pi J8 with the committed HIL roles.
+- **`wiring/ulx3s-pinout.svg`** — ULX3S J1 & J2 with KGPE-D16 assignments,
+  ESP32-reserved and ADC-shared pins marked.
+- **`wiring/asus-headers-pinout.svg`** — each KGPE-D16 debug connector (the
+  DUT side) as its own mini-header, every signal showing its ULX3S GPIO.
+
+These are an alternative "pretty" view; the plain `harness.svg` /
+`*-headers.svg` renders remain the compact reference.

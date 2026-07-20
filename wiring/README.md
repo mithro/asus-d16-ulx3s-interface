@@ -138,12 +138,18 @@ existing `pinmap.csv`/`Signal` data rather than duplicating it.
 ### `wiring/ulx3s-headers.svg` — ULX3S J1/J2 GPIO headers
 
 The ULX3S exposes its 56 `gp[0..27]`/`gn[0..27]` GPIO on two 2.54&nbsp;mm
-double-row headers: **J1 carries idx 0-13, J2 carries idx 14-27** (per
-[emard/ulx3s](https://github.com/emard/ulx3s) `MANUAL.md`; FPGA ball
-assignments per `doc/constraints/ulx3s_v20.lpf`). The diagram shows every
-`gp`/`gn` cell for both headers, joined against the same in-memory signal
-list that produces `pinmap.csv` — any cell backed by an assigned signal is
-coloured by domain and labelled `connector.net`; unassigned cells are grey.
+**2x20** double-row headers: **J1 carries idx 0-13, J2 carries idx 14-27**
+(per [emard/ulx3s](https://github.com/emard/ulx3s) `MANUAL.md`; FPGA ball
+assignments per `doc/constraints/ulx3s_v20.lpf`). The diagram draws each
+header in **board row order** — every physical row top-to-bottom, so besides
+the `gp`/`gn` signal pairs it also shows the **power/GND pins** each header
+carries (from the PCB, `wiring/ulx3s-pads.json`): J1 has `2V5_3V3` supply
+rails and `GND`; J2 has `+5V` (through the STPS2L40AF diodes) plus `+3V3` and
+`GND`. Supply rows are orange, GND rows black (see legend). **J2 is oriented
+as it sits on the board — idx 27 at the top, idx 14 at the bottom.** Every
+`gp`/`gn` cell is joined against the same in-memory signal list that produces
+`pinmap.csv` — any cell backed by an assigned signal is coloured by domain and
+labelled `connector.net`; unassigned cells are grey.
 
 Two things worth calling out explicitly:
 
@@ -162,10 +168,11 @@ Two things worth calling out explicitly:
   orange corner marker (legend: "ADC-shared") regardless of whether they're
   currently assigned.
 
-The LPF/MANUAL give FPGA ball names and the J1/J2 split, but no through-hole
-pin *numbers* — the diagram deliberately labels pins by `gp`/`gn` index and
-FPGA ball only; confirm physical pin position against the ULX3S board
-silkscreen before actually wiring.
+The physical row order and the power/GND pin positions come from
+`wiring/ulx3s-pads.json` (extracted from the ULX3S PCB with `pcbnew`, see
+`extract_ulx3s_pads.py`); the diagram labels the signal pins by `gp`/`gn`
+index and FPGA ball. For the exact through-hole pad numbers, or labels drawn
+directly on the board photo, see `wiring/ulx3s-board-pinout.svg`.
 
 ### `wiring/rpi-header.svg` — Raspberry Pi J8 header + HIL wiring
 

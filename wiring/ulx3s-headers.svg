@@ -1,207 +1,226 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="670" height="1822" viewBox="0 0 670 1822" font-family="monospace" font-size="10">
-<rect x="0" y="0" width="670" height="1822" fill="#ffffff"/>
-<text x="20" y="36" font-size="16" font-weight="bold" fill="#111111">ULX3S GPIO -- grouped by KGPE-D16 connector</text>
-<text x="20" y="52" fill="#111111">Each cell is one ULX3S header pin: gpN/gnN (FPGA ball) with its header -- J1 = idx 0-13, J2 = idx 14-27. Source: emard/ulx3s ulx3s_v20.lpf + MANUAL.md.</text>
-<text x="20" y="66" fill="#111111">idx 11-13 are ESP32/wifi pins (unusable); idx 14-17 double as onboard ADC AIN0-7 (used anyway, ADC unused here). Confirm physical pin position against the silkscreen.</text>
-<rect x="20" y="94" width="12" height="12" fill="#1b5e20" fill-opacity="0.2" stroke="#1b5e20"/>
-<text x="36" y="104" fill="#111111">SPI</text>
-<rect x="100" y="94" width="12" height="12" fill="#0d47a1" fill-opacity="0.2" stroke="#0d47a1"/>
-<text x="116" y="104" fill="#111111">UART</text>
-<rect x="180" y="94" width="12" height="12" fill="#b71c1c" fill-opacity="0.2" stroke="#b71c1c"/>
-<text x="196" y="104" fill="#111111">JTAG</text>
-<rect x="260" y="94" width="12" height="12" fill="#4a148c" fill-opacity="0.2" stroke="#4a148c"/>
-<text x="276" y="104" fill="#111111">GPIO</text>
-<rect x="340" y="94" width="12" height="12" fill="#fbe9e7" stroke="#e65100" stroke-dasharray="2,2"/>
-<text x="356" y="104" fill="#111111">ESP32-reserved</text>
-<rect x="460" y="94" width="12" height="12" fill="none" stroke="#e65100" stroke-width="2"/>
-<text x="476" y="104" fill="#111111">ADC-shared</text>
-<rect x="560" y="94" width="12" height="12" fill="none" stroke="#9e9e9e" stroke-dasharray="2,2"/>
-<text x="576" y="104" fill="#111111">spare</text>
-<text x="20" y="150" font-weight="bold" fill="#111111">BMC_FW1</text>
-<rect x="20" y="156" width="300" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="26" y="168" fill="#1b5e20" font-weight="bold">gp7 (A6) J1</text>
-<text x="26" y="180" fill="#1b5e20">BMC_FW1.CS0</text>
-<rect x="350" y="156" width="300" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="356" y="168" fill="#1b5e20" font-weight="bold">gp8 (A4) J1</text>
-<text x="356" y="180" fill="#1b5e20">BMC_FW1.SCK</text>
-<rect x="20" y="194" width="300" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="26" y="206" fill="#1b5e20" font-weight="bold">gp9 (A2) J1</text>
-<text x="26" y="218" fill="#1b5e20">BMC_FW1.MOSI/SPIDO</text>
-<rect x="350" y="194" width="300" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="356" y="206" fill="#1b5e20" font-weight="bold">gp10 (C4) J1</text>
-<text x="356" y="218" fill="#1b5e20">BMC_FW1.MISO/SPIDI</text>
-<rect x="20" y="232" width="300" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="26" y="244" fill="#1b5e20" font-weight="bold">gp0 (B11) J1</text>
-<text x="26" y="256" fill="#1b5e20">BMC_FW1.CS2</text>
-<rect x="350" y="232" width="300" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="356" y="244" fill="#1b5e20" font-weight="bold">gp1 (A10) J1</text>
-<text x="356" y="256" fill="#1b5e20">BMC_FW1.IKVMEN#</text>
-<rect x="20" y="270" width="300" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="26" y="282" fill="#1b5e20" font-weight="bold">gp2 (A9) J1</text>
-<text x="26" y="294" fill="#1b5e20">BMC_FW1.BMC_PRESENT#</text>
-<rect x="350" y="270" width="300" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="356" y="282" fill="#1b5e20" font-weight="bold">gp3 (B9) J1</text>
-<text x="356" y="294" fill="#1b5e20">BMC_FW1.SOLEN#</text>
-<text x="20" y="350" font-weight="bold" fill="#111111">FU1</text>
-<rect x="20" y="356" width="300" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="26" y="368" fill="#1b5e20" font-weight="bold">gp4 (A7) J1</text>
-<text x="26" y="380" fill="#1b5e20">FU1.CS#</text>
-<rect x="350" y="356" width="300" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="356" y="368" fill="#1b5e20" font-weight="bold">gp5 (C8) J1</text>
-<text x="356" y="380" fill="#1b5e20">FU1.CLK</text>
-<rect x="20" y="394" width="300" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="26" y="406" fill="#1b5e20" font-weight="bold">gp6 (C6) J1</text>
-<text x="26" y="418" fill="#1b5e20">FU1.MOSI/DI</text>
-<rect x="350" y="394" width="300" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="356" y="406" fill="#1b5e20" font-weight="bold">gp14 (U18) J2</text>
-<text x="356" y="418" fill="#1b5e20">FU1.MISO/DO</text>
-<rect x="636" y="396" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
-<rect x="20" y="432" width="300" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="26" y="444" fill="#1b5e20" font-weight="bold">gp15 (N17) J2</text>
-<text x="26" y="456" fill="#1b5e20">FU1.HOLD#</text>
-<rect x="306" y="434" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
-<text x="20" y="512" font-weight="bold" fill="#111111">AST_UART1</text>
-<rect x="20" y="518" width="300" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
-<text x="26" y="530" fill="#0d47a1" font-weight="bold">gp16 (N16) J2</text>
-<text x="26" y="542" fill="#0d47a1">AST_UART1.BMC_RXD</text>
-<rect x="306" y="520" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
-<rect x="350" y="518" width="300" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
-<text x="356" y="530" fill="#0d47a1" font-weight="bold">gp17 (L16) J2</text>
-<text x="356" y="542" fill="#0d47a1">AST_UART1.BMC_TXD</text>
-<rect x="636" y="520" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
-<text x="20" y="598" font-weight="bold" fill="#111111">COM1</text>
-<rect x="20" y="604" width="300" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
-<text x="26" y="616" fill="#0d47a1" font-weight="bold">gp18 (H18) J2</text>
-<text x="26" y="628" fill="#0d47a1">COM1.COM1_TX</text>
-<rect x="350" y="604" width="300" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
-<text x="356" y="616" fill="#0d47a1" font-weight="bold">gp19 (F17) J2</text>
-<text x="356" y="628" fill="#0d47a1">COM1.COM1_RX</text>
-<text x="20" y="684" font-weight="bold" fill="#111111">COM2</text>
-<rect x="20" y="690" width="300" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
-<text x="26" y="702" fill="#0d47a1" font-weight="bold">gp20 (D18) J2</text>
-<text x="26" y="714" fill="#0d47a1">COM2.COM2_TX</text>
-<rect x="350" y="690" width="300" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
-<text x="356" y="702" fill="#0d47a1" font-weight="bold">gp21 (C18) J2</text>
-<text x="356" y="714" fill="#0d47a1">COM2.COM2_RX</text>
-<text x="20" y="770" font-weight="bold" fill="#111111">AST_JTAG1</text>
-<rect x="20" y="776" width="300" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
-<text x="26" y="788" fill="#b71c1c" font-weight="bold">gp22 (B15) J2</text>
-<text x="26" y="800" fill="#b71c1c">AST_JTAG1.TCK</text>
-<rect x="350" y="776" width="300" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
-<text x="356" y="788" fill="#b71c1c" font-weight="bold">gp23 (B17) J2</text>
-<text x="356" y="800" fill="#b71c1c">AST_JTAG1.TMS</text>
-<rect x="20" y="814" width="300" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
-<text x="26" y="826" fill="#b71c1c" font-weight="bold">gp24 (C16) J2</text>
-<text x="26" y="838" fill="#b71c1c">AST_JTAG1.TDI</text>
-<rect x="350" y="814" width="300" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
-<text x="356" y="826" fill="#b71c1c" font-weight="bold">gp25 (D14) J2</text>
-<text x="356" y="838" fill="#b71c1c">AST_JTAG1.TDO</text>
-<rect x="20" y="852" width="300" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
-<text x="26" y="864" fill="#b71c1c" font-weight="bold">gp26 (B13) J2</text>
-<text x="26" y="876" fill="#b71c1c">AST_JTAG1.NTRST</text>
-<rect x="350" y="852" width="300" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
-<text x="356" y="864" fill="#b71c1c" font-weight="bold">gp27 (D13) J2</text>
-<text x="356" y="876" fill="#b71c1c">AST_JTAG1.RTCK</text>
-<rect x="20" y="890" width="300" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
-<text x="26" y="902" fill="#b71c1c" font-weight="bold">gn0 (C11) J1</text>
-<text x="26" y="914" fill="#b71c1c">AST_JTAG1.SRST#</text>
-<text x="20" y="970" font-weight="bold" fill="#111111">AMD_HDT</text>
-<rect x="20" y="976" width="300" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
-<text x="26" y="988" fill="#b71c1c" font-weight="bold">gn1 (A11) J1</text>
-<text x="26" y="1000" fill="#b71c1c">AMD_HDT.HDT_TCK</text>
-<rect x="350" y="976" width="300" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
-<text x="356" y="988" fill="#b71c1c" font-weight="bold">gn2 (B10) J1</text>
-<text x="356" y="1000" fill="#b71c1c">AMD_HDT.HDT_TMS</text>
-<rect x="20" y="1014" width="300" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
-<text x="26" y="1026" fill="#b71c1c" font-weight="bold">gn3 (C10) J1</text>
-<text x="26" y="1038" fill="#b71c1c">AMD_HDT.HDT_TDI</text>
-<rect x="350" y="1014" width="300" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
-<text x="356" y="1026" fill="#b71c1c" font-weight="bold">gn4 (A8) J1</text>
-<text x="356" y="1038" fill="#b71c1c">AMD_HDT.HDT_TDO</text>
-<rect x="20" y="1052" width="300" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
-<text x="26" y="1064" fill="#b71c1c" font-weight="bold">gn5 (B8) J1</text>
-<text x="26" y="1076" fill="#b71c1c">AMD_HDT.HDT_TRST_L</text>
-<text x="20" y="1132" font-weight="bold" fill="#111111">PANEL1</text>
-<rect x="20" y="1138" width="300" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
-<text x="26" y="1150" fill="#4a148c" font-weight="bold">gn6 (C7) J1</text>
-<text x="26" y="1162" fill="#4a148c">PANEL1.PWRBTN#</text>
-<rect x="350" y="1138" width="300" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
-<text x="356" y="1150" fill="#4a148c" font-weight="bold">gn7 (B6) J1</text>
-<text x="356" y="1162" fill="#4a148c">PANEL1.RESET#</text>
-<rect x="20" y="1176" width="300" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
-<text x="26" y="1188" fill="#4a148c" font-weight="bold">gn8 (A5) J1</text>
-<text x="26" y="1200" fill="#4a148c">PANEL1.NMIBNT#</text>
-<rect x="350" y="1176" width="300" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
-<text x="356" y="1188" fill="#4a148c" font-weight="bold">gn9 (B1) J1</text>
-<text x="356" y="1200" fill="#4a148c">PANEL1.PLED</text>
-<rect x="20" y="1214" width="300" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
-<text x="26" y="1226" fill="#4a148c" font-weight="bold">gn10 (B4) J1</text>
-<text x="26" y="1238" fill="#4a148c">PANEL1.HDLED</text>
-<rect x="350" y="1214" width="300" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
-<text x="356" y="1226" fill="#4a148c" font-weight="bold">gn14 (U17) J2</text>
-<text x="356" y="1238" fill="#4a148c">PANEL1.MLED</text>
-<rect x="636" y="1216" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
-<text x="20" y="1294" font-weight="bold" fill="#111111">JUMPERS</text>
-<rect x="20" y="1300" width="300" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
-<text x="26" y="1312" fill="#4a148c" font-weight="bold">gn15 (P16) J2</text>
-<text x="26" y="1324" fill="#4a148c">JUMPERS.VGA_SW1</text>
-<rect x="306" y="1302" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
-<rect x="350" y="1300" width="300" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
-<text x="356" y="1312" fill="#4a148c" font-weight="bold">gn16 (M17) J2</text>
-<text x="356" y="1324" fill="#4a148c">JUMPERS.IPMI_SEL</text>
-<rect x="636" y="1302" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
-<rect x="20" y="1338" width="300" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
-<text x="26" y="1350" fill="#4a148c" font-weight="bold">gn17 (L17) J2</text>
-<text x="26" y="1362" fill="#4a148c">JUMPERS.BIOS_RECOVERY#</text>
-<rect x="306" y="1340" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
-<rect x="350" y="1338" width="300" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
-<text x="356" y="1350" fill="#4a148c" font-weight="bold">gn18 (H17) J2</text>
-<text x="356" y="1362" fill="#4a148c">JUMPERS.CLRTC</text>
-<text x="20" y="1418" font-weight="bold" fill="#111111">Spare (unassigned, usable)</text>
-<rect x="20" y="1424" width="300" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="26" y="1436" fill="#9e9e9e" font-weight="bold">gn19 (G18) J2</text>
-<text x="26" y="1448" fill="#9e9e9e">spare</text>
-<rect x="350" y="1424" width="300" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="356" y="1436" fill="#9e9e9e" font-weight="bold">gn20 (E17) J2</text>
-<text x="356" y="1448" fill="#9e9e9e">spare</text>
-<rect x="20" y="1462" width="300" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="26" y="1474" fill="#9e9e9e" font-weight="bold">gn21 (D17) J2</text>
-<text x="26" y="1486" fill="#9e9e9e">spare</text>
-<rect x="350" y="1462" width="300" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="356" y="1474" fill="#9e9e9e" font-weight="bold">gn22 (C15) J2</text>
-<text x="356" y="1486" fill="#9e9e9e">spare</text>
-<rect x="20" y="1500" width="300" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="26" y="1512" fill="#9e9e9e" font-weight="bold">gn23 (C17) J2</text>
-<text x="26" y="1524" fill="#9e9e9e">spare</text>
-<rect x="350" y="1500" width="300" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="356" y="1512" fill="#9e9e9e" font-weight="bold">gn24 (D16) J2</text>
-<text x="356" y="1524" fill="#9e9e9e">spare</text>
-<rect x="20" y="1538" width="300" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="26" y="1550" fill="#9e9e9e" font-weight="bold">gn25 (E14) J2</text>
-<text x="26" y="1562" fill="#9e9e9e">spare</text>
-<rect x="350" y="1538" width="300" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="356" y="1550" fill="#9e9e9e" font-weight="bold">gn26 (C13) J2</text>
-<text x="356" y="1562" fill="#9e9e9e">spare</text>
-<rect x="20" y="1576" width="300" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="26" y="1588" fill="#9e9e9e" font-weight="bold">gn27 (E13) J2</text>
-<text x="26" y="1600" fill="#9e9e9e">spare</text>
-<text x="20" y="1656" font-weight="bold" fill="#111111">ESP32-reserved (unusable)</text>
-<rect x="20" y="1662" width="300" height="30" fill="#fbe9e7" stroke="#e65100" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="26" y="1674" fill="#e65100" font-weight="bold">gp11 (F4) J1</text>
-<text x="26" y="1686" fill="#e65100">ESP32 reserved</text>
-<rect x="350" y="1662" width="300" height="30" fill="#fbe9e7" stroke="#e65100" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="356" y="1674" fill="#e65100" font-weight="bold">gn11 (E3) J1</text>
-<text x="356" y="1686" fill="#e65100">ESP32 reserved</text>
-<rect x="20" y="1700" width="300" height="30" fill="#fbe9e7" stroke="#e65100" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="26" y="1712" fill="#e65100" font-weight="bold">gp12 (G3) J1</text>
-<text x="26" y="1724" fill="#e65100">ESP32 reserved</text>
-<rect x="350" y="1700" width="300" height="30" fill="#fbe9e7" stroke="#e65100" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="356" y="1712" fill="#e65100" font-weight="bold">gn12 (F3) J1</text>
-<text x="356" y="1724" fill="#e65100">ESP32 reserved</text>
-<rect x="20" y="1738" width="300" height="30" fill="#fbe9e7" stroke="#e65100" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="26" y="1750" fill="#e65100" font-weight="bold">gp13 (H4) J1</text>
-<text x="26" y="1762" fill="#e65100">ESP32 reserved</text>
-<rect x="350" y="1738" width="300" height="30" fill="#fbe9e7" stroke="#e65100" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="356" y="1750" fill="#e65100" font-weight="bold">gn13 (G5) J1</text>
-<text x="356" y="1762" fill="#e65100">ESP32 reserved</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="676" height="1216" viewBox="0 0 676 1216" font-family="monospace" font-size="10">
+<rect x="0" y="0" width="676" height="1216" fill="#ffffff"/>
+<text x="20" y="36" font-size="16" font-weight="bold" fill="#111111">ULX3S GPIO headers J1/J2 -- KGPE-D16 assignment</text>
+<text x="20" y="50" fill="#111111">J1 = gp/gn idx 0-13, J2 = gp/gn idx 14-27 (emard/ulx3s ulx3s_v20.lpf + MANUAL.md). idx 11-13 shared with the on-board ESP32 (excluded from the usable pool).</text>
+<text x="20" y="62" fill="#111111">idx 14-17 double as onboard ADC AIN0-7 -- assigned anyway (ADC unused by this design). No source gives through-hole pin numbers: confirm physical position against the silkscreen.</text>
+<rect x="20" y="78" width="12" height="12" fill="#1b5e20" fill-opacity="0.2" stroke="#1b5e20"/>
+<text x="36" y="88" fill="#111111">SPI</text>
+<rect x="100" y="78" width="12" height="12" fill="#0d47a1" fill-opacity="0.2" stroke="#0d47a1"/>
+<text x="116" y="88" fill="#111111">UART</text>
+<rect x="180" y="78" width="12" height="12" fill="#b71c1c" fill-opacity="0.2" stroke="#b71c1c"/>
+<text x="196" y="88" fill="#111111">JTAG</text>
+<rect x="260" y="78" width="12" height="12" fill="#4a148c" fill-opacity="0.2" stroke="#4a148c"/>
+<text x="276" y="88" fill="#111111">GPIO</text>
+<rect x="340" y="78" width="12" height="12" fill="#fbe9e7" stroke="#e65100" stroke-dasharray="2,2"/>
+<text x="356" y="88" fill="#111111">ESP32-reserved</text>
+<rect x="460" y="78" width="12" height="12" fill="none" stroke="#e65100" stroke-width="2"/>
+<text x="476" y="88" fill="#111111">ADC-shared</text>
+<rect x="560" y="78" width="12" height="12" fill="none" stroke="#9e9e9e" stroke-dasharray="2,2"/>
+<text x="576" y="88" fill="#111111">unassigned</text>
+<text x="20" y="132" font-weight="bold" fill="#111111">ULX3S J1</text>
+<text x="20" y="157.0" fill="#111111">idx0</text>
+<rect x="66" y="138" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="72" y="150" fill="#1b5e20" font-weight="bold">gp0 (B11)</text>
+<text x="72" y="162" fill="#1b5e20">BMC_FW1.CS2</text>
+<rect x="376" y="138" width="280" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="150" fill="#b71c1c" font-weight="bold">gn0 (C11)</text>
+<text x="382" y="162" fill="#b71c1c">AST_JTAG1.SRST#</text>
+<text x="20" y="193.0" fill="#111111">idx1</text>
+<rect x="66" y="174" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="72" y="186" fill="#1b5e20" font-weight="bold">gp1 (A10)</text>
+<text x="72" y="198" fill="#1b5e20">BMC_FW1.IKVMEN#</text>
+<rect x="376" y="174" width="280" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="186" fill="#b71c1c" font-weight="bold">gn1 (A11)</text>
+<text x="382" y="198" fill="#b71c1c">AMD_HDT.HDT_TCK</text>
+<text x="20" y="229.0" fill="#111111">idx2</text>
+<rect x="66" y="210" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="72" y="222" fill="#1b5e20" font-weight="bold">gp2 (A9)</text>
+<text x="72" y="234" fill="#1b5e20">BMC_FW1.BMC_PRESENT#</text>
+<rect x="376" y="210" width="280" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="222" fill="#b71c1c" font-weight="bold">gn2 (B10)</text>
+<text x="382" y="234" fill="#b71c1c">AMD_HDT.HDT_TMS</text>
+<text x="20" y="265.0" fill="#111111">idx3</text>
+<rect x="66" y="246" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="72" y="258" fill="#1b5e20" font-weight="bold">gp3 (B9)</text>
+<text x="72" y="270" fill="#1b5e20">BMC_FW1.SOLEN#</text>
+<rect x="376" y="246" width="280" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="258" fill="#b71c1c" font-weight="bold">gn3 (C10)</text>
+<text x="382" y="270" fill="#b71c1c">AMD_HDT.HDT_TDI</text>
+<text x="20" y="301.0" fill="#111111">idx4</text>
+<rect x="66" y="282" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="72" y="294" fill="#1b5e20" font-weight="bold">gp4 (A7)</text>
+<text x="72" y="306" fill="#1b5e20">FU1.CS#</text>
+<rect x="376" y="282" width="280" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="294" fill="#b71c1c" font-weight="bold">gn4 (A8)</text>
+<text x="382" y="306" fill="#b71c1c">AMD_HDT.HDT_TDO</text>
+<text x="20" y="337.0" fill="#111111">idx5</text>
+<rect x="66" y="318" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="72" y="330" fill="#1b5e20" font-weight="bold">gp5 (C8)</text>
+<text x="72" y="342" fill="#1b5e20">FU1.CLK</text>
+<rect x="376" y="318" width="280" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="330" fill="#b71c1c" font-weight="bold">gn5 (B8)</text>
+<text x="382" y="342" fill="#b71c1c">AMD_HDT.HDT_TRST_L</text>
+<text x="20" y="373.0" fill="#111111">idx6</text>
+<rect x="66" y="354" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="72" y="366" fill="#1b5e20" font-weight="bold">gp6 (C6)</text>
+<text x="72" y="378" fill="#1b5e20">FU1.MOSI/DI</text>
+<rect x="376" y="354" width="280" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="366" fill="#4a148c" font-weight="bold">gn6 (C7)</text>
+<text x="382" y="378" fill="#4a148c">PANEL1.PWRBTN#</text>
+<text x="20" y="409.0" fill="#111111">idx7</text>
+<rect x="66" y="390" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="72" y="402" fill="#1b5e20" font-weight="bold">gp7 (A6)</text>
+<text x="72" y="414" fill="#1b5e20">BMC_FW1.CS0</text>
+<rect x="376" y="390" width="280" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="402" fill="#4a148c" font-weight="bold">gn7 (B6)</text>
+<text x="382" y="414" fill="#4a148c">PANEL1.RESET#</text>
+<text x="20" y="445.0" fill="#111111">idx8</text>
+<rect x="66" y="426" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="72" y="438" fill="#1b5e20" font-weight="bold">gp8 (A4)</text>
+<text x="72" y="450" fill="#1b5e20">BMC_FW1.SCK</text>
+<rect x="376" y="426" width="280" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="438" fill="#4a148c" font-weight="bold">gn8 (A5)</text>
+<text x="382" y="450" fill="#4a148c">PANEL1.NMIBNT#</text>
+<text x="20" y="481.0" fill="#111111">idx9</text>
+<rect x="66" y="462" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="72" y="474" fill="#1b5e20" font-weight="bold">gp9 (A2)</text>
+<text x="72" y="486" fill="#1b5e20">BMC_FW1.MOSI/SPIDO</text>
+<rect x="376" y="462" width="280" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="474" fill="#4a148c" font-weight="bold">gn9 (B1)</text>
+<text x="382" y="486" fill="#4a148c">PANEL1.PLED</text>
+<text x="20" y="517.0" fill="#111111">idx10</text>
+<rect x="66" y="498" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="72" y="510" fill="#1b5e20" font-weight="bold">gp10 (C4)</text>
+<text x="72" y="522" fill="#1b5e20">BMC_FW1.MISO/SPIDI</text>
+<rect x="376" y="498" width="280" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="510" fill="#4a148c" font-weight="bold">gn10 (B4)</text>
+<text x="382" y="522" fill="#4a148c">PANEL1.HDLED</text>
+<text x="20" y="553.0" fill="#111111">idx11</text>
+<rect x="66" y="534" width="280" height="30" fill="#fbe9e7" stroke="#e65100" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="72" y="546" fill="#e65100" font-weight="bold">gp11 (F4)</text>
+<text x="72" y="558" fill="#e65100">ESP32 reserved</text>
+<rect x="376" y="534" width="280" height="30" fill="#fbe9e7" stroke="#e65100" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="382" y="546" fill="#e65100" font-weight="bold">gn11 (E3)</text>
+<text x="382" y="558" fill="#e65100">ESP32 reserved</text>
+<text x="20" y="589.0" fill="#111111">idx12</text>
+<rect x="66" y="570" width="280" height="30" fill="#fbe9e7" stroke="#e65100" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="72" y="582" fill="#e65100" font-weight="bold">gp12 (G3)</text>
+<text x="72" y="594" fill="#e65100">ESP32 reserved</text>
+<rect x="376" y="570" width="280" height="30" fill="#fbe9e7" stroke="#e65100" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="382" y="582" fill="#e65100" font-weight="bold">gn12 (F3)</text>
+<text x="382" y="594" fill="#e65100">ESP32 reserved</text>
+<text x="20" y="625.0" fill="#111111">idx13</text>
+<rect x="66" y="606" width="280" height="30" fill="#fbe9e7" stroke="#e65100" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="72" y="618" fill="#e65100" font-weight="bold">gp13 (H4)</text>
+<text x="72" y="630" fill="#e65100">ESP32 reserved</text>
+<rect x="376" y="606" width="280" height="30" fill="#fbe9e7" stroke="#e65100" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="382" y="618" fill="#e65100" font-weight="bold">gn13 (G5)</text>
+<text x="382" y="630" fill="#e65100">ESP32 reserved</text>
+<text x="20" y="686" font-weight="bold" fill="#111111">ULX3S J2</text>
+<text x="20" y="711.0" fill="#111111">idx14</text>
+<rect x="66" y="692" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="72" y="704" fill="#1b5e20" font-weight="bold">gp14 (U18)</text>
+<text x="72" y="716" fill="#1b5e20">FU1.MISO/DO</text>
+<rect x="332" y="694" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
+<rect x="376" y="692" width="280" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="704" fill="#4a148c" font-weight="bold">gn14 (U17)</text>
+<text x="382" y="716" fill="#4a148c">PANEL1.MLED</text>
+<rect x="642" y="694" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
+<text x="20" y="747.0" fill="#111111">idx15</text>
+<rect x="66" y="728" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="72" y="740" fill="#1b5e20" font-weight="bold">gp15 (N17)</text>
+<text x="72" y="752" fill="#1b5e20">FU1.HOLD#</text>
+<rect x="332" y="730" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
+<rect x="376" y="728" width="280" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="740" fill="#4a148c" font-weight="bold">gn15 (P16)</text>
+<text x="382" y="752" fill="#4a148c">JUMPERS.VGA_SW1</text>
+<rect x="642" y="730" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
+<text x="20" y="783.0" fill="#111111">idx16</text>
+<rect x="66" y="764" width="280" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
+<text x="72" y="776" fill="#0d47a1" font-weight="bold">gp16 (N16)</text>
+<text x="72" y="788" fill="#0d47a1">AST_UART1.BMC_RXD</text>
+<rect x="332" y="766" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
+<rect x="376" y="764" width="280" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="776" fill="#4a148c" font-weight="bold">gn16 (M17)</text>
+<text x="382" y="788" fill="#4a148c">JUMPERS.IPMI_SEL</text>
+<rect x="642" y="766" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
+<text x="20" y="819.0" fill="#111111">idx17</text>
+<rect x="66" y="800" width="280" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
+<text x="72" y="812" fill="#0d47a1" font-weight="bold">gp17 (L16)</text>
+<text x="72" y="824" fill="#0d47a1">AST_UART1.BMC_TXD</text>
+<rect x="332" y="802" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
+<rect x="376" y="800" width="280" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="812" fill="#4a148c" font-weight="bold">gn17 (L17)</text>
+<text x="382" y="824" fill="#4a148c">JUMPERS.BIOS_RECOVERY#</text>
+<rect x="642" y="802" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
+<text x="20" y="855.0" fill="#111111">idx18</text>
+<rect x="66" y="836" width="280" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
+<text x="72" y="848" fill="#0d47a1" font-weight="bold">gp18 (H18)</text>
+<text x="72" y="860" fill="#0d47a1">COM1.COM1_TX</text>
+<rect x="376" y="836" width="280" height="30" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="382" y="848" fill="#4a148c" font-weight="bold">gn18 (H17)</text>
+<text x="382" y="860" fill="#4a148c">JUMPERS.CLRTC</text>
+<text x="20" y="891.0" fill="#111111">idx19</text>
+<rect x="66" y="872" width="280" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
+<text x="72" y="884" fill="#0d47a1" font-weight="bold">gp19 (F17)</text>
+<text x="72" y="896" fill="#0d47a1">COM1.COM1_RX</text>
+<rect x="376" y="872" width="280" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="382" y="884" fill="#9e9e9e" font-weight="bold">gn19 (G18)</text>
+<text x="382" y="896" fill="#9e9e9e">DIFF</text>
+<text x="20" y="927.0" fill="#111111">idx20</text>
+<rect x="66" y="908" width="280" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
+<text x="72" y="920" fill="#0d47a1" font-weight="bold">gp20 (D18)</text>
+<text x="72" y="932" fill="#0d47a1">COM2.COM2_TX</text>
+<rect x="376" y="908" width="280" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="382" y="920" fill="#9e9e9e" font-weight="bold">gn20 (E17)</text>
+<text x="382" y="932" fill="#9e9e9e">DIFF</text>
+<text x="20" y="963.0" fill="#111111">idx21</text>
+<rect x="66" y="944" width="280" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
+<text x="72" y="956" fill="#0d47a1" font-weight="bold">gp21 (C18)</text>
+<text x="72" y="968" fill="#0d47a1">COM2.COM2_RX</text>
+<rect x="376" y="944" width="280" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="382" y="956" fill="#9e9e9e" font-weight="bold">gn21 (D17)</text>
+<text x="382" y="968" fill="#9e9e9e">DIFF</text>
+<text x="20" y="999.0" fill="#111111">idx22</text>
+<rect x="66" y="980" width="280" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="72" y="992" fill="#b71c1c" font-weight="bold">gp22 (B15)</text>
+<text x="72" y="1004" fill="#b71c1c">AST_JTAG1.TCK</text>
+<rect x="376" y="980" width="280" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="382" y="992" fill="#9e9e9e" font-weight="bold">gn22 (C15)</text>
+<text x="382" y="1004" fill="#9e9e9e">unassigned</text>
+<text x="20" y="1035.0" fill="#111111">idx23</text>
+<rect x="66" y="1016" width="280" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="72" y="1028" fill="#b71c1c" font-weight="bold">gp23 (B17)</text>
+<text x="72" y="1040" fill="#b71c1c">AST_JTAG1.TMS</text>
+<rect x="376" y="1016" width="280" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="382" y="1028" fill="#9e9e9e" font-weight="bold">gn23 (C17)</text>
+<text x="382" y="1040" fill="#9e9e9e">unassigned</text>
+<text x="20" y="1071.0" fill="#111111">idx24</text>
+<rect x="66" y="1052" width="280" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="72" y="1064" fill="#b71c1c" font-weight="bold">gp24 (C16)</text>
+<text x="72" y="1076" fill="#b71c1c">AST_JTAG1.TDI</text>
+<rect x="376" y="1052" width="280" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="382" y="1064" fill="#9e9e9e" font-weight="bold">gn24 (D16)</text>
+<text x="382" y="1076" fill="#9e9e9e">unassigned</text>
+<text x="20" y="1107.0" fill="#111111">idx25</text>
+<rect x="66" y="1088" width="280" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="72" y="1100" fill="#b71c1c" font-weight="bold">gp25 (D14)</text>
+<text x="72" y="1112" fill="#b71c1c">AST_JTAG1.TDO</text>
+<rect x="376" y="1088" width="280" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="382" y="1100" fill="#9e9e9e" font-weight="bold">gn25 (E14)</text>
+<text x="382" y="1112" fill="#9e9e9e">unassigned</text>
+<text x="20" y="1143.0" fill="#111111">idx26</text>
+<rect x="66" y="1124" width="280" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="72" y="1136" fill="#b71c1c" font-weight="bold">gp26 (B13)</text>
+<text x="72" y="1148" fill="#b71c1c">AST_JTAG1.NTRST</text>
+<rect x="376" y="1124" width="280" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="382" y="1136" fill="#9e9e9e" font-weight="bold">gn26 (C13)</text>
+<text x="382" y="1148" fill="#9e9e9e">unassigned</text>
+<text x="20" y="1179.0" fill="#111111">idx27</text>
+<rect x="66" y="1160" width="280" height="30" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="72" y="1172" fill="#b71c1c" font-weight="bold">gp27 (D13)</text>
+<text x="72" y="1184" fill="#b71c1c">AST_JTAG1.RTCK</text>
+<rect x="376" y="1160" width="280" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="382" y="1172" fill="#9e9e9e" font-weight="bold">gn27 (E13)</text>
+<text x="382" y="1184" fill="#9e9e9e">unassigned</text>
 </svg>

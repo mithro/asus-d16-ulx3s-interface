@@ -646,12 +646,10 @@ def render_svg(signals: list[Signal], path: Path) -> None:
 
 
 def render_ulx3s_headers(signals: list[Signal], path: Path) -> None:
-    """Render wiring/ulx3s-headers.svg: the ULX3S GPIO header pins grouped by
-    the KGPE-D16 connector they serve (BMC_FW1, FU1, ...), then the spare
-    usable pins, then the ESP32-reserved pins -- with a blank band between
-    groups. Each cell shows the ULX3S pin gpN/gnN, its FPGA ball, and which
-    header (J1 = idx 0-13, J2 = idx 14-27) it sits on. Joined against
-    `signals` (the same in-memory list that produces pinmap.csv).
+    """Render wiring/ulx3s-headers.svg: the physical ULX3S J1/J2 GPIO headers
+    (idx 0-13 / 14-27), with per-index gp/gn cells joined against `signals`
+    (the same in-memory list that produces pinmap.csv) to show what each pin
+    is assigned to.
     """
     gpio_to_signal: dict[str, Signal] = {s.gpio: s for s in signals if s.gpio is not None}
 
@@ -664,59 +662,24 @@ def render_ulx3s_headers(signals: list[Signal], path: Path) -> None:
             assert name not in gpio_to_signal, f"{name} is ESP32-reserved but was assigned to a signal"
 
     MARGIN = 20
-    CELL_W = 300
+    CELL_W = 280
     CELL_H = 30
-    ROW_SPACING = 38
-    COL_GAP = 30
-    NCOLS = 2
-    GROUP_LABEL_H = 22
-    GROUP_GAP = 26  # blank band between connector groups
+    ROW_SPACING = 36
+    IDX_W = 46
+    GAP = 30
+    BLOCK_TITLE_H = 20
+    BLOCK_GAP = 30
     TITLE_H = 30
-    SUBTITLE_H = 44
+    SUBTITLE_H = 28
     LEGEND_H = 20
 
-    CANVAS_W = MARGIN * 2 + CELL_W * NCOLS + COL_GAP
-
-    def resolve(gpio_name: str) -> tuple[int, str]:
-        which, idx = gpio_name[:2], int(gpio_name[2:])
-        p = ULX3S_PIN_BY_IDX[idx]
-        return idx, (p.gp_ball if which == "gp" else p.gn_ball)
-
-    # Build display groups: one per KGPE-D16 connector (inventory order), then
-    # the spare usable pins, then the ESP32-reserved pins. Every one of the 56
-    # ULX3S header pins lands in exactly one group.
-    conn_order: list[str] = []
-    conn_sigs: dict[str, list[Signal]] = {}
-    for s in signals:
-        if s.connector not in conn_sigs:
-            conn_sigs[s.connector] = []
-            conn_order.append(s.connector)
-        conn_sigs[s.connector].append(s)
-
-    assigned = set(gpio_to_signal)
-    spare_pins = [p for p in USABLE_GPIO if p not in assigned]
-    esp32_pins = [f"{w}{idx}" for idx in sorted(ULX3S_ESP32_IDX) for w in ("gp", "gn")]
-
-    # (label, domain_or_None, [(gpio_name, kind, signal_or_None), ...])
-    groups: list[tuple[str, str | None, list[tuple[str, str, Signal | None]]]] = []
-    for conn in conn_order:
-        groups.append(
-            (conn, DOMAIN_BY_CONNECTOR[conn], [(s.gpio, "assigned", s) for s in conn_sigs[conn]])
-        )
-    groups.append(("Spare (unassigned, usable)", None, [(p, "spare", None) for p in spare_pins]))
-    groups.append(("ESP32-reserved (unusable)", None, [(p, "esp32", None) for p in esp32_pins]))
-
-    def group_height(n_cells: int) -> int:
-        n_rows = (n_cells + NCOLS - 1) // NCOLS
-        return GROUP_LABEL_H + n_rows * ROW_SPACING
+    ROW_W = IDX_W + CELL_W + GAP + CELL_W
+    CANVAS_W = ROW_W + 2 * MARGIN
 
     top = MARGIN + TITLE_H + SUBTITLE_H + LEGEND_H + 20
-    CANVAS_H = (
-        top
-        + sum(group_height(len(cells)) for _, _, cells in groups)
-        + len(groups) * GROUP_GAP
-        + MARGIN
-    )
+    rows_per_block = 14
+    block_h = BLOCK_TITLE_H + rows_per_block * ROW_SPACING
+    CANVAS_H = top + 2 * block_h + BLOCK_GAP + MARGIN
 
     parts: list[str] = []
     parts.append(
@@ -726,17 +689,17 @@ def render_ulx3s_headers(signals: list[Signal], path: Path) -> None:
     parts.append(f'<rect x="0" y="0" width="{CANVAS_W}" height="{CANVAS_H}" fill="{BG_COLOR}"/>')
     parts.append(
         f'<text x="{MARGIN}" y="{MARGIN + 16}" font-size="16" font-weight="bold" fill="{TEXT_COLOR}">'
-        'ULX3S GPIO -- grouped by KGPE-D16 connector</text>'
+        'ULX3S GPIO headers J1/J2 -- KGPE-D16 assignment</text>'
     )
     parts.append(
-        f'<text x="{MARGIN}" y="{MARGIN + 32}" fill="{TEXT_COLOR}">'
-        'Each cell is one ULX3S header pin: gpN/gnN (FPGA ball) with its header -- J1 = idx 0-13, '
-        'J2 = idx 14-27. Source: emard/ulx3s ulx3s_v20.lpf + MANUAL.md.</text>'
+        f'<text x="{MARGIN}" y="{MARGIN + 30}" fill="{TEXT_COLOR}">'
+        'J1 = gp/gn idx 0-13, J2 = gp/gn idx 14-27 (emard/ulx3s ulx3s_v20.lpf + MANUAL.md). '
+        'idx 11-13 shared with the on-board ESP32 (excluded from the usable pool).</text>'
     )
     parts.append(
-        f'<text x="{MARGIN}" y="{MARGIN + 46}" fill="{TEXT_COLOR}">'
-        'idx 11-13 are ESP32/wifi pins (unusable); idx 14-17 double as onboard ADC AIN0-7 (used '
-        'anyway, ADC unused here). Confirm physical pin position against the silkscreen.</text>'
+        f'<text x="{MARGIN}" y="{MARGIN + 42}" fill="{TEXT_COLOR}">'
+        'idx 14-17 double as onboard ADC AIN0-7 -- assigned anyway (ADC unused by this design). '
+        'No source gives through-hole pin numbers: confirm physical position against the silkscreen.</text>'
     )
 
     legend_y = MARGIN + TITLE_H + SUBTITLE_H
@@ -764,63 +727,68 @@ def render_ulx3s_headers(signals: list[Signal], path: Path) -> None:
         f'<rect x="{legend_x}" y="{legend_y}" width="12" height="12" '
         f'fill="none" stroke="{UNASSIGNED_STROKE}" stroke-dasharray="2,2"/>'
     )
-    parts.append(f'<text x="{legend_x + 16}" y="{legend_y + 10}" fill="{TEXT_COLOR}">spare</text>')
+    parts.append(f'<text x="{legend_x + 16}" y="{legend_y + 10}" fill="{TEXT_COLOR}">unassigned</text>')
 
     cell_count = 0
     y0 = top
-    for label, domain, cells in groups:
+    for block_name, idx_range in (("J1", ULX3S_J1_IDX), ("J2", ULX3S_J2_IDX)):
         parts.append(
-            f'<text x="{MARGIN}" y="{y0 + GROUP_LABEL_H - 6}" font-weight="bold" fill="{TEXT_COLOR}">'
-            f'{escape(label)}</text>'
+            f'<text x="{MARGIN}" y="{y0 + BLOCK_TITLE_H - 6}" font-weight="bold" fill="{TEXT_COLOR}">'
+            f'ULX3S {block_name}</text>'
         )
-        row_top = y0 + GROUP_LABEL_H
-        for i, (gpio_name, kind, sig) in enumerate(cells):
-            col = i % NCOLS
-            x = MARGIN + col * (CELL_W + COL_GAP)
-            y = row_top + (i // NCOLS) * ROW_SPACING
-            idx, ball = resolve(gpio_name)
-            header = "J1" if idx < 14 else "J2"
-            line1 = f"{gpio_name} ({ball}) {header}"
+        y = y0 + BLOCK_TITLE_H
+        for idx in idx_range:
+            pin = ULX3S_PIN_BY_IDX[idx]
+            parts.append(f'<text x="{MARGIN}" y="{y + CELL_H / 2 + 4}" fill="{TEXT_COLOR}">idx{idx}</text>')
 
-            if kind == "esp32":
-                fill_attr = f'fill="{RESERVED_FILL}"'
-                stroke = RESERVED_STROKE
-                dash_attr = 'stroke-dasharray="2,2"'
-                text_color = RESERVED_STROKE
-                line2 = "ESP32 reserved"
-            elif kind == "spare":
-                fill_attr = 'fill="none"'
-                stroke = UNASSIGNED_STROKE
-                dash_attr = 'stroke-dasharray="2,2"'
-                text_color = UNASSIGNED_STROKE
-                line2 = "spare"
-            else:
-                color = DOMAIN_COLOR[domain]
-                fill_attr = f'fill="{color}" fill-opacity="0.15"'
-                stroke = color
-                dash_attr = ""
-                text_color = color
-                line2 = f"{sig.connector}.{sig.net}"
+            x = MARGIN + IDX_W
+            for which, ball in (("gp", pin.gp_ball), ("gn", pin.gn_ball)):
+                gpio_name = f"{which}{idx}"
+                sig = gpio_to_signal.get(gpio_name)
+                line1 = f"{gpio_name} ({ball})"
 
-            parts.append(
-                f'<rect x="{x}" y="{y}" width="{CELL_W}" height="{CELL_H}" {fill_attr} '
-                f'stroke="{stroke}" stroke-width="1.5" {dash_attr} rx="3"/>'
-            )
-            cell_count += 1
-            parts.append(
-                f'<text x="{x + 6}" y="{y + 12}" fill="{text_color}" font-weight="bold">'
-                f'{escape(line1)}</text>'
-            )
-            parts.append(f'<text x="{x + 6}" y="{y + 24}" fill="{text_color}">{escape(line2)}</text>')
+                if idx in ULX3S_ESP32_IDX:
+                    fill_attr = f'fill="{RESERVED_FILL}"'
+                    stroke = RESERVED_STROKE
+                    dash_attr = 'stroke-dasharray="2,2"'
+                    text_color = RESERVED_STROKE
+                    line2 = "ESP32 reserved"
+                elif sig is not None:
+                    domain = DOMAIN_BY_CONNECTOR[sig.connector]
+                    color = DOMAIN_COLOR[domain]
+                    fill_attr = f'fill="{color}" fill-opacity="0.15"'
+                    stroke = color
+                    dash_attr = ""
+                    text_color = color
+                    line2 = f"{sig.connector}.{sig.net}"
+                else:
+                    fill_attr = 'fill="none"'
+                    stroke = UNASSIGNED_STROKE
+                    dash_attr = 'stroke-dasharray="2,2"'
+                    text_color = UNASSIGNED_STROKE
+                    line2 = pin.note if pin.note else "unassigned"
 
-            if idx in ULX3S_ADC_SHARED_IDX:
                 parts.append(
-                    f'<rect x="{x + CELL_W - 14}" y="{y + 2}" width="10" height="10" '
-                    f'fill="none" stroke="{ADC_COLOR}" stroke-width="2"/>'
+                    f'<rect x="{x}" y="{y}" width="{CELL_W}" height="{CELL_H}" {fill_attr} '
+                    f'stroke="{stroke}" stroke-width="1.5" {dash_attr} rx="3"/>'
                 )
+                cell_count += 1
+                parts.append(
+                    f'<text x="{x + 6}" y="{y + 12}" fill="{text_color}" font-weight="bold">'
+                    f'{escape(line1)}</text>'
+                )
+                parts.append(f'<text x="{x + 6}" y="{y + 24}" fill="{text_color}">{escape(line2)}</text>')
 
-        n_rows = (len(cells) + NCOLS - 1) // NCOLS
-        y0 = row_top + n_rows * ROW_SPACING + GROUP_GAP
+                if idx in ULX3S_ADC_SHARED_IDX:
+                    parts.append(
+                        f'<rect x="{x + CELL_W - 14}" y="{y + 2}" width="10" height="10" '
+                        f'fill="none" stroke="{ADC_COLOR}" stroke-width="2"/>'
+                    )
+
+                x += CELL_W + GAP
+
+            y += ROW_SPACING
+        y0 = y + BLOCK_GAP
 
     parts.append('</svg>')
     svg_text = "\n".join(parts)

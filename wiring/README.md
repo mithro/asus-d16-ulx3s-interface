@@ -216,7 +216,11 @@ uv run wiring/pinout_diagrams.py
 
 - **`wiring/rpi-pinout.svg`** — the Pi J8 with the committed HIL roles.
 - **`wiring/ulx3s-pinout.svg`** — ULX3S J1 & J2 with KGPE-D16 assignments,
-  ESP32-reserved and ADC-shared pins marked.
+  ESP32-reserved and ADC-shared pins marked. Also embeds the ULX3S PCB **3D
+  top board render** (emard/ulx3s, MIT-licensed) below the connectors, since
+  no source gives the physical pin-1..40 numbers for the supply/GND rail
+  cells — see `wiring/render_ulx3s_board.py` (regenerate) and
+  `wiring/ULX3S-BOARD-NOTICE.md` (provenance/license).
 - **`wiring/asus-headers-pinout.svg`** — each KGPE-D16 debug connector (the
   DUT side) as its own mini-header, every signal showing its ULX3S GPIO.
 

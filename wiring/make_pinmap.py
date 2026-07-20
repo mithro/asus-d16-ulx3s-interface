@@ -15,13 +15,17 @@ concurrently (no re-cabling between roles). This script:
   5. Prints a per-connector summary and writes wiring/pinmap.csv.
 
 Run with: uv run wiring/make_pinmap.py
+Run with: uv run wiring/make_pinmap.py --svg   (also renders wiring/harness.svg)
 """
 
 from __future__ import annotations
 
+import argparse
 import csv
+import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
 from pathlib import Path
+from xml.sax.saxutils import escape
 
 
 @dataclass
@@ -214,7 +218,234 @@ def write_csv(signals: list[Signal], path: Path) -> None:
             writer.writerow([s.connector, s.net, s.dir, s.via, s.gpio])
 
 
+# ---------------------------------------------------------------------------
+# SVG harness diagram
+# ---------------------------------------------------------------------------
+
+# Which signal domain each connector belongs to, for colour-coding.
+DOMAIN_BY_CONNECTOR: dict[str, str] = {
+    "BMC_FW1": "SPI",
+    "FU1": "SPI",
+    "AST_UART1": "UART",
+    "COM1": "UART",
+    "COM2": "UART",
+    "AST_JTAG1": "JTAG",
+    "AMD_HDT": "JTAG",
+    "PANEL1": "GPIO",
+    "JUMPERS": "GPIO",
+}
+
+# Colours chosen for good contrast against a white background (see BG_COLOR).
+DOMAIN_COLOR: dict[str, str] = {
+    "SPI": "#1b5e20",  # dark green
+    "UART": "#0d47a1",  # dark blue
+    "JTAG": "#b71c1c",  # dark red
+    "GPIO": "#4a148c",  # dark purple
+}
+
+BG_COLOR = "#ffffff"
+TEXT_COLOR = "#111111"
+LINE_COLOR = "#444444"
+
+
+def render_svg(signals: list[Signal], path: Path) -> None:
+    """Render a three-column harness diagram derived from `signals`.
+
+    Columns: KGPE-D16 connector pin (left) -- harness element / via (middle)
+    -- ULX3S GPIO (right). Rows are grouped by connector, colour-coded by
+    signal domain, and carry an arrowhead showing FPGA-relative direction.
+    """
+    MARGIN = 20
+    ROW_H = 20
+    ROW_SPACING = 24
+    GROUP_GAP = 14
+    GROUP_LABEL_H = 18
+
+    LEFT_X = MARGIN
+    LEFT_W = 230
+    MID_X = LEFT_X + LEFT_W + 80
+    MID_W = 150
+    RIGHT_X = MID_X + MID_W + 80
+    RIGHT_W = 70
+    CANVAS_W = RIGHT_X + RIGHT_W + MARGIN
+
+    TITLE_H = 30
+    LEGEND_Y = MARGIN + TITLE_H + 10
+    LEGEND_H = 24
+    ROWS_TOP = LEGEND_Y + LEGEND_H + 20
+
+    # Group signals by connector, preserving inventory order.
+    groups: list[tuple[str, list[Signal]]] = []
+    for s in signals:
+        if groups and groups[-1][0] == s.connector:
+            groups[-1][1].append(s)
+        else:
+            groups.append((s.connector, [s]))
+
+    n_groups = len(groups)
+    n_rows = len(signals)
+    canvas_h = (
+        ROWS_TOP
+        + n_groups * GROUP_LABEL_H
+        + n_rows * ROW_SPACING
+        + (n_groups - 1) * GROUP_GAP
+        + MARGIN
+    )
+
+    parts: list[str] = []
+    parts.append(
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{CANVAS_W}" height="{canvas_h}" '
+        f'viewBox="0 0 {CANVAS_W} {canvas_h}" font-family="monospace" font-size="11">'
+    )
+    # Explicit background so the diagram is legible regardless of the
+    # viewer's page background (light or dark theme).
+    parts.append(f'<rect x="0" y="0" width="{CANVAS_W}" height="{canvas_h}" fill="{BG_COLOR}"/>')
+
+    parts.append(
+        '<defs>'
+        '<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" '
+        'markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
+        f'<path d="M0,0 L10,5 L0,10 z" fill="{LINE_COLOR}"/>'
+        '</marker>'
+        '</defs>'
+    )
+
+    parts.append(
+        f'<text x="{MARGIN}" y="{MARGIN + 16}" font-size="16" font-weight="bold" fill="{TEXT_COLOR}">'
+        'KGPE-D16 to ULX3S bench-controller wiring harness</text>'
+    )
+    parts.append(
+        f'<text x="{MARGIN}" y="{MARGIN + 16 + 14}" font-size="10" fill="{TEXT_COLOR}">'
+        'One fixed harness, all connectors terminated concurrently. ULX3S J1/J2 GPIO headers '
+        '(gp0-27, gn0-27; gp/gn11-13 reserved for the on-board ESP32). Arrows point FPGA-relative '
+        '(in = connector to GPIO, out = GPIO to connector).</text>'
+    )
+
+    legend_x = MARGIN
+    for domain, color in DOMAIN_COLOR.items():
+        parts.append(f'<rect x="{legend_x}" y="{LEGEND_Y}" width="12" height="12" fill="{color}"/>')
+        parts.append(
+            f'<text x="{legend_x + 16}" y="{LEGEND_Y + 10}" fill="{TEXT_COLOR}">{escape(domain)}</text>'
+        )
+        legend_x += 90
+
+    col_header_y = ROWS_TOP - 8
+    parts.append(
+        f'<text x="{LEFT_X}" y="{col_header_y}" fill="{TEXT_COLOR}" font-weight="bold">'
+        'KGPE-D16 connector pin</text>'
+    )
+    parts.append(
+        f'<text x="{MID_X}" y="{col_header_y}" fill="{TEXT_COLOR}" font-weight="bold">'
+        'harness element</text>'
+    )
+    parts.append(
+        f'<text x="{RIGHT_X}" y="{col_header_y}" fill="{TEXT_COLOR}" font-weight="bold">'
+        'ULX3S GPIO</text>'
+    )
+
+    rect_count = 0
+    y = ROWS_TOP
+    for gi, (connector, group_signals) in enumerate(groups):
+        domain = DOMAIN_BY_CONNECTOR[connector]
+        color = DOMAIN_COLOR[domain]
+        parts.append(
+            f'<text x="{LEFT_X}" y="{y + GROUP_LABEL_H - 6}" fill="{color}" font-weight="bold">'
+            f'{escape(connector)}</text>'
+        )
+        y += GROUP_LABEL_H
+
+        for s in group_signals:
+            row_cy = y + ROW_H / 2
+
+            left_edge = LEFT_X + LEFT_W
+            mid_left_edge = MID_X
+            mid_right_edge = MID_X + MID_W
+            right_edge = RIGHT_X
+
+            # left box: connector.net
+            parts.append(
+                f'<rect class="signal-row" x="{LEFT_X}" y="{y}" width="{LEFT_W}" height="{ROW_H}" '
+                f'fill="none" stroke="{color}" stroke-width="1.5" rx="3"/>'
+            )
+            rect_count += 1
+            label = f"{s.connector}.{s.net}"
+            parts.append(
+                f'<text x="{LEFT_X + 6}" y="{row_cy + 4}" fill="{TEXT_COLOR}">{escape(label)}</text>'
+            )
+
+            # middle box: via (harness element)
+            parts.append(
+                f'<rect x="{MID_X}" y="{y}" width="{MID_W}" height="{ROW_H}" '
+                f'fill="none" stroke="{color}" stroke-width="1.5" rx="3"/>'
+            )
+            parts.append(
+                f'<text x="{MID_X + 6}" y="{row_cy + 4}" fill="{TEXT_COLOR}">{escape(s.via)}</text>'
+            )
+
+            # right box: ULX3S GPIO
+            parts.append(
+                f'<rect x="{RIGHT_X}" y="{y}" width="{RIGHT_W}" height="{ROW_H}" '
+                f'fill="none" stroke="{color}" stroke-width="1.5" rx="3"/>'
+            )
+            parts.append(
+                f'<text x="{RIGHT_X + 6}" y="{row_cy + 4}" fill="{TEXT_COLOR}">'
+                f'{escape(s.gpio or "?")}</text>'
+            )
+
+            # Connecting lines, arrowhead pointing toward the FPGA-relative
+            # destination: dir=="in" flows connector -> harness -> GPIO;
+            # dir=="out" flows GPIO -> harness -> connector.
+            if s.dir == "in":
+                seg1 = (left_edge, row_cy, mid_left_edge, row_cy)
+                seg2 = (mid_right_edge, row_cy, right_edge, row_cy)
+            else:
+                seg1 = (mid_left_edge, row_cy, left_edge, row_cy)
+                seg2 = (right_edge, row_cy, mid_right_edge, row_cy)
+
+            parts.append(
+                f'<line x1="{seg1[0]}" y1="{seg1[1]}" x2="{seg1[2]}" y2="{seg1[3]}" '
+                f'stroke="{LINE_COLOR}" stroke-width="1.5" marker-end="url(#arrow)"/>'
+            )
+            parts.append(
+                f'<line x1="{seg2[0]}" y1="{seg2[1]}" x2="{seg2[2]}" y2="{seg2[3]}" '
+                f'stroke="{LINE_COLOR}" stroke-width="1.5" marker-end="url(#arrow)"/>'
+            )
+
+            y += ROW_SPACING
+
+        if gi != n_groups - 1:
+            y += GROUP_GAP
+
+    parts.append('</svg>')
+    svg_text = "\n".join(parts)
+
+    # (a) every signal drew exactly one row rect -- fail loud if not.
+    assert rect_count == len(signals), (
+        f"SVG row-rect count {rect_count} != signal count {len(signals)}"
+    )
+    print(f"SVG rows drawn: {rect_count}, signals: {len(signals)}")
+
+    path.write_text(svg_text)
+
+    # (b) the written file must be valid XML.
+    ET.parse(path)
+
+    # (c) every connector.net label must appear in the SVG text.
+    missing = [
+        f"{s.connector}.{s.net}" for s in signals if f"{s.connector}.{s.net}" not in svg_text
+    ]
+    assert not missing, f"signal label(s) missing from SVG: {missing}"
+
+
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--svg",
+        action="store_true",
+        help="also render wiring/harness.svg from the same in-memory signal list",
+    )
+    args = parser.parse_args()
+
     signals = build_inventory()
     assign_gpios(signals)
     validate(signals)
@@ -223,6 +454,11 @@ def main() -> None:
     out_path = Path(__file__).parent / "pinmap.csv"
     write_csv(signals, out_path)
     print(f"\nwrote {out_path}")
+
+    if args.svg:
+        svg_path = Path(__file__).parent / "harness.svg"
+        render_svg(signals, svg_path)
+        print(f"wrote {svg_path}")
 
 
 if __name__ == "__main__":

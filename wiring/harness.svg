@@ -1,16 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="650" height="1526" viewBox="0 0 650 1526" font-family="monospace" font-size="11">
-<rect x="0" y="0" width="650" height="1526" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="970" height="1526" viewBox="0 0 970 1526" font-family="monospace" font-size="11">
+<rect x="0" y="0" width="970" height="1526" fill="#ffffff"/>
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444444"/></marker></defs>
 <text x="20" y="36" font-size="16" font-weight="bold" fill="#111111">KGPE-D16 to ULX3S bench-controller wiring harness</text>
 <text x="20" y="50" font-size="10" fill="#111111">One fixed harness, all connectors terminated concurrently. ULX3S J1/J2 GPIO headers (gp0-27, gn0-27; gp/gn11-13 reserved for the on-board ESP32). Arrows point FPGA-relative (in = connector to GPIO, out = GPIO to connector).</text>
 <rect x="20" y="60" width="12" height="12" fill="#1b5e20"/>
-<text x="36" y="70" fill="#111111">SPI</text>
-<rect x="110" y="60" width="12" height="12" fill="#0d47a1"/>
-<text x="126" y="70" fill="#111111">UART</text>
-<rect x="200" y="60" width="12" height="12" fill="#b71c1c"/>
-<text x="216" y="70" fill="#111111">JTAG</text>
-<rect x="290" y="60" width="12" height="12" fill="#4a148c"/>
-<text x="306" y="70" fill="#111111">GPIO</text>
+<text x="36" y="70" fill="#111111">SPI0 BMC-flash</text>
+<rect x="150" y="60" width="12" height="12" fill="#43a047"/>
+<text x="166" y="70" fill="#111111">SPI1 BIOS-flash</text>
+<rect x="280" y="60" width="12" height="12" fill="#0d47a1"/>
+<text x="296" y="70" fill="#111111">UART BMC</text>
+<rect x="410" y="60" width="12" height="12" fill="#1e88e5"/>
+<text x="426" y="70" fill="#111111">COM1</text>
+<rect x="540" y="60" width="12" height="12" fill="#3949ab"/>
+<text x="556" y="70" fill="#111111">COM2</text>
+<rect x="670" y="60" width="12" height="12" fill="#b71c1c"/>
+<text x="686" y="70" fill="#111111">JTAG</text>
+<rect x="800" y="60" width="12" height="12" fill="#4a148c"/>
+<text x="816" y="70" fill="#111111">GPIO</text>
 <text x="20" y="96" fill="#111111" font-weight="bold">KGPE-D16 connector pin</text>
 <text x="330" y="96" fill="#111111" font-weight="bold">harness element</text>
 <text x="560" y="96" fill="#111111" font-weight="bold">ULX3S GPIO</text>
@@ -153,78 +159,78 @@
 <text x="566" y="620.0" fill="#111111">gn10</text>
 <line x1="330" y1="616.0" x2="250" y2="616.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
 <line x1="560" y1="616.0" x2="480" y2="616.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<text x="20" y="674" fill="#1b5e20" font-weight="bold">FU1</text>
-<rect class="signal-row" x="20" y="680" width="230" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="20" y="674" fill="#43a047" font-weight="bold">FU1</text>
+<rect class="signal-row" x="20" y="680" width="230" height="20" fill="none" stroke="#43a047" stroke-width="1.5" rx="3"/>
 <text x="26" y="694.0" fill="#111111">FU1.CS#</text>
-<rect x="330" y="680" width="150" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<rect x="330" y="680" width="150" height="20" fill="none" stroke="#43a047" stroke-width="1.5" rx="3"/>
 <text x="336" y="694.0" fill="#111111">direct</text>
-<rect x="560" y="680" width="70" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<rect x="560" y="680" width="70" height="20" fill="none" stroke="#43a047" stroke-width="1.5" rx="3"/>
 <text x="566" y="694.0" fill="#111111">gp14</text>
 <line x1="250" y1="690.0" x2="330" y2="690.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
 <line x1="480" y1="690.0" x2="560" y2="690.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="704" width="230" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<rect class="signal-row" x="20" y="704" width="230" height="20" fill="none" stroke="#43a047" stroke-width="1.5" rx="3"/>
 <text x="26" y="718.0" fill="#111111">FU1.CLK</text>
-<rect x="330" y="704" width="150" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<rect x="330" y="704" width="150" height="20" fill="none" stroke="#43a047" stroke-width="1.5" rx="3"/>
 <text x="336" y="718.0" fill="#111111">direct</text>
-<rect x="560" y="704" width="70" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<rect x="560" y="704" width="70" height="20" fill="none" stroke="#43a047" stroke-width="1.5" rx="3"/>
 <text x="566" y="718.0" fill="#111111">gp15</text>
 <line x1="250" y1="714.0" x2="330" y2="714.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
 <line x1="480" y1="714.0" x2="560" y2="714.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="728" width="230" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<rect class="signal-row" x="20" y="728" width="230" height="20" fill="none" stroke="#43a047" stroke-width="1.5" rx="3"/>
 <text x="26" y="742.0" fill="#111111">FU1.MOSI/DI</text>
-<rect x="330" y="728" width="150" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<rect x="330" y="728" width="150" height="20" fill="none" stroke="#43a047" stroke-width="1.5" rx="3"/>
 <text x="336" y="742.0" fill="#111111">direct</text>
-<rect x="560" y="728" width="70" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<rect x="560" y="728" width="70" height="20" fill="none" stroke="#43a047" stroke-width="1.5" rx="3"/>
 <text x="566" y="742.0" fill="#111111">gp16</text>
 <line x1="250" y1="738.0" x2="330" y2="738.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
 <line x1="480" y1="738.0" x2="560" y2="738.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="752" width="230" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<rect class="signal-row" x="20" y="752" width="230" height="20" fill="none" stroke="#43a047" stroke-width="1.5" rx="3"/>
 <text x="26" y="766.0" fill="#111111">FU1.MISO/DO</text>
-<rect x="330" y="752" width="150" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<rect x="330" y="752" width="150" height="20" fill="none" stroke="#43a047" stroke-width="1.5" rx="3"/>
 <text x="336" y="766.0" fill="#111111">direct</text>
-<rect x="560" y="752" width="70" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<rect x="560" y="752" width="70" height="20" fill="none" stroke="#43a047" stroke-width="1.5" rx="3"/>
 <text x="566" y="766.0" fill="#111111">gn14</text>
 <line x1="330" y1="762.0" x2="250" y2="762.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
 <line x1="560" y1="762.0" x2="480" y2="762.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="776" width="230" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<rect class="signal-row" x="20" y="776" width="230" height="20" fill="none" stroke="#43a047" stroke-width="1.5" rx="3"/>
 <text x="26" y="790.0" fill="#111111">FU1.HOLD#</text>
-<rect x="330" y="776" width="150" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<rect x="330" y="776" width="150" height="20" fill="none" stroke="#43a047" stroke-width="1.5" rx="3"/>
 <text x="336" y="790.0" fill="#111111">direct</text>
-<rect x="560" y="776" width="70" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<rect x="560" y="776" width="70" height="20" fill="none" stroke="#43a047" stroke-width="1.5" rx="3"/>
 <text x="566" y="790.0" fill="#111111">gn15</text>
 <line x1="250" y1="786.0" x2="330" y2="786.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
 <line x1="480" y1="786.0" x2="560" y2="786.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<text x="20" y="844" fill="#0d47a1" font-weight="bold">COM1</text>
-<rect class="signal-row" x="20" y="850" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="20" y="844" fill="#1e88e5" font-weight="bold">COM1</text>
+<rect class="signal-row" x="20" y="850" width="230" height="20" fill="none" stroke="#1e88e5" stroke-width="1.5" rx="3"/>
 <text x="26" y="864.0" fill="#111111">COM1.COM1_TX</text>
-<rect x="330" y="850" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<rect x="330" y="850" width="150" height="20" fill="none" stroke="#1e88e5" stroke-width="1.5" rx="3"/>
 <text x="336" y="864.0" fill="#111111">MAX3232</text>
-<rect x="560" y="850" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<rect x="560" y="850" width="70" height="20" fill="none" stroke="#1e88e5" stroke-width="1.5" rx="3"/>
 <text x="566" y="864.0" fill="#111111">gp17</text>
 <line x1="330" y1="860.0" x2="250" y2="860.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
 <line x1="560" y1="860.0" x2="480" y2="860.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="874" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<rect class="signal-row" x="20" y="874" width="230" height="20" fill="none" stroke="#1e88e5" stroke-width="1.5" rx="3"/>
 <text x="26" y="888.0" fill="#111111">COM1.COM1_RX</text>
-<rect x="330" y="874" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<rect x="330" y="874" width="150" height="20" fill="none" stroke="#1e88e5" stroke-width="1.5" rx="3"/>
 <text x="336" y="888.0" fill="#111111">MAX3232</text>
-<rect x="560" y="874" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<rect x="560" y="874" width="70" height="20" fill="none" stroke="#1e88e5" stroke-width="1.5" rx="3"/>
 <text x="566" y="888.0" fill="#111111">gn17</text>
 <line x1="250" y1="884.0" x2="330" y2="884.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
 <line x1="480" y1="884.0" x2="560" y2="884.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<text x="20" y="942" fill="#0d47a1" font-weight="bold">COM2</text>
-<rect class="signal-row" x="20" y="948" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="20" y="942" fill="#3949ab" font-weight="bold">COM2</text>
+<rect class="signal-row" x="20" y="948" width="230" height="20" fill="none" stroke="#3949ab" stroke-width="1.5" rx="3"/>
 <text x="26" y="962.0" fill="#111111">COM2.COM2_TX</text>
-<rect x="330" y="948" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<rect x="330" y="948" width="150" height="20" fill="none" stroke="#3949ab" stroke-width="1.5" rx="3"/>
 <text x="336" y="962.0" fill="#111111">MAX3232</text>
-<rect x="560" y="948" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<rect x="560" y="948" width="70" height="20" fill="none" stroke="#3949ab" stroke-width="1.5" rx="3"/>
 <text x="566" y="962.0" fill="#111111">gp18</text>
 <line x1="330" y1="958.0" x2="250" y2="958.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
 <line x1="560" y1="958.0" x2="480" y2="958.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="972" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<rect class="signal-row" x="20" y="972" width="230" height="20" fill="none" stroke="#3949ab" stroke-width="1.5" rx="3"/>
 <text x="26" y="986.0" fill="#111111">COM2.COM2_RX</text>
-<rect x="330" y="972" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<rect x="330" y="972" width="150" height="20" fill="none" stroke="#3949ab" stroke-width="1.5" rx="3"/>
 <text x="336" y="986.0" fill="#111111">MAX3232</text>
-<rect x="560" y="972" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<rect x="560" y="972" width="70" height="20" fill="none" stroke="#3949ab" stroke-width="1.5" rx="3"/>
 <text x="566" y="986.0" fill="#111111">gn18</text>
 <line x1="250" y1="982.0" x2="330" y2="982.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
 <line x1="480" y1="982.0" x2="560" y2="982.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>

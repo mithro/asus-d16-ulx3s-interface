@@ -1,26 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="676" height="1648" viewBox="0 0 676 1648" font-family="monospace" font-size="10">
-<rect x="0" y="0" width="676" height="1648" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1390" height="1648" viewBox="0 0 1390 1648" font-family="monospace" font-size="10">
+<rect x="0" y="0" width="1390" height="1648" fill="#ffffff"/>
 <text x="20" y="36" font-size="16" font-weight="bold" fill="#111111">ULX3S GPIO headers J1/J2 -- KGPE-D16 assignment</text>
 <text x="20" y="50" fill="#111111">Full 2x20 headers in board row order (from the ULX3S PCB): gp/gn pairs plus the power/GND pins. J1 = idx 0-13, J2 = idx 14-27, drawn 27 (top) -> 14 (bottom) as on the board. idx 11-13 shared with the on-board ESP32 (excluded from the usable pool).</text>
 <text x="20" y="62" fill="#111111">idx 14-17 double as onboard ADC AIN0-7 -- assigned anyway (ADC unused by this design). J1 supply = 2V5_3V3; J2 supply = +5V (via STPS2L40AF) and +3V3. FPGA ball in parens.</text>
 <rect x="20" y="78" width="12" height="12" fill="#1b5e20" fill-opacity="0.2" stroke="#1b5e20"/>
-<text x="36" y="88" fill="#111111">SPI</text>
-<rect x="100" y="78" width="12" height="12" fill="#0d47a1" fill-opacity="0.2" stroke="#0d47a1"/>
-<text x="116" y="88" fill="#111111">UART</text>
-<rect x="180" y="78" width="12" height="12" fill="#b71c1c" fill-opacity="0.2" stroke="#b71c1c"/>
-<text x="196" y="88" fill="#111111">JTAG</text>
-<rect x="260" y="78" width="12" height="12" fill="#4a148c" fill-opacity="0.2" stroke="#4a148c"/>
-<text x="276" y="88" fill="#111111">GPIO</text>
-<rect x="340" y="78" width="12" height="12" fill="#fbe9e7" stroke="#e65100" stroke-dasharray="2,2"/>
-<text x="356" y="88" fill="#111111">ESP32-reserved</text>
-<rect x="460" y="78" width="12" height="12" fill="none" stroke="#e65100" stroke-width="2"/>
-<text x="476" y="88" fill="#111111">ADC-shared</text>
-<rect x="560" y="78" width="12" height="12" fill="none" stroke="#9e9e9e" stroke-dasharray="2,2"/>
-<text x="576" y="88" fill="#111111">unassigned</text>
-<rect x="660" y="78" width="12" height="12" fill="#e65100"/>
-<text x="676" y="88" fill="#111111">supply</text>
-<rect x="730" y="78" width="12" height="12" fill="#111111"/>
-<text x="746" y="88" fill="#111111">GND</text>
+<text x="36" y="88" fill="#111111">SPI0 BMC-flash</text>
+<rect x="150" y="78" width="12" height="12" fill="#43a047" fill-opacity="0.2" stroke="#43a047"/>
+<text x="166" y="88" fill="#111111">SPI1 BIOS-flash</text>
+<rect x="280" y="78" width="12" height="12" fill="#0d47a1" fill-opacity="0.2" stroke="#0d47a1"/>
+<text x="296" y="88" fill="#111111">UART BMC</text>
+<rect x="410" y="78" width="12" height="12" fill="#1e88e5" fill-opacity="0.2" stroke="#1e88e5"/>
+<text x="426" y="88" fill="#111111">COM1</text>
+<rect x="540" y="78" width="12" height="12" fill="#3949ab" fill-opacity="0.2" stroke="#3949ab"/>
+<text x="556" y="88" fill="#111111">COM2</text>
+<rect x="670" y="78" width="12" height="12" fill="#b71c1c" fill-opacity="0.2" stroke="#b71c1c"/>
+<text x="686" y="88" fill="#111111">JTAG</text>
+<rect x="800" y="78" width="12" height="12" fill="#4a148c" fill-opacity="0.2" stroke="#4a148c"/>
+<text x="816" y="88" fill="#111111">GPIO</text>
+<rect x="930" y="78" width="12" height="12" fill="#fbe9e7" stroke="#e65100" stroke-dasharray="2,2"/>
+<text x="946" y="88" fill="#111111">ESP32-reserved</text>
+<rect x="1050" y="78" width="12" height="12" fill="none" stroke="#e65100" stroke-width="2"/>
+<text x="1066" y="88" fill="#111111">ADC-shared</text>
+<rect x="1150" y="78" width="12" height="12" fill="none" stroke="#9e9e9e" stroke-dasharray="2,2"/>
+<text x="1166" y="88" fill="#111111">unassigned</text>
+<rect x="1250" y="78" width="12" height="12" fill="#e65100"/>
+<text x="1266" y="88" fill="#111111">supply</text>
+<rect x="1320" y="78" width="12" height="12" fill="#111111"/>
+<text x="1336" y="88" fill="#111111">GND</text>
 <text x="20" y="132" font-weight="bold" fill="#111111">ULX3S J1</text>
 <text x="20" y="157.0" fill="#e65100">PWR</text>
 <rect x="66" y="138" width="280" height="30" fill="#e65100" stroke="#e65100" stroke-width="1.5" rx="3"/>
@@ -255,47 +261,47 @@
 <text x="382" y="1352" fill="#9e9e9e" font-weight="bold">gn19 (G18)</text>
 <text x="382" y="1364" fill="#9e9e9e">DIFF</text>
 <text x="20" y="1395.0" fill="#111111">idx18</text>
-<rect x="66" y="1376" width="280" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
-<text x="72" y="1388" fill="#0d47a1" font-weight="bold">gp18 (H18)</text>
-<text x="72" y="1400" fill="#0d47a1">COM2.COM2_TX</text>
-<rect x="376" y="1376" width="280" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
-<text x="382" y="1388" fill="#0d47a1" font-weight="bold">gn18 (H17)</text>
-<text x="382" y="1400" fill="#0d47a1">COM2.COM2_RX</text>
+<rect x="66" y="1376" width="280" height="30" fill="#3949ab" fill-opacity="0.15" stroke="#3949ab" stroke-width="1.5"  rx="3"/>
+<text x="72" y="1388" fill="#3949ab" font-weight="bold">gp18 (H18)</text>
+<text x="72" y="1400" fill="#3949ab">COM2.COM2_TX</text>
+<rect x="376" y="1376" width="280" height="30" fill="#3949ab" fill-opacity="0.15" stroke="#3949ab" stroke-width="1.5"  rx="3"/>
+<text x="382" y="1388" fill="#3949ab" font-weight="bold">gn18 (H17)</text>
+<text x="382" y="1400" fill="#3949ab">COM2.COM2_RX</text>
 <text x="20" y="1431.0" fill="#111111">idx17</text>
-<rect x="66" y="1412" width="280" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
-<text x="72" y="1424" fill="#0d47a1" font-weight="bold">gp17 (L16)</text>
-<text x="72" y="1436" fill="#0d47a1">COM1.COM1_TX</text>
+<rect x="66" y="1412" width="280" height="30" fill="#1e88e5" fill-opacity="0.15" stroke="#1e88e5" stroke-width="1.5"  rx="3"/>
+<text x="72" y="1424" fill="#1e88e5" font-weight="bold">gp17 (L16)</text>
+<text x="72" y="1436" fill="#1e88e5">COM1.COM1_TX</text>
 <rect x="332" y="1414" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
-<rect x="376" y="1412" width="280" height="30" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
-<text x="382" y="1424" fill="#0d47a1" font-weight="bold">gn17 (L17)</text>
-<text x="382" y="1436" fill="#0d47a1">COM1.COM1_RX</text>
+<rect x="376" y="1412" width="280" height="30" fill="#1e88e5" fill-opacity="0.15" stroke="#1e88e5" stroke-width="1.5"  rx="3"/>
+<text x="382" y="1424" fill="#1e88e5" font-weight="bold">gn17 (L17)</text>
+<text x="382" y="1436" fill="#1e88e5">COM1.COM1_RX</text>
 <rect x="642" y="1414" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
 <text x="20" y="1467.0" fill="#111111">idx16</text>
-<rect x="66" y="1448" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="72" y="1460" fill="#1b5e20" font-weight="bold">gp16 (N16)</text>
-<text x="72" y="1472" fill="#1b5e20">FU1.MOSI/DI</text>
+<rect x="66" y="1448" width="280" height="30" fill="#43a047" fill-opacity="0.15" stroke="#43a047" stroke-width="1.5"  rx="3"/>
+<text x="72" y="1460" fill="#43a047" font-weight="bold">gp16 (N16)</text>
+<text x="72" y="1472" fill="#43a047">FU1.MOSI/DI</text>
 <rect x="332" y="1450" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
 <rect x="376" y="1448" width="280" height="30" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
 <text x="382" y="1460" fill="#9e9e9e" font-weight="bold">gn16 (M17)</text>
 <text x="382" y="1472" fill="#9e9e9e">DIFF, ADC AIN5/AIN4</text>
 <rect x="642" y="1450" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
 <text x="20" y="1503.0" fill="#111111">idx15</text>
-<rect x="66" y="1484" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="72" y="1496" fill="#1b5e20" font-weight="bold">gp15 (N17)</text>
-<text x="72" y="1508" fill="#1b5e20">FU1.CLK</text>
+<rect x="66" y="1484" width="280" height="30" fill="#43a047" fill-opacity="0.15" stroke="#43a047" stroke-width="1.5"  rx="3"/>
+<text x="72" y="1496" fill="#43a047" font-weight="bold">gp15 (N17)</text>
+<text x="72" y="1508" fill="#43a047">FU1.CLK</text>
 <rect x="332" y="1486" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
-<rect x="376" y="1484" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="382" y="1496" fill="#1b5e20" font-weight="bold">gn15 (P16)</text>
-<text x="382" y="1508" fill="#1b5e20">FU1.HOLD#</text>
+<rect x="376" y="1484" width="280" height="30" fill="#43a047" fill-opacity="0.15" stroke="#43a047" stroke-width="1.5"  rx="3"/>
+<text x="382" y="1496" fill="#43a047" font-weight="bold">gn15 (P16)</text>
+<text x="382" y="1508" fill="#43a047">FU1.HOLD#</text>
 <rect x="642" y="1486" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
 <text x="20" y="1539.0" fill="#111111">idx14</text>
-<rect x="66" y="1520" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="72" y="1532" fill="#1b5e20" font-weight="bold">gp14 (U18)</text>
-<text x="72" y="1544" fill="#1b5e20">FU1.CS#</text>
+<rect x="66" y="1520" width="280" height="30" fill="#43a047" fill-opacity="0.15" stroke="#43a047" stroke-width="1.5"  rx="3"/>
+<text x="72" y="1532" fill="#43a047" font-weight="bold">gp14 (U18)</text>
+<text x="72" y="1544" fill="#43a047">FU1.CS#</text>
 <rect x="332" y="1522" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
-<rect x="376" y="1520" width="280" height="30" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
-<text x="382" y="1532" fill="#1b5e20" font-weight="bold">gn14 (U17)</text>
-<text x="382" y="1544" fill="#1b5e20">FU1.MISO/DO</text>
+<rect x="376" y="1520" width="280" height="30" fill="#43a047" fill-opacity="0.15" stroke="#43a047" stroke-width="1.5"  rx="3"/>
+<text x="382" y="1532" fill="#43a047" font-weight="bold">gn14 (U17)</text>
+<text x="382" y="1544" fill="#43a047">FU1.MISO/DO</text>
 <rect x="642" y="1522" width="10" height="10" fill="none" stroke="#e65100" stroke-width="2"/>
 <text x="20" y="1575.0" fill="#111111">GND</text>
 <rect x="66" y="1556" width="280" height="30" fill="#111111" stroke="#111111" stroke-width="1.5" rx="3"/>

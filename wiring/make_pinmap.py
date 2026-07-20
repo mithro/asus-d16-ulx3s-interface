@@ -546,6 +546,74 @@ DOMAIN_COLOR: dict[str, str] = {
     "GPIO": "#4a148c",  # dark purple
 }
 
+# Per-connector colour keys -- a finer split than DOMAIN_COLOR: the two SPI
+# flashes (BMC boot flash vs host BIOS flash) and the three UART connectors
+# (BMC console vs COM1 vs COM2) each get their own shade, while JTAG and GPIO
+# stay single-colour. All keys take white text (see pinout-styles.css).
+KEY_COLOR: dict[str, str] = {
+    "spi0": "#1b5e20",  # dark green -- BMC_FW1 (BMC boot flash)
+    "spi1": "#43a047",  # medium green -- FU1 (host BIOS flash)
+    "uartbmc": "#0d47a1",  # dark blue -- AST_UART1 (BMC console)
+    "com1": "#1e88e5",  # medium blue -- COM1
+    "com2": "#3949ab",  # indigo blue -- COM2
+    "jtag": "#b71c1c",  # dark red -- unchanged
+    "gpio": "#4a148c",  # dark purple -- unchanged
+}
+
+# Which fine-grained colour key each connector belongs to.
+CONNECTOR_KEY: dict[str, str] = {
+    "BMC_FW1": "spi0",
+    "FU1": "spi1",
+    "AST_UART1": "uartbmc",
+    "COM1": "com1",
+    "COM2": "com2",
+    "AST_JTAG1": "jtag",
+    "AMD_HDT": "jtag",
+    "PANEL1": "gpio",
+    "JUMPERS": "gpio",
+}
+
+
+def connector_key(connector: str) -> str:
+    """The fine-grained colour key (see KEY_COLOR) for a connector name."""
+    return CONNECTOR_KEY[connector]
+
+
+def connector_color(connector: str) -> str:
+    """The fine-grained colour (see KEY_COLOR) for a connector name."""
+    return KEY_COLOR[CONNECTOR_KEY[connector]]
+
+
+def pi_role_key(role: str) -> str:
+    """Map a build_pi_pinmap() `role` string to a KEY_COLOR key."""
+    if role.startswith("SPI0"):
+        return "spi0"
+    if role.startswith("SPI1"):
+        return "spi1"
+    if role.startswith("UART0"):
+        return "uartbmc"
+    if role.startswith("UART COM1"):
+        return "com1"
+    if role.startswith("UART COM2"):
+        return "com2"
+    if role.startswith("ASpeed-JTAG"):
+        return "jtag"
+    return "gpio"  # strap-verify
+
+
+# Canonical legend list for the split SPI/UART + unchanged JTAG/GPIO colour
+# keys, in display order. Diagram-specific extra entries (power/GND/spare/
+# ESP32/ADC, etc.) are appended after this in each renderer.
+SIGNAL_LEGEND: list[tuple[str, str]] = [
+    ("SPI0 BMC-flash", "#1b5e20"),
+    ("SPI1 BIOS-flash", "#43a047"),
+    ("UART BMC", "#0d47a1"),
+    ("COM1", "#1e88e5"),
+    ("COM2", "#3949ab"),
+    ("JTAG", "#b71c1c"),
+    ("GPIO", "#4a148c"),
+]
+
 BG_COLOR = "#ffffff"
 TEXT_COLOR = "#111111"
 LINE_COLOR = "#444444"
@@ -579,7 +647,11 @@ def render_svg(signals: list[Signal], path: Path) -> None:
     MID_W = 150
     RIGHT_X = MID_X + MID_W + 80
     RIGHT_W = 70
-    CANVAS_W = RIGHT_X + RIGHT_W + MARGIN
+    # The 7-entry SIGNAL_LEGEND (split SPI/UART) is wider than the 4-entry
+    # domain legend used to be -- widen the canvas if the three-column layout
+    # would leave it clipped.
+    LEGEND_W = MARGIN + len(SIGNAL_LEGEND) * 130 + 40
+    CANVAS_W = max(RIGHT_X + RIGHT_W + MARGIN, LEGEND_W)
 
     TITLE_H = 30
     LEGEND_Y = MARGIN + TITLE_H + 10
@@ -634,12 +706,12 @@ def render_svg(signals: list[Signal], path: Path) -> None:
     )
 
     legend_x = MARGIN
-    for domain, color in DOMAIN_COLOR.items():
+    for label, color in SIGNAL_LEGEND:
         parts.append(f'<rect x="{legend_x}" y="{LEGEND_Y}" width="12" height="12" fill="{color}"/>')
         parts.append(
-            f'<text x="{legend_x + 16}" y="{LEGEND_Y + 10}" fill="{TEXT_COLOR}">{escape(domain)}</text>'
+            f'<text x="{legend_x + 16}" y="{LEGEND_Y + 10}" fill="{TEXT_COLOR}">{escape(label)}</text>'
         )
-        legend_x += 90
+        legend_x += 130
 
     col_header_y = ROWS_TOP - 8
     parts.append(
@@ -658,8 +730,7 @@ def render_svg(signals: list[Signal], path: Path) -> None:
     rect_count = 0
     y = ROWS_TOP
     for gi, (connector, group_signals) in enumerate(groups):
-        domain = DOMAIN_BY_CONNECTOR[connector]
-        color = DOMAIN_COLOR[domain]
+        color = connector_color(connector)
         parts.append(
             f'<text x="{LEFT_X}" y="{y + GROUP_LABEL_H - 6}" fill="{color}" font-weight="bold">'
             f'{escape(connector)}</text>'
@@ -779,7 +850,11 @@ def render_ulx3s_headers(signals: list[Signal], path: Path) -> None:
     LEGEND_H = 20
 
     ROW_W = IDX_W + CELL_W + GAP + CELL_W
-    CANVAS_W = ROW_W + 2 * MARGIN
+    # The 7-entry SIGNAL_LEGEND plus the ESP32-reserved/ADC-shared/unassigned/
+    # supply/GND entries after it is wider than the 4-entry domain legend used
+    # to be -- widen the canvas so the whole legend row fits and isn't clipped.
+    LEGEND_TOTAL_W = MARGIN + len(SIGNAL_LEGEND) * 130 + 120 + 100 + 100 + 70 + 70
+    CANVAS_W = max(ROW_W + 2 * MARGIN, LEGEND_TOTAL_W)
 
     top = MARGIN + TITLE_H + SUBTITLE_H + LEGEND_H + 20
     rows_per_block = 20  # full 2x20 physical header: gp/gn pairs + power/GND rows
@@ -810,13 +885,13 @@ def render_ulx3s_headers(signals: list[Signal], path: Path) -> None:
 
     legend_y = MARGIN + TITLE_H + SUBTITLE_H
     legend_x = MARGIN
-    for domain, color in DOMAIN_COLOR.items():
+    for label, color in SIGNAL_LEGEND:
         parts.append(
             f'<rect x="{legend_x}" y="{legend_y}" width="12" height="12" '
             f'fill="{color}" fill-opacity="0.2" stroke="{color}"/>'
         )
-        parts.append(f'<text x="{legend_x + 16}" y="{legend_y + 10}" fill="{TEXT_COLOR}">{escape(domain)}</text>')
-        legend_x += 80
+        parts.append(f'<text x="{legend_x + 16}" y="{legend_y + 10}" fill="{TEXT_COLOR}">{escape(label)}</text>')
+        legend_x += 130
     parts.append(
         f'<rect x="{legend_x}" y="{legend_y}" width="12" height="12" '
         f'fill="{RESERVED_FILL}" stroke="{RESERVED_STROKE}" stroke-dasharray="2,2"/>'
@@ -867,7 +942,7 @@ def render_ulx3s_headers(signals: list[Signal], path: Path) -> None:
                         text_color = RESERVED_STROKE
                         line2 = "ESP32 reserved"
                     elif sig is not None:
-                        color = DOMAIN_COLOR[DOMAIN_BY_CONNECTOR[sig.connector]]
+                        color = connector_color(sig.connector)
                         fill_attr = f'fill="{color}" fill-opacity="0.15"'
                         stroke = color
                         dash_attr = ""
@@ -948,7 +1023,10 @@ def render_rpi_header(pi_signals: list[PiSignal], path: Path) -> None:
     TOP = MARGIN + TITLE_H + SUBTITLE_H + LEGEND_H + 20
     N_ROWS = 20
 
-    CANVAS_W = MARGIN * 2 + CELL_W * 2 + COL_GAP
+    # The 7-entry SIGNAL_LEGEND plus the "no HIL role" entry is wider than the
+    # 4-entry domain legend used to be -- widen the canvas so it isn't clipped.
+    LEGEND_TOTAL_W = MARGIN + len(SIGNAL_LEGEND) * 130 + 110
+    CANVAS_W = max(MARGIN * 2 + CELL_W * 2 + COL_GAP, LEGEND_TOTAL_W)
     CANVAS_H = TOP + N_ROWS * ROW_SPACING + MARGIN
 
     parts: list[str] = []
@@ -970,13 +1048,13 @@ def render_rpi_header(pi_signals: list[PiSignal], path: Path) -> None:
 
     legend_y = MARGIN + TITLE_H + SUBTITLE_H
     legend_x = MARGIN
-    for domain, color in DOMAIN_COLOR.items():
+    for label, color in SIGNAL_LEGEND:
         parts.append(
             f'<rect x="{legend_x}" y="{legend_y}" width="12" height="12" '
             f'fill="{color}" fill-opacity="0.2" stroke="{color}"/>'
         )
-        parts.append(f'<text x="{legend_x + 16}" y="{legend_y + 10}" fill="{TEXT_COLOR}">{escape(domain)}</text>')
-        legend_x += 80
+        parts.append(f'<text x="{legend_x + 16}" y="{legend_y + 10}" fill="{TEXT_COLOR}">{escape(label)}</text>')
+        legend_x += 130
     parts.append(
         f'<rect x="{legend_x}" y="{legend_y}" width="12" height="12" '
         f'fill="none" stroke="{UNASSIGNED_STROKE}" stroke-dasharray="2,2"/>'
@@ -997,7 +1075,7 @@ def render_rpi_header(pi_signals: list[PiSignal], path: Path) -> None:
             line1 = f"pin{phys:<2} {pin.label}"
 
             if hil is not None:
-                color = DOMAIN_COLOR[hil.domain]
+                color = KEY_COLOR[pi_role_key(hil.role)]
                 fill_attr = f'fill="{color}" fill-opacity="0.15"'
                 stroke = color
                 dash_attr = ""

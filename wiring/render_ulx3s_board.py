@@ -81,6 +81,7 @@ def main() -> None:
             "--quality", "high",
             "--width", "2600",
             "--height", "1500",
+            "--zoom", "1.0",
             "-o", str(render_out),
             str(pcb_path),
         ])

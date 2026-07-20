@@ -7,7 +7,7 @@ official ULX3S KiCad hardware design -- it is not hand-drawn or reconstructed.
 - Pinned commit: `6a92cec6b177191c5b0f80e260013a1f8ec147dd` (2025-04-27)
 - Source file: `ulx3s.kicad_pcb`
 - Rendered with: `kicad-cli pcb render --side top --background transparent
-  --quality high` (KiCad 9.0.2).
+  --quality high --width 2600 --height 1500 --zoom 1.0` (KiCad 9.0.2).
 - Regeneration: see `wiring/render_ulx3s_board.py` in this directory.
 
 ## License

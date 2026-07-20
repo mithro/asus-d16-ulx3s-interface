@@ -5,6 +5,7 @@ __pycache__/
 *.bit
 *.svf
 *.json
+!wiring/ulx3s-pads.json
 *.config
 .venv/
 csr.csv

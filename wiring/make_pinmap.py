@@ -466,7 +466,7 @@ def render_svg(signals: list[Signal], path: Path) -> None:
     MARGIN = 20
     ROW_H = 20
     ROW_SPACING = 24
-    GROUP_GAP = 14
+    GROUP_GAP = 32  # blank band separating one connector group from the next
     GROUP_LABEL_H = 18
 
     LEFT_X = MARGIN

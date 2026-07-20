@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="650" height="1382" viewBox="0 0 650 1382" font-family="monospace" font-size="11">
-<rect x="0" y="0" width="650" height="1382" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="650" height="1526" viewBox="0 0 650 1526" font-family="monospace" font-size="11">
+<rect x="0" y="0" width="650" height="1526" fill="#ffffff"/>
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444444"/></marker></defs>
 <text x="20" y="36" font-size="16" font-weight="bold" fill="#111111">KGPE-D16 to ULX3S bench-controller wiring harness</text>
 <text x="20" y="50" font-size="10" fill="#111111">One fixed harness, all connectors terminated concurrently. ULX3S J1/J2 GPIO headers (gp0-27, gn0-27; gp/gn11-13 reserved for the on-board ESP32). Arrows point FPGA-relative (in = connector to GPIO, out = GPIO to connector).</text>
@@ -79,276 +79,276 @@
 <text x="566" y="304.0" fill="#111111">gp3</text>
 <line x1="330" y1="300.0" x2="250" y2="300.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
 <line x1="560" y1="300.0" x2="480" y2="300.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<text x="20" y="340" fill="#1b5e20" font-weight="bold">FU1</text>
-<rect class="signal-row" x="20" y="346" width="230" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
-<text x="26" y="360.0" fill="#111111">FU1.CS#</text>
-<rect x="330" y="346" width="150" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
-<text x="336" y="360.0" fill="#111111">direct</text>
-<rect x="560" y="346" width="70" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
-<text x="566" y="360.0" fill="#111111">gp4</text>
-<line x1="250" y1="356.0" x2="330" y2="356.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="480" y1="356.0" x2="560" y2="356.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="370" width="230" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
-<text x="26" y="384.0" fill="#111111">FU1.CLK</text>
-<rect x="330" y="370" width="150" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
-<text x="336" y="384.0" fill="#111111">direct</text>
-<rect x="560" y="370" width="70" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
-<text x="566" y="384.0" fill="#111111">gp5</text>
-<line x1="250" y1="380.0" x2="330" y2="380.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="480" y1="380.0" x2="560" y2="380.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="394" width="230" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
-<text x="26" y="408.0" fill="#111111">FU1.MOSI/DI</text>
-<rect x="330" y="394" width="150" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
-<text x="336" y="408.0" fill="#111111">direct</text>
-<rect x="560" y="394" width="70" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
-<text x="566" y="408.0" fill="#111111">gp6</text>
-<line x1="250" y1="404.0" x2="330" y2="404.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="480" y1="404.0" x2="560" y2="404.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="418" width="230" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
-<text x="26" y="432.0" fill="#111111">FU1.MISO/DO</text>
-<rect x="330" y="418" width="150" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
-<text x="336" y="432.0" fill="#111111">direct</text>
-<rect x="560" y="418" width="70" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
-<text x="566" y="432.0" fill="#111111">gp14</text>
-<line x1="330" y1="428.0" x2="250" y2="428.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="428.0" x2="480" y2="428.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="442" width="230" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
-<text x="26" y="456.0" fill="#111111">FU1.HOLD#</text>
-<rect x="330" y="442" width="150" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
-<text x="336" y="456.0" fill="#111111">direct</text>
-<rect x="560" y="442" width="70" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
-<text x="566" y="456.0" fill="#111111">gp15</text>
-<line x1="250" y1="452.0" x2="330" y2="452.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="480" y1="452.0" x2="560" y2="452.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<text x="20" y="492" fill="#0d47a1" font-weight="bold">AST_UART1</text>
-<rect class="signal-row" x="20" y="498" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="26" y="512.0" fill="#111111">AST_UART1.BMC_RXD</text>
-<rect x="330" y="498" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="336" y="512.0" fill="#111111">direct</text>
-<rect x="560" y="498" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="566" y="512.0" fill="#111111">gp16</text>
-<line x1="330" y1="508.0" x2="250" y2="508.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="508.0" x2="480" y2="508.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="522" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="26" y="536.0" fill="#111111">AST_UART1.BMC_TXD</text>
-<rect x="330" y="522" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="336" y="536.0" fill="#111111">direct</text>
-<rect x="560" y="522" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="566" y="536.0" fill="#111111">gp17</text>
-<line x1="250" y1="532.0" x2="330" y2="532.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="480" y1="532.0" x2="560" y2="532.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<text x="20" y="572" fill="#0d47a1" font-weight="bold">COM1</text>
-<rect class="signal-row" x="20" y="578" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="26" y="592.0" fill="#111111">COM1.COM1_TX</text>
-<rect x="330" y="578" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="336" y="592.0" fill="#111111">MAX3232</text>
-<rect x="560" y="578" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="566" y="592.0" fill="#111111">gp18</text>
-<line x1="330" y1="588.0" x2="250" y2="588.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="588.0" x2="480" y2="588.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="602" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="26" y="616.0" fill="#111111">COM1.COM1_RX</text>
-<rect x="330" y="602" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="336" y="616.0" fill="#111111">MAX3232</text>
-<rect x="560" y="602" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="566" y="616.0" fill="#111111">gp19</text>
-<line x1="250" y1="612.0" x2="330" y2="612.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="480" y1="612.0" x2="560" y2="612.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<text x="20" y="652" fill="#0d47a1" font-weight="bold">COM2</text>
-<rect class="signal-row" x="20" y="658" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="26" y="672.0" fill="#111111">COM2.COM2_TX</text>
-<rect x="330" y="658" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="336" y="672.0" fill="#111111">MAX3232</text>
-<rect x="560" y="658" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="566" y="672.0" fill="#111111">gp20</text>
-<line x1="330" y1="668.0" x2="250" y2="668.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="668.0" x2="480" y2="668.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="682" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="26" y="696.0" fill="#111111">COM2.COM2_RX</text>
-<rect x="330" y="682" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="336" y="696.0" fill="#111111">MAX3232</text>
-<rect x="560" y="682" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
-<text x="566" y="696.0" fill="#111111">gp21</text>
-<line x1="250" y1="692.0" x2="330" y2="692.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="480" y1="692.0" x2="560" y2="692.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<text x="20" y="732" fill="#b71c1c" font-weight="bold">AST_JTAG1</text>
-<rect class="signal-row" x="20" y="738" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="26" y="752.0" fill="#111111">AST_JTAG1.TCK</text>
-<rect x="330" y="738" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="336" y="752.0" fill="#111111">direct</text>
-<rect x="560" y="738" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="566" y="752.0" fill="#111111">gp22</text>
-<line x1="330" y1="748.0" x2="250" y2="748.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="748.0" x2="480" y2="748.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="762" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="26" y="776.0" fill="#111111">AST_JTAG1.TMS</text>
-<rect x="330" y="762" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="336" y="776.0" fill="#111111">direct</text>
-<rect x="560" y="762" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="566" y="776.0" fill="#111111">gp23</text>
-<line x1="330" y1="772.0" x2="250" y2="772.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="772.0" x2="480" y2="772.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="786" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="26" y="800.0" fill="#111111">AST_JTAG1.TDI</text>
-<rect x="330" y="786" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="336" y="800.0" fill="#111111">direct</text>
-<rect x="560" y="786" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="566" y="800.0" fill="#111111">gp24</text>
-<line x1="330" y1="796.0" x2="250" y2="796.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="796.0" x2="480" y2="796.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="810" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="26" y="824.0" fill="#111111">AST_JTAG1.TDO</text>
-<rect x="330" y="810" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="336" y="824.0" fill="#111111">direct</text>
-<rect x="560" y="810" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="566" y="824.0" fill="#111111">gp25</text>
-<line x1="250" y1="820.0" x2="330" y2="820.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="480" y1="820.0" x2="560" y2="820.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="834" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="26" y="848.0" fill="#111111">AST_JTAG1.NTRST</text>
-<rect x="330" y="834" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="336" y="848.0" fill="#111111">direct</text>
-<rect x="560" y="834" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="566" y="848.0" fill="#111111">gp26</text>
-<line x1="330" y1="844.0" x2="250" y2="844.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="844.0" x2="480" y2="844.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="858" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="26" y="872.0" fill="#111111">AST_JTAG1.RTCK</text>
-<rect x="330" y="858" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="336" y="872.0" fill="#111111">direct</text>
-<rect x="560" y="858" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="566" y="872.0" fill="#111111">gp27</text>
-<line x1="250" y1="868.0" x2="330" y2="868.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="480" y1="868.0" x2="560" y2="868.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="882" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="26" y="896.0" fill="#111111">AST_JTAG1.SRST#</text>
-<rect x="330" y="882" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="336" y="896.0" fill="#111111">direct</text>
-<rect x="560" y="882" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="566" y="896.0" fill="#111111">gn0</text>
-<line x1="330" y1="892.0" x2="250" y2="892.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="892.0" x2="480" y2="892.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<text x="20" y="932" fill="#b71c1c" font-weight="bold">AMD_HDT</text>
-<rect class="signal-row" x="20" y="938" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="26" y="952.0" fill="#111111">AMD_HDT.HDT_TCK</text>
-<rect x="330" y="938" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="336" y="952.0" fill="#111111">1.27mm-adapter</text>
-<rect x="560" y="938" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="566" y="952.0" fill="#111111">gn1</text>
-<line x1="330" y1="948.0" x2="250" y2="948.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="948.0" x2="480" y2="948.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="962" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="26" y="976.0" fill="#111111">AMD_HDT.HDT_TMS</text>
-<rect x="330" y="962" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="336" y="976.0" fill="#111111">1.27mm-adapter</text>
-<rect x="560" y="962" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="566" y="976.0" fill="#111111">gn2</text>
-<line x1="330" y1="972.0" x2="250" y2="972.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="972.0" x2="480" y2="972.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="986" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="26" y="1000.0" fill="#111111">AMD_HDT.HDT_TDI</text>
-<rect x="330" y="986" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="336" y="1000.0" fill="#111111">1.27mm-adapter</text>
-<rect x="560" y="986" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="566" y="1000.0" fill="#111111">gn3</text>
-<line x1="330" y1="996.0" x2="250" y2="996.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="996.0" x2="480" y2="996.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="1010" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="26" y="1024.0" fill="#111111">AMD_HDT.HDT_TDO</text>
-<rect x="330" y="1010" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="336" y="1024.0" fill="#111111">1.27mm-adapter</text>
-<rect x="560" y="1010" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="566" y="1024.0" fill="#111111">gn4</text>
-<line x1="250" y1="1020.0" x2="330" y2="1020.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="480" y1="1020.0" x2="560" y2="1020.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="1034" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="26" y="1048.0" fill="#111111">AMD_HDT.HDT_TRST_L</text>
-<rect x="330" y="1034" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="336" y="1048.0" fill="#111111">1.27mm-adapter</text>
-<rect x="560" y="1034" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-<text x="566" y="1048.0" fill="#111111">gn5</text>
-<line x1="330" y1="1044.0" x2="250" y2="1044.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="1044.0" x2="480" y2="1044.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<text x="20" y="1084" fill="#4a148c" font-weight="bold">PANEL1</text>
-<rect class="signal-row" x="20" y="1090" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="26" y="1104.0" fill="#111111">PANEL1.PWRBTN#</text>
-<rect x="330" y="1090" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="336" y="1104.0" fill="#111111">direct</text>
-<rect x="560" y="1090" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="566" y="1104.0" fill="#111111">gn6</text>
-<line x1="330" y1="1100.0" x2="250" y2="1100.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="1100.0" x2="480" y2="1100.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="1114" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="26" y="1128.0" fill="#111111">PANEL1.RESET#</text>
-<rect x="330" y="1114" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="336" y="1128.0" fill="#111111">direct</text>
-<rect x="560" y="1114" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="566" y="1128.0" fill="#111111">gn7</text>
-<line x1="330" y1="1124.0" x2="250" y2="1124.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="1124.0" x2="480" y2="1124.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="1138" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="26" y="1152.0" fill="#111111">PANEL1.NMIBNT#</text>
-<rect x="330" y="1138" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="336" y="1152.0" fill="#111111">direct</text>
-<rect x="560" y="1138" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="566" y="1152.0" fill="#111111">gn8</text>
-<line x1="330" y1="1148.0" x2="250" y2="1148.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="1148.0" x2="480" y2="1148.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="1162" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="26" y="1176.0" fill="#111111">PANEL1.PLED</text>
-<rect x="330" y="1162" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="336" y="1176.0" fill="#111111">direct</text>
-<rect x="560" y="1162" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="566" y="1176.0" fill="#111111">gn9</text>
-<line x1="250" y1="1172.0" x2="330" y2="1172.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="480" y1="1172.0" x2="560" y2="1172.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="1186" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="26" y="1200.0" fill="#111111">PANEL1.HDLED</text>
-<rect x="330" y="1186" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="336" y="1200.0" fill="#111111">direct</text>
-<rect x="560" y="1186" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="566" y="1200.0" fill="#111111">gn10</text>
-<line x1="250" y1="1196.0" x2="330" y2="1196.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="480" y1="1196.0" x2="560" y2="1196.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="1210" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="26" y="1224.0" fill="#111111">PANEL1.MLED</text>
-<rect x="330" y="1210" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="336" y="1224.0" fill="#111111">direct</text>
-<rect x="560" y="1210" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="566" y="1224.0" fill="#111111">gn14</text>
-<line x1="250" y1="1220.0" x2="330" y2="1220.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="480" y1="1220.0" x2="560" y2="1220.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<text x="20" y="1260" fill="#4a148c" font-weight="bold">JUMPERS</text>
-<rect class="signal-row" x="20" y="1266" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="26" y="1280.0" fill="#111111">JUMPERS.VGA_SW1</text>
-<rect x="330" y="1266" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="336" y="1280.0" fill="#111111">direct</text>
-<rect x="560" y="1266" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="566" y="1280.0" fill="#111111">gn15</text>
-<line x1="330" y1="1276.0" x2="250" y2="1276.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="1276.0" x2="480" y2="1276.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="1290" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="26" y="1304.0" fill="#111111">JUMPERS.IPMI_SEL</text>
-<rect x="330" y="1290" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="336" y="1304.0" fill="#111111">direct</text>
-<rect x="560" y="1290" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="566" y="1304.0" fill="#111111">gn16</text>
-<line x1="330" y1="1300.0" x2="250" y2="1300.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="1300.0" x2="480" y2="1300.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="1314" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="26" y="1328.0" fill="#111111">JUMPERS.BIOS_RECOVERY#</text>
-<rect x="330" y="1314" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="336" y="1328.0" fill="#111111">direct</text>
-<rect x="560" y="1314" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="566" y="1328.0" fill="#111111">gn17</text>
-<line x1="330" y1="1324.0" x2="250" y2="1324.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="1324.0" x2="480" y2="1324.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<rect class="signal-row" x="20" y="1338" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="26" y="1352.0" fill="#111111">JUMPERS.CLRTC</text>
-<rect x="330" y="1338" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="336" y="1352.0" fill="#111111">direct</text>
-<rect x="560" y="1338" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-<text x="566" y="1352.0" fill="#111111">gn18</text>
-<line x1="330" y1="1348.0" x2="250" y2="1348.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
-<line x1="560" y1="1348.0" x2="480" y2="1348.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="20" y="358" fill="#1b5e20" font-weight="bold">FU1</text>
+<rect class="signal-row" x="20" y="364" width="230" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="26" y="378.0" fill="#111111">FU1.CS#</text>
+<rect x="330" y="364" width="150" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="336" y="378.0" fill="#111111">direct</text>
+<rect x="560" y="364" width="70" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="566" y="378.0" fill="#111111">gp4</text>
+<line x1="250" y1="374.0" x2="330" y2="374.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="480" y1="374.0" x2="560" y2="374.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="388" width="230" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="26" y="402.0" fill="#111111">FU1.CLK</text>
+<rect x="330" y="388" width="150" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="336" y="402.0" fill="#111111">direct</text>
+<rect x="560" y="388" width="70" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="566" y="402.0" fill="#111111">gp5</text>
+<line x1="250" y1="398.0" x2="330" y2="398.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="480" y1="398.0" x2="560" y2="398.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="412" width="230" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="26" y="426.0" fill="#111111">FU1.MOSI/DI</text>
+<rect x="330" y="412" width="150" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="336" y="426.0" fill="#111111">direct</text>
+<rect x="560" y="412" width="70" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="566" y="426.0" fill="#111111">gp6</text>
+<line x1="250" y1="422.0" x2="330" y2="422.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="480" y1="422.0" x2="560" y2="422.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="436" width="230" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="26" y="450.0" fill="#111111">FU1.MISO/DO</text>
+<rect x="330" y="436" width="150" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="336" y="450.0" fill="#111111">direct</text>
+<rect x="560" y="436" width="70" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="566" y="450.0" fill="#111111">gp14</text>
+<line x1="330" y1="446.0" x2="250" y2="446.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="446.0" x2="480" y2="446.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="460" width="230" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="26" y="474.0" fill="#111111">FU1.HOLD#</text>
+<rect x="330" y="460" width="150" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="336" y="474.0" fill="#111111">direct</text>
+<rect x="560" y="460" width="70" height="20" fill="none" stroke="#1b5e20" stroke-width="1.5" rx="3"/>
+<text x="566" y="474.0" fill="#111111">gp15</text>
+<line x1="250" y1="470.0" x2="330" y2="470.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="480" y1="470.0" x2="560" y2="470.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="20" y="528" fill="#0d47a1" font-weight="bold">AST_UART1</text>
+<rect class="signal-row" x="20" y="534" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="26" y="548.0" fill="#111111">AST_UART1.BMC_RXD</text>
+<rect x="330" y="534" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="336" y="548.0" fill="#111111">direct</text>
+<rect x="560" y="534" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="566" y="548.0" fill="#111111">gp16</text>
+<line x1="330" y1="544.0" x2="250" y2="544.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="544.0" x2="480" y2="544.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="558" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="26" y="572.0" fill="#111111">AST_UART1.BMC_TXD</text>
+<rect x="330" y="558" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="336" y="572.0" fill="#111111">direct</text>
+<rect x="560" y="558" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="566" y="572.0" fill="#111111">gp17</text>
+<line x1="250" y1="568.0" x2="330" y2="568.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="480" y1="568.0" x2="560" y2="568.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="20" y="626" fill="#0d47a1" font-weight="bold">COM1</text>
+<rect class="signal-row" x="20" y="632" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="26" y="646.0" fill="#111111">COM1.COM1_TX</text>
+<rect x="330" y="632" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="336" y="646.0" fill="#111111">MAX3232</text>
+<rect x="560" y="632" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="566" y="646.0" fill="#111111">gp18</text>
+<line x1="330" y1="642.0" x2="250" y2="642.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="642.0" x2="480" y2="642.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="656" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="26" y="670.0" fill="#111111">COM1.COM1_RX</text>
+<rect x="330" y="656" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="336" y="670.0" fill="#111111">MAX3232</text>
+<rect x="560" y="656" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="566" y="670.0" fill="#111111">gp19</text>
+<line x1="250" y1="666.0" x2="330" y2="666.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="480" y1="666.0" x2="560" y2="666.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="20" y="724" fill="#0d47a1" font-weight="bold">COM2</text>
+<rect class="signal-row" x="20" y="730" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="26" y="744.0" fill="#111111">COM2.COM2_TX</text>
+<rect x="330" y="730" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="336" y="744.0" fill="#111111">MAX3232</text>
+<rect x="560" y="730" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="566" y="744.0" fill="#111111">gp20</text>
+<line x1="330" y1="740.0" x2="250" y2="740.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="740.0" x2="480" y2="740.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="754" width="230" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="26" y="768.0" fill="#111111">COM2.COM2_RX</text>
+<rect x="330" y="754" width="150" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="336" y="768.0" fill="#111111">MAX3232</text>
+<rect x="560" y="754" width="70" height="20" fill="none" stroke="#0d47a1" stroke-width="1.5" rx="3"/>
+<text x="566" y="768.0" fill="#111111">gp21</text>
+<line x1="250" y1="764.0" x2="330" y2="764.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="480" y1="764.0" x2="560" y2="764.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="20" y="822" fill="#b71c1c" font-weight="bold">AST_JTAG1</text>
+<rect class="signal-row" x="20" y="828" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="26" y="842.0" fill="#111111">AST_JTAG1.TCK</text>
+<rect x="330" y="828" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="336" y="842.0" fill="#111111">direct</text>
+<rect x="560" y="828" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="566" y="842.0" fill="#111111">gp22</text>
+<line x1="330" y1="838.0" x2="250" y2="838.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="838.0" x2="480" y2="838.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="852" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="26" y="866.0" fill="#111111">AST_JTAG1.TMS</text>
+<rect x="330" y="852" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="336" y="866.0" fill="#111111">direct</text>
+<rect x="560" y="852" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="566" y="866.0" fill="#111111">gp23</text>
+<line x1="330" y1="862.0" x2="250" y2="862.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="862.0" x2="480" y2="862.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="876" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="26" y="890.0" fill="#111111">AST_JTAG1.TDI</text>
+<rect x="330" y="876" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="336" y="890.0" fill="#111111">direct</text>
+<rect x="560" y="876" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="566" y="890.0" fill="#111111">gp24</text>
+<line x1="330" y1="886.0" x2="250" y2="886.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="886.0" x2="480" y2="886.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="900" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="26" y="914.0" fill="#111111">AST_JTAG1.TDO</text>
+<rect x="330" y="900" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="336" y="914.0" fill="#111111">direct</text>
+<rect x="560" y="900" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="566" y="914.0" fill="#111111">gp25</text>
+<line x1="250" y1="910.0" x2="330" y2="910.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="480" y1="910.0" x2="560" y2="910.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="924" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="26" y="938.0" fill="#111111">AST_JTAG1.NTRST</text>
+<rect x="330" y="924" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="336" y="938.0" fill="#111111">direct</text>
+<rect x="560" y="924" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="566" y="938.0" fill="#111111">gp26</text>
+<line x1="330" y1="934.0" x2="250" y2="934.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="934.0" x2="480" y2="934.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="948" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="26" y="962.0" fill="#111111">AST_JTAG1.RTCK</text>
+<rect x="330" y="948" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="336" y="962.0" fill="#111111">direct</text>
+<rect x="560" y="948" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="566" y="962.0" fill="#111111">gp27</text>
+<line x1="250" y1="958.0" x2="330" y2="958.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="480" y1="958.0" x2="560" y2="958.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="972" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="26" y="986.0" fill="#111111">AST_JTAG1.SRST#</text>
+<rect x="330" y="972" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="336" y="986.0" fill="#111111">direct</text>
+<rect x="560" y="972" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="566" y="986.0" fill="#111111">gn0</text>
+<line x1="330" y1="982.0" x2="250" y2="982.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="982.0" x2="480" y2="982.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="20" y="1040" fill="#b71c1c" font-weight="bold">AMD_HDT</text>
+<rect class="signal-row" x="20" y="1046" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="26" y="1060.0" fill="#111111">AMD_HDT.HDT_TCK</text>
+<rect x="330" y="1046" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="336" y="1060.0" fill="#111111">1.27mm-adapter</text>
+<rect x="560" y="1046" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="566" y="1060.0" fill="#111111">gn1</text>
+<line x1="330" y1="1056.0" x2="250" y2="1056.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="1056.0" x2="480" y2="1056.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="1070" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="26" y="1084.0" fill="#111111">AMD_HDT.HDT_TMS</text>
+<rect x="330" y="1070" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="336" y="1084.0" fill="#111111">1.27mm-adapter</text>
+<rect x="560" y="1070" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="566" y="1084.0" fill="#111111">gn2</text>
+<line x1="330" y1="1080.0" x2="250" y2="1080.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="1080.0" x2="480" y2="1080.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="1094" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="26" y="1108.0" fill="#111111">AMD_HDT.HDT_TDI</text>
+<rect x="330" y="1094" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="336" y="1108.0" fill="#111111">1.27mm-adapter</text>
+<rect x="560" y="1094" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="566" y="1108.0" fill="#111111">gn3</text>
+<line x1="330" y1="1104.0" x2="250" y2="1104.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="1104.0" x2="480" y2="1104.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="1118" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="26" y="1132.0" fill="#111111">AMD_HDT.HDT_TDO</text>
+<rect x="330" y="1118" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="336" y="1132.0" fill="#111111">1.27mm-adapter</text>
+<rect x="560" y="1118" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="566" y="1132.0" fill="#111111">gn4</text>
+<line x1="250" y1="1128.0" x2="330" y2="1128.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="480" y1="1128.0" x2="560" y2="1128.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="1142" width="230" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="26" y="1156.0" fill="#111111">AMD_HDT.HDT_TRST_L</text>
+<rect x="330" y="1142" width="150" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="336" y="1156.0" fill="#111111">1.27mm-adapter</text>
+<rect x="560" y="1142" width="70" height="20" fill="none" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+<text x="566" y="1156.0" fill="#111111">gn5</text>
+<line x1="330" y1="1152.0" x2="250" y2="1152.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="1152.0" x2="480" y2="1152.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="20" y="1210" fill="#4a148c" font-weight="bold">PANEL1</text>
+<rect class="signal-row" x="20" y="1216" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="26" y="1230.0" fill="#111111">PANEL1.PWRBTN#</text>
+<rect x="330" y="1216" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="336" y="1230.0" fill="#111111">direct</text>
+<rect x="560" y="1216" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="566" y="1230.0" fill="#111111">gn6</text>
+<line x1="330" y1="1226.0" x2="250" y2="1226.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="1226.0" x2="480" y2="1226.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="1240" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="26" y="1254.0" fill="#111111">PANEL1.RESET#</text>
+<rect x="330" y="1240" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="336" y="1254.0" fill="#111111">direct</text>
+<rect x="560" y="1240" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="566" y="1254.0" fill="#111111">gn7</text>
+<line x1="330" y1="1250.0" x2="250" y2="1250.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="1250.0" x2="480" y2="1250.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="1264" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="26" y="1278.0" fill="#111111">PANEL1.NMIBNT#</text>
+<rect x="330" y="1264" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="336" y="1278.0" fill="#111111">direct</text>
+<rect x="560" y="1264" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="566" y="1278.0" fill="#111111">gn8</text>
+<line x1="330" y1="1274.0" x2="250" y2="1274.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="1274.0" x2="480" y2="1274.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="1288" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="26" y="1302.0" fill="#111111">PANEL1.PLED</text>
+<rect x="330" y="1288" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="336" y="1302.0" fill="#111111">direct</text>
+<rect x="560" y="1288" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="566" y="1302.0" fill="#111111">gn9</text>
+<line x1="250" y1="1298.0" x2="330" y2="1298.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="480" y1="1298.0" x2="560" y2="1298.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="1312" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="26" y="1326.0" fill="#111111">PANEL1.HDLED</text>
+<rect x="330" y="1312" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="336" y="1326.0" fill="#111111">direct</text>
+<rect x="560" y="1312" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="566" y="1326.0" fill="#111111">gn10</text>
+<line x1="250" y1="1322.0" x2="330" y2="1322.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="480" y1="1322.0" x2="560" y2="1322.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="1336" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="26" y="1350.0" fill="#111111">PANEL1.MLED</text>
+<rect x="330" y="1336" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="336" y="1350.0" fill="#111111">direct</text>
+<rect x="560" y="1336" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="566" y="1350.0" fill="#111111">gn14</text>
+<line x1="250" y1="1346.0" x2="330" y2="1346.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="480" y1="1346.0" x2="560" y2="1346.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="20" y="1404" fill="#4a148c" font-weight="bold">JUMPERS</text>
+<rect class="signal-row" x="20" y="1410" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="26" y="1424.0" fill="#111111">JUMPERS.VGA_SW1</text>
+<rect x="330" y="1410" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="336" y="1424.0" fill="#111111">direct</text>
+<rect x="560" y="1410" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="566" y="1424.0" fill="#111111">gn15</text>
+<line x1="330" y1="1420.0" x2="250" y2="1420.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="1420.0" x2="480" y2="1420.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="1434" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="26" y="1448.0" fill="#111111">JUMPERS.IPMI_SEL</text>
+<rect x="330" y="1434" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="336" y="1448.0" fill="#111111">direct</text>
+<rect x="560" y="1434" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="566" y="1448.0" fill="#111111">gn16</text>
+<line x1="330" y1="1444.0" x2="250" y2="1444.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="1444.0" x2="480" y2="1444.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="1458" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="26" y="1472.0" fill="#111111">JUMPERS.BIOS_RECOVERY#</text>
+<rect x="330" y="1458" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="336" y="1472.0" fill="#111111">direct</text>
+<rect x="560" y="1458" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="566" y="1472.0" fill="#111111">gn17</text>
+<line x1="330" y1="1468.0" x2="250" y2="1468.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="1468.0" x2="480" y2="1468.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect class="signal-row" x="20" y="1482" width="230" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="26" y="1496.0" fill="#111111">JUMPERS.CLRTC</text>
+<rect x="330" y="1482" width="150" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="336" y="1496.0" fill="#111111">direct</text>
+<rect x="560" y="1482" width="70" height="20" fill="none" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+<text x="566" y="1496.0" fill="#111111">gn18</text>
+<line x1="330" y1="1492.0" x2="250" y2="1492.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="560" y1="1492.0" x2="480" y2="1492.0" stroke="#444444" stroke-width="1.5" marker-end="url(#arrow)"/>
 </svg>

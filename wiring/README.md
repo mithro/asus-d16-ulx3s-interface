@@ -185,17 +185,30 @@ all 40 pins in physical order (odd column left, even column right); pins
 used for hardware-in-the-loop (HIL) control are overlaid from
 `wiring/pi_pinmap.csv` and coloured by domain.
 
-- **`wiring/pi_pinmap.csv`** — the committed default Pi5 &rarr; DUT HIL
-  wiring: `role,pi_signal,bcm,phys_pin,dir,connects_to,domain` per row.
-  Covers SPI0 flash read-back (MOSI/MISO/SCLK/CE0), a UART0 console
-  (TXD/RXD), the 6-signal JTAG bundle (TCK/TMS/TDI/TDO/TRST/SRST), and two
-  spare GPIO probes. Written from a hard-coded list in `make_pinmap.py`
-  (`build_pi_pinmap()`) — same pattern as `pinmap.csv`, no data duplicated
-  in the SVG renderer.
-- The JTAG pin defaults are verified against
-  [mithro/rp1-jtag](https://github.com/mithro/rp1-jtag)'s README (NeTV2
-  wiring). **rp1-jtag's pins are runtime-configurable** — this CSV records
-  the committed defaults for this harness, not a hard requirement.
+- **`wiring/pi_pinmap.csv`** — the Pi 5 HIL harness:
+  `role,pi_signal,bcm,phys_pin,dir,connects_to,domain` per row. The Pi stands
+  in for the DUT and exercises as much of the **FPGA RTL** as its 28 header
+  GPIO allow, so *all 28 BCM GPIO (0-27) are used* — only the 12 power/ground
+  pins are unassigned. Verification is allocated in priority order:
+    1. **both SPI-flash emulations** — the Pi masters each bus and reads the
+       loaded image back, verifying the FPGA's SPI-slave state machine:
+       `SPI0` &rarr; `BMC_FW1` (BMC boot flash), `SPI1` &rarr; `FU1` (host
+       BIOS flash);
+    2. **the ASpeed JTAG** — the Pi acts as the TAP target so the FPGA's
+       JTAG-master RTL can scan it (`AST_JTAG1` TCK/TMS/TDI/TDO/NTRST/SRST);
+    3. **the UARTs** — the Pi is the peer on each FPGA UART bridge (TTL side,
+       before the COM MAX3232s): `AST_UART1` (BMC console) + `COM1` + `COM2`;
+    4. **the remaining straps** — read back the FPGA-driven `BMC_FW1`
+       (IKVMEN#/BMC_PRESENT#/SOLEN#) and `JUMPERS`
+       (VGA_SW1/IPMI_SEL/BIOS_RECOVERY#/CLRTC) straps to verify the GPIO
+       *output* RTL, and drive `PANEL1.PLED` to verify the GPIO *input* RTL.
+  The **AMD HDT JTAG is intentionally left unverified** — lowest priority, and
+  there are no spare pins. `dir` is Pi-relative (the mirror of the
+  FPGA-relative `dir` in `pinmap.csv`). Non-SPI lines run over the RP1 PIO
+  ([mithro/rp1-jtag](https://github.com/mithro/rp1-jtag),
+  [rpi5-rp1-pio-bench](https://github.com/mithro/rpi5-rp1-pio-bench)), so only
+  `SPI0`/`UART0` need their native alt-function pins; the rest are flexible.
+  Written from a hard-coded list in `make_pinmap.py` (`build_pi_pinmap()`).
 - `validate_pi_pinmap()` cross-checks every `(bcm, phys_pin)` pair in
   `pi_pinmap.csv` against the canonical `RPI_J8_HEADER` table and fails
   loud (`AssertionError`) on any mismatch — this is what catches a wrong Pi

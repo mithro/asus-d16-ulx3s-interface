@@ -168,7 +168,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_3"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_3"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <text
@@ -179,7 +179,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_329"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_399"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     Raspberry Pi J8 — HIL wiring to the ULX3S/DUT
@@ -191,7 +191,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_4"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_4"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <text
@@ -202,7 +202,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_330"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_400"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     Canonical 40-pin J8 (identical Pi B+..Pi 5). Odd physical pins fan left, even fan right. Coloured pins carry the committed HIL role from wiring/pi_pinmap.csv.
@@ -215,7 +215,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_5"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_5"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="14" 
@@ -229,7 +229,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_6"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_6"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <text
@@ -240,7 +240,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_331"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_401"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     SPI
@@ -253,7 +253,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_7"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_7"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="14" 
@@ -267,7 +267,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_8"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_8"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <text
@@ -278,7 +278,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_332"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_402"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     UART
@@ -291,7 +291,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_9"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_9"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="14" 
@@ -305,7 +305,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_10"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_10"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <text
@@ -316,7 +316,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_333"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_403"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     JTAG
@@ -329,7 +329,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_11"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_11"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="14" 
@@ -343,7 +343,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_12"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_12"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <text
@@ -354,7 +354,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_334"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_404"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     GPIO
@@ -367,7 +367,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_13"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_13"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="14" 
@@ -381,7 +381,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_14"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_14"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <text
@@ -392,7 +392,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_335"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_405"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     Power / GND / unused
@@ -403,7 +403,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_15"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_15"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -414,7 +414,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_16"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_16"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="70" 
@@ -428,7 +428,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_17"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_17"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -440,7 +440,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_18"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_18"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -452,7 +452,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_19"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_19"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -464,7 +464,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_20"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_20"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -476,7 +476,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_21"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_21"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -488,7 +488,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_22"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_22"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -500,7 +500,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_23"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_23"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -512,7 +512,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_24"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_24"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -524,7 +524,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_25"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_25"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -536,7 +536,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_26"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_26"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -548,7 +548,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_27"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_27"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -560,7 +560,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_28"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_28"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -572,7 +572,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_29"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_29"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -584,7 +584,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_30"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_30"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -596,7 +596,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_31"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_31"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -608,7 +608,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_32"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_32"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -620,7 +620,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_33"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_33"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -632,7 +632,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_34"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_34"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -644,7 +644,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_35"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_35"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -656,7 +656,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_36"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_36"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -668,7 +668,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_37"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_37"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -680,7 +680,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_38"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_38"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -692,7 +692,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_39"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_39"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -704,7 +704,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_40"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_40"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -716,7 +716,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_41"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_41"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -728,7 +728,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_42"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_42"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -740,7 +740,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_43"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_43"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -752,7 +752,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_44"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_44"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -764,7 +764,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_45"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_45"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -776,7 +776,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_46"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_46"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -788,7 +788,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_47"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_47"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -800,7 +800,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_48"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_48"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -812,7 +812,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_49"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_49"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -824,7 +824,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_50"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_50"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -836,7 +836,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_51"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_51"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -848,7 +848,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_52"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_52"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -860,7 +860,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_53"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_53"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -872,7 +872,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_54"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_54"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -884,7 +884,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_55"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_55"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -896,7 +896,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_56"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_56"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    cx="0" 
     cy="0" 
@@ -908,7 +908,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_57"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_57"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -917,7 +917,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_58"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_58"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -927,7 +927,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_59"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_59"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -938,7 +938,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_338"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_408"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -953,7 +953,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_336"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_406"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     1 3V3
@@ -965,7 +965,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_61"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_61"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -977,17 +977,17 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_63"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_63"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
-        class=" pinlabel nc"
+        class=" pinlabel gpio"
 transform="
     translate(0 34) 
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_64"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_64"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -998,7 +998,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_341"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_411"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -1013,7 +1013,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_339"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_409"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     3 GPIO2 (SDA1)
@@ -1025,10 +1025,60 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_66"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_66"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel gpio"
+transform="
+    translate(-226.0 34) 
+    scale(-1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_68"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_414"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_412"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    strap-verify → JUMPERS IPMI_SEL
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_72"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
 />
 </g>
 </g><g 
@@ -1037,17 +1087,17 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_68"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_73"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
-        class=" pinlabel nc"
+        class=" pinlabel gpio"
 transform="
     translate(0 68) 
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_69"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_74"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1058,7 +1108,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_344"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_417"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -1073,7 +1123,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_342"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_415"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     5 GPIO3 (SCL1)
@@ -1085,10 +1135,60 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_71"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_76"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel gpio"
+transform="
+    translate(-226.0 68) 
+    scale(-1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_78"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_420"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_418"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    strap-verify → JUMPERS BIOS_RECOVERY#
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_82"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
 />
 </g>
 </g><g 
@@ -1097,7 +1197,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_73"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_83"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -1107,7 +1207,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_74"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_84"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1118,7 +1218,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_347"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_423"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -1133,7 +1233,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_345"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_421"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     7 GPIO4 (GPCLK0)
@@ -1145,7 +1245,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_76"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_86"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -1157,7 +1257,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_78"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_88"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1168,7 +1268,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_350"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_426"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="360" 
@@ -1183,10 +1283,10 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_348"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_424"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
-    JTAG → AST_JTAG1 TCK
+    ASpeed-JTAG (Pi=TAP) → AST_JTAG1 TCK (FPGA drives)
 </text><path 
 
         class=" pinlabel__leader"
@@ -1195,7 +1295,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_82"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_92"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 6 0.0" 
@@ -1207,7 +1307,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_83"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_93"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -1217,7 +1317,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_84"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_94"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1228,7 +1328,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_353"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_429"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -1243,7 +1343,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_351"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_427"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     9 GND
@@ -1255,7 +1355,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_86"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_96"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -1267,7 +1367,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_88"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_98"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -1277,7 +1377,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_89"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_99"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1288,7 +1388,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_356"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_432"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -1303,7 +1403,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_354"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_430"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     11 GPIO17
@@ -1315,7 +1415,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_91"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_101"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -1327,7 +1427,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_93"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_103"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1338,7 +1438,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_359"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_435"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="360" 
@@ -1353,10 +1453,10 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_357"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_433"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
-    JTAG → AST_JTAG1 TMS
+    ASpeed-JTAG (Pi=TAP) → AST_JTAG1 TMS
 </text><path 
 
         class=" pinlabel__leader"
@@ -1365,7 +1465,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_97"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_107"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 6 0.0" 
@@ -1377,7 +1477,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_98"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_108"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -1387,7 +1487,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_99"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_109"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1398,7 +1498,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_362"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_438"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -1413,7 +1513,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_360"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_436"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     13 GPIO27
@@ -1425,7 +1525,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_101"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_111"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -1437,7 +1537,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_103"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_113"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1448,7 +1548,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_365"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_441"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="360" 
@@ -1463,10 +1563,10 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_363"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_439"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
-    JTAG → AST_JTAG1 TDI
+    ASpeed-JTAG (Pi=TAP) → AST_JTAG1 TDI (FPGA→TAP)
 </text><path 
 
         class=" pinlabel__leader"
@@ -1475,7 +1575,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_107"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_117"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 6 0.0" 
@@ -1487,7 +1587,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_108"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_118"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -1497,7 +1597,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_109"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_119"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1508,7 +1608,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_368"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_444"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -1523,7 +1623,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_366"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_442"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     15 GPIO22
@@ -1535,7 +1635,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_111"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_121"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -1547,7 +1647,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_113"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_123"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1558,7 +1658,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_371"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_447"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="360" 
@@ -1573,10 +1673,10 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_369"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_445"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
-    JTAG → AST_JTAG1 TDO
+    ASpeed-JTAG (Pi=TAP) → AST_JTAG1 TDO (TAP→FPGA)
 </text><path 
 
         class=" pinlabel__leader"
@@ -1585,7 +1685,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_117"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_127"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 6 0.0" 
@@ -1597,7 +1697,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_118"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_128"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -1607,7 +1707,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_119"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_129"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1618,7 +1718,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_374"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_450"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -1633,7 +1733,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_372"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_448"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     17 3V3
@@ -1645,7 +1745,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_121"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_131"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -1657,7 +1757,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_123"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_133"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -1667,7 +1767,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_124"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_134"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1678,7 +1778,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_377"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_453"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -1693,7 +1793,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_375"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_451"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     19 GPIO10 (SPI0 MOSI)
@@ -1705,7 +1805,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_126"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_136"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -1717,7 +1817,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_128"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_138"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1728,7 +1828,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_380"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_456"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="360" 
@@ -1743,10 +1843,10 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_378"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_454"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
-    SPI0-flash-readback → flash DI (ULX3S emulated flash)
+    SPI0 BMC-flash → BMC_FW1 flash DI (verify SPI-slave)
 </text><path 
 
         class=" pinlabel__leader"
@@ -1755,7 +1855,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_132"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_142"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 6 0.0" 
@@ -1767,7 +1867,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_133"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_143"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -1777,7 +1877,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_134"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_144"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1788,7 +1888,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_383"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_459"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -1803,7 +1903,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_381"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_457"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     21 GPIO9 (SPI0 MISO)
@@ -1815,7 +1915,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_136"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_146"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -1827,7 +1927,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_138"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_148"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1838,7 +1938,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_386"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_462"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="360" 
@@ -1853,10 +1953,10 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_384"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_460"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
-    SPI0-flash-readback → flash DO (ULX3S emulated flash)
+    SPI0 BMC-flash → BMC_FW1 flash DO
 </text><path 
 
         class=" pinlabel__leader"
@@ -1865,7 +1965,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_142"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_152"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 6 0.0" 
@@ -1877,7 +1977,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_143"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_153"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -1887,7 +1987,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_144"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_154"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1898,7 +1998,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_389"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_465"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -1913,7 +2013,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_387"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_463"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     23 GPIO11 (SPI0 SCLK)
@@ -1925,7 +2025,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_146"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_156"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -1937,7 +2037,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_148"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_158"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -1948,7 +2048,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_392"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_468"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="360" 
@@ -1963,10 +2063,10 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_390"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_466"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
-    SPI0-flash-readback → flash CLK
+    SPI0 BMC-flash → BMC_FW1 flash CLK
 </text><path 
 
         class=" pinlabel__leader"
@@ -1975,7 +2075,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_152"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_162"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 6 0.0" 
@@ -1987,7 +2087,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_153"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_163"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -1997,7 +2097,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_154"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_164"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2008,7 +2108,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_395"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_471"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -2023,7 +2123,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_393"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_469"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     25 GND
@@ -2035,7 +2135,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_156"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_166"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -2047,17 +2147,17 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_158"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_168"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
-        class=" pinlabel nc"
+        class=" pinlabel gpio"
 transform="
     translate(0 442) 
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_159"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_169"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2068,7 +2168,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_398"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_474"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -2083,7 +2183,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_396"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_472"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     27 GPIO0 (ID_SD)
@@ -2095,10 +2195,60 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_161"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_171"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel gpio"
+transform="
+    translate(-226.0 442) 
+    scale(-1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_173"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_477"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_475"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    strap-verify → JUMPERS CLRTC
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_177"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
 />
 </g>
 </g><g 
@@ -2107,7 +2257,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_163"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_178"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -2117,7 +2267,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_164"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_179"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2128,7 +2278,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_401"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_480"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -2143,7 +2293,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_399"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_478"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     29 GPIO5
@@ -2155,7 +2305,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_166"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_181"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -2167,7 +2317,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_168"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_183"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2178,7 +2328,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_404"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_483"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="360" 
@@ -2193,10 +2343,10 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_402"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_481"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
-    GPIO-probe → panel/LED probe
+    strap-verify → BMC_FW1 IKVMEN# (FPGA drives)
 </text><path 
 
         class=" pinlabel__leader"
@@ -2205,7 +2355,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_172"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_187"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 6 0.0" 
@@ -2217,7 +2367,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_173"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_188"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -2227,7 +2377,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_174"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_189"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2238,7 +2388,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_407"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_486"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -2253,7 +2403,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_405"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_484"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     31 GPIO6
@@ -2265,7 +2415,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_176"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_191"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -2277,7 +2427,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_178"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_193"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2288,7 +2438,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_410"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_489"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="360" 
@@ -2303,10 +2453,10 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_408"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_487"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
-    GPIO-probe → strap/button probe
+    strap-verify → BMC_FW1 BMC_PRESENT#
 </text><path 
 
         class=" pinlabel__leader"
@@ -2315,7 +2465,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_182"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_197"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 6 0.0" 
@@ -2327,17 +2477,17 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_183"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_198"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
-        class=" pinlabel nc"
+        class=" pinlabel uart"
 transform="
     translate(0 544) 
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_184"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_199"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2348,7 +2498,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_413"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_492"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -2363,7 +2513,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_411"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_490"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     33 GPIO13 (PWM1)
@@ -2375,10 +2525,60 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_186"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_201"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel uart"
+transform="
+    translate(-226.0 544) 
+    scale(-1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_203"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_495"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_493"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    UART COM1 → COM1 ← FPGA TX (TTL)
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_207"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
 />
 </g>
 </g><g 
@@ -2387,17 +2587,17 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_188"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_208"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
-        class=" pinlabel nc"
+        class=" pinlabel spi"
 transform="
     translate(0 578) 
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_189"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_209"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2408,7 +2608,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_416"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_498"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -2423,7 +2623,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_414"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_496"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     35 GPIO19 (PCM_FS)
@@ -2435,10 +2635,60 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_191"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_211"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel spi"
+transform="
+    translate(-226.0 578) 
+    scale(-1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_213"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_501"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_499"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    SPI1 BIOS-flash → FU1 flash DO
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_217"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
 />
 </g>
 </g><g 
@@ -2447,17 +2697,17 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_193"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_218"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
-        class=" pinlabel nc"
+        class=" pinlabel uart"
 transform="
     translate(0 612) 
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_194"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_219"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2468,7 +2718,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_419"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_504"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -2483,7 +2733,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_417"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_502"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     37 GPIO26
@@ -2495,10 +2745,60 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_196"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_221"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel uart"
+transform="
+    translate(-226.0 612) 
+    scale(-1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_223"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_507"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_505"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    UART COM2 → COM2 ← FPGA TX (TTL)
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_227"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
 />
 </g>
 </g><g 
@@ -2507,7 +2807,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_198"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_228"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -2517,7 +2817,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_199"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_229"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2528,7 +2828,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_422"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_510"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -2543,7 +2843,7 @@ transform="
     scale(-1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_420"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_508"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     39 GND
@@ -2555,7 +2855,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_201"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_231"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -2568,7 +2868,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_203"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_233"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -2577,7 +2877,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_204"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_234"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -2587,7 +2887,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_205"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_235"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2598,7 +2898,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_425"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_513"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -2613,7 +2913,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_423"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_511"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     2 5V
@@ -2625,7 +2925,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_207"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_237"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -2637,7 +2937,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_209"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_239"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -2647,7 +2947,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_210"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_240"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2658,7 +2958,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_428"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_516"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -2673,7 +2973,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_426"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_514"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     4 5V
@@ -2685,7 +2985,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_212"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_242"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -2697,7 +2997,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_214"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_244"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -2707,7 +3007,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_215"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_245"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2718,7 +3018,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_431"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_519"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -2733,7 +3033,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_429"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_517"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     6 GND
@@ -2745,7 +3045,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_217"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_247"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -2757,7 +3057,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_219"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_249"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -2767,7 +3067,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_220"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_250"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2778,7 +3078,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_434"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_522"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -2793,7 +3093,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_432"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_520"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     8 GPIO14 (TXD0)
@@ -2805,7 +3105,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_222"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_252"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -2817,7 +3117,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_224"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_254"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2828,7 +3128,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_437"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_525"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="360" 
@@ -2843,10 +3143,10 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_435"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_523"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
-    UART0-console → FPGA UART RX
+    UART0 BMC-console → AST_UART1 → FPGA UART RX
 </text><path 
 
         class=" pinlabel__leader"
@@ -2855,7 +3155,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_228"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_258"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 6 0.0" 
@@ -2867,7 +3167,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_229"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_259"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -2877,7 +3177,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_230"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_260"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2888,7 +3188,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_440"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_528"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -2903,7 +3203,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_438"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_526"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     10 GPIO15 (RXD0)
@@ -2915,7 +3215,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_232"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_262"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -2927,7 +3227,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_234"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_264"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2938,7 +3238,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_443"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_531"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="360" 
@@ -2953,10 +3253,10 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_441"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_529"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
-    UART0-console → FPGA UART TX
+    UART0 BMC-console → AST_UART1 ← FPGA UART TX
 </text><path 
 
         class=" pinlabel__leader"
@@ -2965,7 +3265,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_238"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_268"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 6 0.0" 
@@ -2977,17 +3277,17 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_239"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_269"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
-        class=" pinlabel nc"
+        class=" pinlabel spi"
 transform="
     translate(0 170) 
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_240"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_270"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -2998,7 +3298,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_446"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_534"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -3013,7 +3313,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_444"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_532"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     12 GPIO18 (PCM_CLK)
@@ -3025,10 +3325,60 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_242"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_272"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel spi"
+transform="
+    translate(226.0 170) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_274"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_537"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_535"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    SPI1 BIOS-flash → FU1 flash CS#
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_278"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
 />
 </g>
 </g><g 
@@ -3037,7 +3387,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_244"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_279"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -3047,7 +3397,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_245"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_280"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3058,7 +3408,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_449"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_540"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -3073,7 +3423,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_447"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_538"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     14 GND
@@ -3085,7 +3435,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_247"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_282"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -3097,7 +3447,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_249"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_284"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -3107,7 +3457,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_250"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_285"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3118,7 +3468,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_452"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_543"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -3133,7 +3483,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_450"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_541"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     16 GPIO23
@@ -3145,7 +3495,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_252"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_287"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -3157,7 +3507,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_254"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_289"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3168,7 +3518,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_455"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_546"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="360" 
@@ -3183,10 +3533,10 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_453"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_544"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
-    JTAG → AST_JTAG1 NTRST
+    ASpeed-JTAG (Pi=TAP) → AST_JTAG1 NTRST
 </text><path 
 
         class=" pinlabel__leader"
@@ -3195,7 +3545,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_258"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_293"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 6 0.0" 
@@ -3207,7 +3557,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_259"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_294"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -3217,7 +3567,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_260"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_295"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3228,7 +3578,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_458"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_549"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -3243,7 +3593,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_456"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_547"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     18 GPIO24
@@ -3255,7 +3605,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_262"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_297"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -3267,7 +3617,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_264"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_299"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3278,7 +3628,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_461"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_552"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="360" 
@@ -3293,10 +3643,10 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_459"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_550"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
-    JTAG → AST_JTAG1 SRST#
+    ASpeed-JTAG (Pi=TAP) → AST_JTAG1 SRST#
 </text><path 
 
         class=" pinlabel__leader"
@@ -3305,7 +3655,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_268"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_303"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 6 0.0" 
@@ -3317,7 +3667,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_269"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_304"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -3327,7 +3677,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_270"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_305"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3338,7 +3688,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_464"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_555"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -3353,7 +3703,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_462"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_553"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     20 GND
@@ -3365,7 +3715,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_272"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_307"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -3377,17 +3727,17 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_274"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_309"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
-        class=" pinlabel nc"
+        class=" pinlabel gpio"
 transform="
     translate(0 340) 
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_275"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_310"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3398,7 +3748,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_467"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_558"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -3413,7 +3763,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_465"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_556"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     22 GPIO25
@@ -3425,79 +3775,19 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_277"
-clipPathUnits="userSpaceOnUse"
-shape-rendering="geometricPrecision"    
-    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
-/>
-</g>
-</g><g 
-transform="
-    translate(0 0) 
-    scale(1 1)
-    rotate(0)
-"
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_279"
-clipPathUnits="userSpaceOnUse"
-shape-rendering="geometricPrecision">
-        <g 
-        class=" pinlabel spi"
-transform="
-    translate(0 374) 
-    scale(1 1)
-    rotate(0)
-"
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_280"
-clipPathUnits="userSpaceOnUse"
-shape-rendering="geometricPrecision">
-        <rect
-
-        class=" pinlabel__body"
-transform="
-    translate(46 -13.0) 
-    scale(1 1)
-    rotate(0)
-"
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_470"
-clipPathUnits="userSpaceOnUse"
-shape-rendering="geometricPrecision"    
-    width="180" 
-    height="26" 
-    rx="3" 
-    ry="3" 
-/><text
-
-        class="pinlabel__text"
-transform="
-    translate(136.0 0) 
-    scale(1 1)
-    rotate(0)
-"
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_468"
-clipPathUnits="userSpaceOnUse"
-shape-rendering="geometricPrecision">
-    24 GPIO8 (SPI0 CE0)
-</text><path 
-
-        class="pinlabel__leader"
-transform="
-    translate(0 0) 
-    scale(1 1)
-    rotate(0)
-"
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_282"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_312"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
 />
 </g><g 
-        class=" pinlabel spi"
+        class=" pinlabel gpio"
 transform="
-    translate(226.0 374) 
+    translate(226.0 340) 
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_284"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_314"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3508,7 +3798,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_473"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_561"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="360" 
@@ -3523,10 +3813,10 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_471"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_559"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
-    SPI0-flash-readback → flash CS#
+    strap-verify → JUMPERS VGA_SW1
 </text><path 
 
         class=" pinlabel__leader"
@@ -3535,7 +3825,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_288"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_318"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 6 0.0" 
@@ -3547,17 +3837,17 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_289"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_319"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
-        class=" pinlabel nc"
+        class=" pinlabel spi"
 transform="
-    translate(0 408) 
+    translate(0 374) 
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_290"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_320"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3568,7 +3858,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_476"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_564"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -3583,7 +3873,117 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_474"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_562"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    24 GPIO8 (SPI0 CE0)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_322"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel spi"
+transform="
+    translate(226.0 374) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_324"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_567"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_565"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    SPI0 BMC-flash → BMC_FW1 flash CS#
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_328"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_329"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel gpio"
+transform="
+    translate(0 408) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_330"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_570"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_568"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     26 GPIO7 (SPI0 CE1)
@@ -3595,10 +3995,60 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_292"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_332"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel gpio"
+transform="
+    translate(226.0 408) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_334"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_573"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_571"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    strap-verify → BMC_FW1 SOLEN#
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_338"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
 />
 </g>
 </g><g 
@@ -3607,17 +4057,17 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_294"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_339"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
-        class=" pinlabel nc"
+        class=" pinlabel gpio"
 transform="
     translate(0 442) 
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_295"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_340"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3628,7 +4078,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_479"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_576"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -3643,7 +4093,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_477"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_574"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     28 GPIO1 (ID_SC)
@@ -3655,10 +4105,60 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_297"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_342"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel gpio"
+transform="
+    translate(226.0 442) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_344"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_579"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_577"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    strap-verify → PANEL1 PLED (Pi drives, verify FPGA input RTL)
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_348"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
 />
 </g>
 </g><g 
@@ -3667,7 +4167,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_299"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_349"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -3677,7 +4177,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_300"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_350"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3688,7 +4188,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_482"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_582"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -3703,7 +4203,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_480"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_580"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     30 GND
@@ -3715,7 +4215,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_302"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_352"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -3727,17 +4227,17 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_304"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_354"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
-        class=" pinlabel nc"
+        class=" pinlabel uart"
 transform="
     translate(0 510) 
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_305"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_355"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3748,7 +4248,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_485"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_585"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -3763,7 +4263,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_483"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_583"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     32 GPIO12 (PWM0)
@@ -3775,10 +4275,60 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_307"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_357"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel uart"
+transform="
+    translate(226.0 510) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_359"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_588"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_586"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    UART COM1 → COM1 → FPGA RX (TTL, pre-MAX3232)
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_363"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
 />
 </g>
 </g><g 
@@ -3787,7 +4337,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_309"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_364"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
@@ -3797,7 +4347,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_310"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_365"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3808,7 +4358,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_488"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_591"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -3823,7 +4373,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_486"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_589"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     34 GND
@@ -3835,7 +4385,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_312"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_367"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
@@ -3847,17 +4397,17 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_314"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_369"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
-        class=" pinlabel nc"
+        class=" pinlabel uart"
 transform="
     translate(0 578) 
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_315"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_370"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3868,7 +4418,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_491"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_594"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -3883,7 +4433,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_489"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_592"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     36 GPIO16
@@ -3895,10 +4445,60 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_317"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_372"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel uart"
+transform="
+    translate(226.0 578) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_374"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_597"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_595"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    UART COM2 → COM2 → FPGA RX (TTL)
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_378"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
 />
 </g>
 </g><g 
@@ -3907,17 +4507,17 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_319"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_379"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
-        class=" pinlabel nc"
+        class=" pinlabel spi"
 transform="
     translate(0 612) 
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_320"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_380"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3928,7 +4528,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_494"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_600"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -3943,7 +4543,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_492"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_598"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     38 GPIO20 (PCM_DIN)
@@ -3955,10 +4555,60 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_322"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_382"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel spi"
+transform="
+    translate(226.0 612) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_384"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_603"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_601"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    SPI1 BIOS-flash → FU1 flash DI (verify SPI-slave)
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_388"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
 />
 </g>
 </g><g 
@@ -3967,17 +4617,17 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_324"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_389"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <g 
-        class=" pinlabel nc"
+        class=" pinlabel spi"
 transform="
     translate(0 646) 
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_325"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_390"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
         <rect
@@ -3988,7 +4638,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_497"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_606"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     width="180" 
@@ -4003,7 +4653,7 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_495"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_604"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision">
     40 GPIO21 (PCM_DOUT)
@@ -4015,10 +4665,60 @@ transform="
     scale(1 1)
     rotate(0)
 "
-id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_327"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_392"
 clipPathUnits="userSpaceOnUse"
 shape-rendering="geometricPrecision"    
     d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel spi"
+transform="
+    translate(226.0 646) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_394"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_609"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_607"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    SPI1 BIOS-flash → FU1 flash CLK
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="d2ca7ceb-bca8-4348-9650-f7dc7e9ac8a6_398"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
 />
 </g>
 </g>

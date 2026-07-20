@@ -16,41 +16,44 @@
 <text x="26" y="116" fill="#111111" font-weight="bold">pin1  3V3</text>
 <rect x="400" y="104" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
 <text x="406" y="116" fill="#111111" font-weight="bold">pin2  5V</text>
-<rect x="20" y="138" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="26" y="150" fill="#111111" font-weight="bold">pin3  GPIO2 (SDA1)</text>
+<rect x="20" y="138" width="340" height="28" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="26" y="150" fill="#4a148c" font-weight="bold">pin3  GPIO2 (SDA1)</text>
+<text x="26" y="162" fill="#4a148c" font-size="9">IPMI_SEL -&gt; JUMPERS IPMI_SEL</text>
 <rect x="400" y="138" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
 <text x="406" y="150" fill="#111111" font-weight="bold">pin4  5V</text>
-<rect x="20" y="172" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="26" y="184" fill="#111111" font-weight="bold">pin5  GPIO3 (SCL1)</text>
+<rect x="20" y="172" width="340" height="28" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="26" y="184" fill="#4a148c" font-weight="bold">pin5  GPIO3 (SCL1)</text>
+<text x="26" y="196" fill="#4a148c" font-size="9">BIOS_RECOVERY# -&gt; JUMPERS BIOS_RECOVERY#</text>
 <rect x="400" y="172" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
 <text x="406" y="184" fill="#111111" font-weight="bold">pin6  GND</text>
 <rect x="20" y="206" width="340" height="28" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
 <text x="26" y="218" fill="#b71c1c" font-weight="bold">pin7  GPIO4 (GPCLK0)</text>
-<text x="26" y="230" fill="#b71c1c" font-size="9">TCK -&gt; AST_JTAG1 TCK</text>
+<text x="26" y="230" fill="#b71c1c" font-size="9">TCK -&gt; AST_JTAG1 TCK (FPGA drives)</text>
 <rect x="400" y="206" width="340" height="28" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
 <text x="406" y="218" fill="#0d47a1" font-weight="bold">pin8  GPIO14 (TXD0)</text>
-<text x="406" y="230" fill="#0d47a1" font-size="9">TXD -&gt; FPGA UART RX</text>
+<text x="406" y="230" fill="#0d47a1" font-size="9">TXD -&gt; AST_UART1 → FPGA UART RX</text>
 <rect x="20" y="240" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
 <text x="26" y="252" fill="#111111" font-weight="bold">pin9  GND</text>
 <rect x="400" y="240" width="340" height="28" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
 <text x="406" y="252" fill="#0d47a1" font-weight="bold">pin10 GPIO15 (RXD0)</text>
-<text x="406" y="264" fill="#0d47a1" font-size="9">RXD -&gt; FPGA UART TX</text>
+<text x="406" y="264" fill="#0d47a1" font-size="9">RXD -&gt; AST_UART1 ← FPGA UART TX</text>
 <rect x="20" y="274" width="340" height="28" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
 <text x="26" y="286" fill="#b71c1c" font-weight="bold">pin11 GPIO17</text>
 <text x="26" y="298" fill="#b71c1c" font-size="9">TMS -&gt; AST_JTAG1 TMS</text>
-<rect x="400" y="274" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="406" y="286" fill="#111111" font-weight="bold">pin12 GPIO18 (PCM_CLK)</text>
+<rect x="400" y="274" width="340" height="28" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="406" y="286" fill="#1b5e20" font-weight="bold">pin12 GPIO18 (PCM_CLK)</text>
+<text x="406" y="298" fill="#1b5e20" font-size="9">CE0 -&gt; FU1 flash CS#</text>
 <rect x="20" y="308" width="340" height="28" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
 <text x="26" y="320" fill="#b71c1c" font-weight="bold">pin13 GPIO27</text>
-<text x="26" y="332" fill="#b71c1c" font-size="9">TDI -&gt; AST_JTAG1 TDI</text>
+<text x="26" y="332" fill="#b71c1c" font-size="9">TDI -&gt; AST_JTAG1 TDI (FPGA→TAP)</text>
 <rect x="400" y="308" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
 <text x="406" y="320" fill="#111111" font-weight="bold">pin14 GND</text>
 <rect x="20" y="342" width="340" height="28" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
 <text x="26" y="354" fill="#b71c1c" font-weight="bold">pin15 GPIO22</text>
-<text x="26" y="366" fill="#b71c1c" font-size="9">TDO -&gt; AST_JTAG1 TDO</text>
+<text x="26" y="366" fill="#b71c1c" font-size="9">TDO -&gt; AST_JTAG1 TDO (TAP→FPGA)</text>
 <rect x="400" y="342" width="340" height="28" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
 <text x="406" y="354" fill="#b71c1c" font-weight="bold">pin16 GPIO23</text>
-<text x="406" y="366" fill="#b71c1c" font-size="9">TRST -&gt; AST_JTAG1 NTRST</text>
+<text x="406" y="366" fill="#b71c1c" font-size="9">NTRST -&gt; AST_JTAG1 NTRST</text>
 <rect x="20" y="376" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
 <text x="26" y="388" fill="#111111" font-weight="bold">pin17 3V3</text>
 <rect x="400" y="376" width="340" height="28" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
@@ -58,52 +61,63 @@
 <text x="406" y="400" fill="#b71c1c" font-size="9">SRST -&gt; AST_JTAG1 SRST#</text>
 <rect x="20" y="410" width="340" height="28" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
 <text x="26" y="422" fill="#1b5e20" font-weight="bold">pin19 GPIO10 (SPI0 MOSI)</text>
-<text x="26" y="434" fill="#1b5e20" font-size="9">MOSI -&gt; flash DI (ULX3S emulated flash)</text>
+<text x="26" y="434" fill="#1b5e20" font-size="9">MOSI -&gt; BMC_FW1 flash DI (verify SPI-slave)</text>
 <rect x="400" y="410" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
 <text x="406" y="422" fill="#111111" font-weight="bold">pin20 GND</text>
 <rect x="20" y="444" width="340" height="28" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
 <text x="26" y="456" fill="#1b5e20" font-weight="bold">pin21 GPIO9 (SPI0 MISO)</text>
-<text x="26" y="468" fill="#1b5e20" font-size="9">MISO -&gt; flash DO (ULX3S emulated flash)</text>
-<rect x="400" y="444" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="406" y="456" fill="#111111" font-weight="bold">pin22 GPIO25</text>
+<text x="26" y="468" fill="#1b5e20" font-size="9">MISO -&gt; BMC_FW1 flash DO</text>
+<rect x="400" y="444" width="340" height="28" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="406" y="456" fill="#4a148c" font-weight="bold">pin22 GPIO25</text>
+<text x="406" y="468" fill="#4a148c" font-size="9">VGA_SW1 -&gt; JUMPERS VGA_SW1</text>
 <rect x="20" y="478" width="340" height="28" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
 <text x="26" y="490" fill="#1b5e20" font-weight="bold">pin23 GPIO11 (SPI0 SCLK)</text>
-<text x="26" y="502" fill="#1b5e20" font-size="9">SCLK -&gt; flash CLK</text>
+<text x="26" y="502" fill="#1b5e20" font-size="9">SCLK -&gt; BMC_FW1 flash CLK</text>
 <rect x="400" y="478" width="340" height="28" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
 <text x="406" y="490" fill="#1b5e20" font-weight="bold">pin24 GPIO8 (SPI0 CE0)</text>
-<text x="406" y="502" fill="#1b5e20" font-size="9">CE0 -&gt; flash CS#</text>
+<text x="406" y="502" fill="#1b5e20" font-size="9">CE0 -&gt; BMC_FW1 flash CS#</text>
 <rect x="20" y="512" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
 <text x="26" y="524" fill="#111111" font-weight="bold">pin25 GND</text>
-<rect x="400" y="512" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="406" y="524" fill="#111111" font-weight="bold">pin26 GPIO7 (SPI0 CE1)</text>
-<rect x="20" y="546" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="26" y="558" fill="#111111" font-weight="bold">pin27 GPIO0 (ID_SD)</text>
-<rect x="400" y="546" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="406" y="558" fill="#111111" font-weight="bold">pin28 GPIO1 (ID_SC)</text>
+<rect x="400" y="512" width="340" height="28" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="406" y="524" fill="#4a148c" font-weight="bold">pin26 GPIO7 (SPI0 CE1)</text>
+<text x="406" y="536" fill="#4a148c" font-size="9">SOLEN# -&gt; BMC_FW1 SOLEN#</text>
+<rect x="20" y="546" width="340" height="28" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="26" y="558" fill="#4a148c" font-weight="bold">pin27 GPIO0 (ID_SD)</text>
+<text x="26" y="570" fill="#4a148c" font-size="9">CLRTC -&gt; JUMPERS CLRTC</text>
+<rect x="400" y="546" width="340" height="28" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="406" y="558" fill="#4a148c" font-weight="bold">pin28 GPIO1 (ID_SC)</text>
+<text x="406" y="570" fill="#4a148c" font-size="9">PLED -&gt; PANEL1 PLED (Pi drives, verify FPGA input RTL)</text>
 <rect x="20" y="580" width="340" height="28" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
 <text x="26" y="592" fill="#4a148c" font-weight="bold">pin29 GPIO5</text>
-<text x="26" y="604" fill="#4a148c" font-size="9">PROBE0 -&gt; panel/LED probe</text>
+<text x="26" y="604" fill="#4a148c" font-size="9">IKVMEN# -&gt; BMC_FW1 IKVMEN# (FPGA drives)</text>
 <rect x="400" y="580" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
 <text x="406" y="592" fill="#111111" font-weight="bold">pin30 GND</text>
 <rect x="20" y="614" width="340" height="28" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
 <text x="26" y="626" fill="#4a148c" font-weight="bold">pin31 GPIO6</text>
-<text x="26" y="638" fill="#4a148c" font-size="9">PROBE1 -&gt; strap/button probe</text>
-<rect x="400" y="614" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="406" y="626" fill="#111111" font-weight="bold">pin32 GPIO12 (PWM0)</text>
-<rect x="20" y="648" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="26" y="660" fill="#111111" font-weight="bold">pin33 GPIO13 (PWM1)</text>
+<text x="26" y="638" fill="#4a148c" font-size="9">BMC_PRESENT# -&gt; BMC_FW1 BMC_PRESENT#</text>
+<rect x="400" y="614" width="340" height="28" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
+<text x="406" y="626" fill="#0d47a1" font-weight="bold">pin32 GPIO12 (PWM0)</text>
+<text x="406" y="638" fill="#0d47a1" font-size="9">TX -&gt; COM1 → FPGA RX (TTL, pre-MAX3232)</text>
+<rect x="20" y="648" width="340" height="28" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
+<text x="26" y="660" fill="#0d47a1" font-weight="bold">pin33 GPIO13 (PWM1)</text>
+<text x="26" y="672" fill="#0d47a1" font-size="9">RX -&gt; COM1 ← FPGA TX (TTL)</text>
 <rect x="400" y="648" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
 <text x="406" y="660" fill="#111111" font-weight="bold">pin34 GND</text>
-<rect x="20" y="682" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="26" y="694" fill="#111111" font-weight="bold">pin35 GPIO19 (PCM_FS)</text>
-<rect x="400" y="682" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="406" y="694" fill="#111111" font-weight="bold">pin36 GPIO16</text>
-<rect x="20" y="716" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="26" y="728" fill="#111111" font-weight="bold">pin37 GPIO26</text>
-<rect x="400" y="716" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="406" y="728" fill="#111111" font-weight="bold">pin38 GPIO20 (PCM_DIN)</text>
+<rect x="20" y="682" width="340" height="28" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="26" y="694" fill="#1b5e20" font-weight="bold">pin35 GPIO19 (PCM_FS)</text>
+<text x="26" y="706" fill="#1b5e20" font-size="9">MISO -&gt; FU1 flash DO</text>
+<rect x="400" y="682" width="340" height="28" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
+<text x="406" y="694" fill="#0d47a1" font-weight="bold">pin36 GPIO16</text>
+<text x="406" y="706" fill="#0d47a1" font-size="9">TX -&gt; COM2 → FPGA RX (TTL)</text>
+<rect x="20" y="716" width="340" height="28" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
+<text x="26" y="728" fill="#0d47a1" font-weight="bold">pin37 GPIO26</text>
+<text x="26" y="740" fill="#0d47a1" font-size="9">RX -&gt; COM2 ← FPGA TX (TTL)</text>
+<rect x="400" y="716" width="340" height="28" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="406" y="728" fill="#1b5e20" font-weight="bold">pin38 GPIO20 (PCM_DIN)</text>
+<text x="406" y="740" fill="#1b5e20" font-size="9">MOSI -&gt; FU1 flash DI (verify SPI-slave)</text>
 <rect x="20" y="750" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
 <text x="26" y="762" fill="#111111" font-weight="bold">pin39 GND</text>
-<rect x="400" y="750" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
-<text x="406" y="762" fill="#111111" font-weight="bold">pin40 GPIO21 (PCM_DOUT)</text>
+<rect x="400" y="750" width="340" height="28" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="406" y="762" fill="#1b5e20" font-weight="bold">pin40 GPIO21 (PCM_DOUT)</text>
+<text x="406" y="774" fill="#1b5e20" font-size="9">SCLK -&gt; FU1 flash CLK</text>
 </svg>

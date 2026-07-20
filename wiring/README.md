@@ -7,10 +7,44 @@ once, through a single cable harness that stays plugged in permanently.
 There is no re-cabling to switch between roles (e.g. "SPI mode" vs "JTAG
 mode") — all 41 signals across all 9 connectors are wired to their own GPIO
 concurrently. This is what `wiring/make_pinmap.py` encodes and validates: it
-builds the full 41-signal inventory, assigns each one a free ULX3S GPIO
+builds the full 41-signal inventory with every signal's GPIO fixed explicitly
 (50 usable pins after excluding the 6 reserved for the on-board ESP32), and
 asserts the map is injective, complete, and satisfies the fixed constraints
 below before ever writing output.
+
+## Header split: ASpeed/BMC on J1, host/other on J2
+
+The 41 signals are allocated so that **which physical header a pin sits on
+tells you which side of the board it talks to**:
+
+- **J1 (idx 0-10)** — ASpeed/BMC-side connectors only: `AST_JTAG1` (BMC ARM
+  TAP), `AST_UART1` (BMC console), `BMC_FW1` (BMC SPI flash + straps). idx
+  11-13 are ESP32-reserved and left unused, so J1 has no spare capacity for
+  anything else.
+- **J2 (idx 14-27)** — every other connector: `FU1` (host BIOS SPI flash),
+  `COM1`/`COM2` (host serial), `AMD_HDT` (host CPU debug), `PANEL1` (front
+  panel), `JUMPERS` (board straps). The BMC firmware *does* monitor
+  `PANEL1`/`JUMPERS` in normal operation, but they're placed on J2 with the
+  rest of the host/board-control signals anyway — J1 has no room (only 22
+  usable pins after the ESP32 reservation, already fully spoken for by the
+  three ASpeed connectors) and they're conceptually "board state", the same
+  bucket as the host serial/debug connectors.
+
+Within each header, each function's pins are contiguous, with an empty pin
+left between function groups so the layout reads as distinct blocks rather
+than one undifferentiated list — see `build_inventory()` in
+`make_pinmap.py` for the exact index-by-index allocation and the gap
+comments. `validate()` enforces the split itself: every ASpeed-side
+connector's signals must resolve (by GPIO index) to J1, every other
+connector's must resolve to J2 — a signal moved to the wrong header fails
+loud with an `AssertionError` naming it.
+
+J2 is tighter than J1: 14 columns / 28 pins carrying 24 signals across five
+connectors leaves only 4 spare pins, not enough to put a full gap between
+every individual *connector*. So the gaps sit between the four *function*
+blocks (SPI / serial / JTAG / GPIO) instead, and connectors that share a
+function are adjacent with no gap: `COM1` directly followed by `COM2`, and
+`PANEL1` directly followed by `JUMPERS`.
 
 ## Source of truth
 
@@ -67,9 +101,10 @@ viewer's light/dark theme.
   `validate()`'s assertion that every `AMD_HDT` signal has
   `via == "1.27mm-adapter"`.
 - **BMC_FW1 SPI &rarr; fixed at gp7-gp10.** The four core SPI signals
-  (`CS0`, `SCK`, `MOSI/SPIDO`, `MISO/SPIDI`) are pinned to `gp7`/`gp8`/`gp9`/
-  `gp10` specifically (rather than auto-assigned like the rest of the map)
-  so the harness stays compatible with existing spispy pogo/cable pinouts —
+  (`CS0`, `SCK`, `MOSI/SPIDO`, `MISO/SPIDI`) stay pinned to `gp7`/`gp8`/`gp9`/
+  `gp10` specifically (unlike the rest of the map, which is free to move as
+  long as it stays on the correct header — see "Header split" above) so the
+  harness stays compatible with existing spispy pogo/cable pinouts —
   enforced by `validate()`'s fixed-pin assertion.
 - **Everything else &rarr; direct.** All other signals (BMC_FW1 straps, FU1
   host-BIOS SPI, AST_UART1, AST_JTAG1, PANEL1, JUMPERS) are native 3V3 and
@@ -86,11 +121,12 @@ uv run wiring/make_pinmap.py --headers # same, plus render the two header diagra
 
 Both invocations fail loud (`AssertionError`) if the map is invalid — e.g. a
 duplicate GPIO, an unassigned signal, a reserved-pin collision, a fixed
-BMC_FW1 pin drifting off `gp7`-`gp10`, or a `COM1`/`COM2`/`AMD_HDT` signal
-missing its required `via`. The `--svg` path additionally asserts the drawn
-row count equals the signal count (41), re-parses the written file as XML,
-and confirms every `connector.net` label from `pinmap.csv` appears in the
-rendered SVG text.
+BMC_FW1 pin drifting off `gp7`-`gp10`, a `COM1`/`COM2`/`AMD_HDT` signal
+missing its required `via`, or a signal landing on the wrong header (an
+ASpeed-side connector assigned a J2 pin, or vice versa — see "Header split"
+above). The `--svg` path additionally asserts the drawn row count equals the
+signal count (41), re-parses the written file as XML, and confirms every
+`connector.net` label from `pinmap.csv` appears in the rendered SVG text.
 
 ## ULX3S and Raspberry Pi header reference (`--headers`)
 
@@ -117,8 +153,10 @@ Two things worth calling out explicitly:
   diagram shades these distinctly and never shows them as assigned.
 - **`gp`/`gn` idx 14-17 double as the onboard ADC channels** (`AIN0`-`AIN7`
   across the four differential pairs, per `ulx3s_v20.lpf`). The harness
-  *does* assign these four indices (see `pinmap.csv`: `gp14`-`gp17`,
-  `gn14`-`gn17`) — that's an accepted tradeoff, not an oversight: this
+  *does* assign most of these indices — after the J1/J2 reallocation they
+  carry `FU1` (host BIOS SPI: `gp14`-`gp16`, `gn14`-`gn15`) and the start of
+  `COM1` (`gp17`, `gn17`), with `gn16` left as the gap between the two
+  function blocks — that's an accepted tradeoff, not an oversight: this
   design never uses the ULX3S's onboard ADC, so sacrificing it to gain four
   more usable GPIO is free. The diagram marks these cells with a small
   orange corner marker (legend: "ADC-shared") regardless of whether they're

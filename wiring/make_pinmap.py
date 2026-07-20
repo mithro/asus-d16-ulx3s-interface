@@ -252,65 +252,87 @@ def validate_pi_pinmap(pi_signals: list[PiSignal]) -> None:
 # ---------------------------------------------------------------------------
 
 def build_inventory() -> list[Signal]:
+    """The signal inventory, every GPIO explicit.
+
+    Allocation: ASpeed/BMC-side functions (AST_JTAG1, AST_UART1, BMC_FW1) sit
+    on header J1 (idx 0-10; idx 11-13 are ESP32-reserved and left unused).
+    Host/other-side functions (FU1, COM1/COM2, AMD_HDT, PANEL1, JUMPERS) sit
+    on header J2 (idx 14-27). Within each header, each function's pins are
+    contiguous, with an empty pin between function groups -- see
+    wiring/README.md for the full rationale and the physical-pin-budget
+    tradeoffs on J2.
+    """
     sig = Signal
     return [
-        # BMC_FW1 -- BMC SPI flash R/W + straps, 3V3, via=direct.
-        # CS0/SCK/MOSI/MISO MUST stay spispy-cable-compatible.
+        # --- J1 (ASpeed/BMC side), idx 0-10 -----------------------------
+
+        # AST_JTAG1 -- BMC ARM TAP, 3V3, via=direct. FPGA is JTAG master.
+        # idx 0-3 (gn3 left as the gap before AST_UART1).
+        sig("AST_JTAG1", "TCK", "out", "direct", gpio="gp0"),
+        sig("AST_JTAG1", "TMS", "out", "direct", gpio="gp1"),
+        sig("AST_JTAG1", "TDI", "out", "direct", gpio="gp2"),
+        sig("AST_JTAG1", "TDO", "in", "direct", gpio="gp3"),
+        sig("AST_JTAG1", "NTRST", "out", "direct", gpio="gn0"),
+        sig("AST_JTAG1", "RTCK", "in", "direct", gpio="gn1"),
+        sig("AST_JTAG1", "SRST#", "out", "direct", gpio="gn2"),
+        # gn3, gp4, gn4 = gap between AST_JTAG1 and AST_UART1.
+
+        # AST_UART1 -- BMC console, 3V3 TTL, via=direct. idx 5.
+        sig("AST_UART1", "BMC_RXD", "out", "direct", gpio="gp5"),  # FPGA drives BMC's RX
+        sig("AST_UART1", "BMC_TXD", "in", "direct", gpio="gn5"),  # FPGA reads BMC's TX
+        # gp6, gn6 = gap between AST_UART1 and BMC_FW1.
+
+        # BMC_FW1 -- BMC SPI flash R/W + straps, 3V3, via=direct. idx 7-10.
+        # CS0/SCK/MOSI/MISO MUST stay spispy-cable-compatible (gp7-10 fixed).
         sig("BMC_FW1", "CS0", "in", "direct", gpio="gp7"),
         sig("BMC_FW1", "SCK", "in", "direct", gpio="gp8"),
         sig("BMC_FW1", "MOSI/SPIDO", "in", "direct", gpio="gp9"),
         sig("BMC_FW1", "MISO/SPIDI", "out", "direct", gpio="gp10"),
-        sig("BMC_FW1", "CS2", "in", "direct"),
-        sig("BMC_FW1", "IKVMEN#", "out", "direct"),  # strap
-        sig("BMC_FW1", "BMC_PRESENT#", "out", "direct"),  # strap
-        sig("BMC_FW1", "SOLEN#", "out", "direct"),  # strap
+        sig("BMC_FW1", "CS2", "in", "direct", gpio="gn7"),
+        sig("BMC_FW1", "IKVMEN#", "out", "direct", gpio="gn8"),  # strap
+        sig("BMC_FW1", "BMC_PRESENT#", "out", "direct", gpio="gn9"),  # strap
+        sig("BMC_FW1", "SOLEN#", "out", "direct", gpio="gn10"),  # strap
+        # idx 11-13 = ESP32-reserved, left unused.
 
-        # FU1 -- host BIOS SPI flash, read-only, 3V3, via=direct.
-        sig("FU1", "CS#", "in", "direct"),
-        sig("FU1", "CLK", "in", "direct"),
-        sig("FU1", "MOSI/DI", "in", "direct"),
-        sig("FU1", "MISO/DO", "out", "direct"),
-        sig("FU1", "HOLD#", "in", "direct"),
+        # --- J2 (host/other side), idx 14-27 -----------------------------
 
-        # AST_UART1 -- BMC console, 3V3 TTL, via=direct.
-        sig("AST_UART1", "BMC_RXD", "out", "direct"),  # FPGA drives BMC's RX
-        sig("AST_UART1", "BMC_TXD", "in", "direct"),  # FPGA reads BMC's TX
+        # FU1 -- host BIOS SPI flash, read-only, 3V3, via=direct. idx 14-16.
+        sig("FU1", "CS#", "in", "direct", gpio="gp14"),
+        sig("FU1", "CLK", "in", "direct", gpio="gp15"),
+        sig("FU1", "MOSI/DI", "in", "direct", gpio="gp16"),
+        sig("FU1", "MISO/DO", "out", "direct", gpio="gn14"),
+        sig("FU1", "HOLD#", "in", "direct", gpio="gn15"),
+        # gn16 = gap between FU1 and COM1/COM2.
 
-        # COM1/COM2 -- host serial, via=MAX3232.
-        sig("COM1", "COM1_TX", "out", "MAX3232"),
-        sig("COM1", "COM1_RX", "in", "MAX3232"),
-        sig("COM2", "COM2_TX", "out", "MAX3232"),
-        sig("COM2", "COM2_RX", "in", "MAX3232"),
-
-        # AST_JTAG1 -- BMC ARM TAP, 3V3, via=direct. FPGA is JTAG master.
-        sig("AST_JTAG1", "TCK", "out", "direct"),
-        sig("AST_JTAG1", "TMS", "out", "direct"),
-        sig("AST_JTAG1", "TDI", "out", "direct"),
-        sig("AST_JTAG1", "TDO", "in", "direct"),
-        sig("AST_JTAG1", "NTRST", "out", "direct"),
-        sig("AST_JTAG1", "RTCK", "in", "direct"),
-        sig("AST_JTAG1", "SRST#", "out", "direct"),
+        # COM1/COM2 -- host serial, via=MAX3232. idx 17-18.
+        sig("COM1", "COM1_TX", "out", "MAX3232", gpio="gp17"),
+        sig("COM1", "COM1_RX", "in", "MAX3232", gpio="gn17"),
+        sig("COM2", "COM2_TX", "out", "MAX3232", gpio="gp18"),
+        sig("COM2", "COM2_RX", "in", "MAX3232", gpio="gn18"),
+        # idx 19 (gp19+gn19) fully empty = gap between serial and JTAG.
 
         # AMD_HDT -- host CPU HDT, via=1.27mm-adapter. FPGA is JTAG master.
-        sig("AMD_HDT", "HDT_TCK", "out", "1.27mm-adapter"),
-        sig("AMD_HDT", "HDT_TMS", "out", "1.27mm-adapter"),
-        sig("AMD_HDT", "HDT_TDI", "out", "1.27mm-adapter"),
-        sig("AMD_HDT", "HDT_TDO", "in", "1.27mm-adapter"),
-        sig("AMD_HDT", "HDT_TRST_L", "out", "1.27mm-adapter"),
+        # idx 20-22.
+        sig("AMD_HDT", "HDT_TCK", "out", "1.27mm-adapter", gpio="gp20"),
+        sig("AMD_HDT", "HDT_TMS", "out", "1.27mm-adapter", gpio="gp21"),
+        sig("AMD_HDT", "HDT_TDI", "out", "1.27mm-adapter", gpio="gp22"),
+        sig("AMD_HDT", "HDT_TDO", "in", "1.27mm-adapter", gpio="gn20"),
+        sig("AMD_HDT", "HDT_TRST_L", "out", "1.27mm-adapter", gpio="gn21"),
+        # gn22 = gap between AMD_HDT and PANEL1/JUMPERS.
 
-        # PANEL1 -- front panel, via=direct.
-        sig("PANEL1", "PWRBTN#", "out", "direct"),  # open-drain
-        sig("PANEL1", "RESET#", "out", "direct"),  # open-drain
-        sig("PANEL1", "NMIBNT#", "out", "direct"),  # open-drain
-        sig("PANEL1", "PLED", "in", "direct"),
-        sig("PANEL1", "HDLED", "in", "direct"),
-        sig("PANEL1", "MLED", "in", "direct"),
+        # PANEL1 -- front panel, via=direct. idx 23-25.
+        sig("PANEL1", "PWRBTN#", "out", "direct", gpio="gp23"),  # open-drain
+        sig("PANEL1", "RESET#", "out", "direct", gpio="gp24"),  # open-drain
+        sig("PANEL1", "NMIBNT#", "out", "direct", gpio="gp25"),  # open-drain
+        sig("PANEL1", "PLED", "in", "direct", gpio="gn23"),
+        sig("PANEL1", "HDLED", "in", "direct", gpio="gn24"),
+        sig("PANEL1", "MLED", "in", "direct", gpio="gn25"),
 
-        # JUMPERS -- drive to change state, via=direct.
-        sig("JUMPERS", "VGA_SW1", "out", "direct"),
-        sig("JUMPERS", "IPMI_SEL", "out", "direct"),
-        sig("JUMPERS", "BIOS_RECOVERY#", "out", "direct"),
-        sig("JUMPERS", "CLRTC", "out", "direct"),
+        # JUMPERS -- drive to change state, via=direct. idx 26-27.
+        sig("JUMPERS", "VGA_SW1", "out", "direct", gpio="gp26"),
+        sig("JUMPERS", "IPMI_SEL", "out", "direct", gpio="gp27"),
+        sig("JUMPERS", "BIOS_RECOVERY#", "out", "direct", gpio="gn26"),
+        sig("JUMPERS", "CLRTC", "out", "direct", gpio="gn27"),
     ]
 
 
@@ -382,6 +404,23 @@ def validate(signals: list[Signal]) -> None:
         if s.connector == "AMD_HDT":
             assert s.via == "1.27mm-adapter", (
                 f"{s.connector}.{s.net} must have via=='1.27mm-adapter', got {s.via!r}"
+            )
+
+    # (f) header split: ASpeed/BMC-side connectors must land on J1
+    # (idx 0-13), every other connector must land on J2 (idx 14-27).
+    ASPEED_CONNECTORS: set[str] = {"BMC_FW1", "AST_UART1", "AST_JTAG1"}
+    for s in signals:
+        idx = int(s.gpio[2:])  # strip "gp"/"gn"
+        on_j1 = idx in ULX3S_J1_IDX
+        if s.connector in ASPEED_CONNECTORS:
+            assert on_j1, (
+                f"{s.connector}.{s.net} is an ASpeed/BMC signal but its GPIO "
+                f"{s.gpio!r} (idx {idx}) is on J2, not J1 (idx 0-13)"
+            )
+        else:
+            assert not on_j1, (
+                f"{s.connector}.{s.net} is a host/other signal but its GPIO "
+                f"{s.gpio!r} (idx {idx}) is on J1, not J2 (idx 14-27)"
             )
 
 

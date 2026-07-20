@@ -190,20 +190,24 @@ used for hardware-in-the-loop (HIL) control are overlaid from
   in for the DUT and exercises as much of the **FPGA RTL** as its 28 header
   GPIO allow, so *all 28 BCM GPIO (0-27) are used* — only the 12 power/ground
   pins are unassigned. Verification is allocated in priority order:
-    1. **both SPI-flash emulations** — the Pi masters each bus and reads the
-       loaded image back, verifying the FPGA's SPI-slave state machine:
-       `SPI0` &rarr; `BMC_FW1` (BMC boot flash), `SPI1` &rarr; `FU1` (host
-       BIOS flash);
-    2. **the ASpeed JTAG** — the Pi acts as the TAP target so the FPGA's
-       JTAG-master RTL can scan it (`AST_JTAG1` TCK/TMS/TDI/TDO/NTRST/SRST);
+    1. **both SPI-flash emulations, including their control lines** — the Pi
+       masters each bus and reads the loaded image back, verifying the FPGA's
+       SPI-slave state machine: `SPI0` &rarr; `BMC_FW1` (BMC boot flash, with
+       `CS0` + `CS2`), `SPI1` &rarr; `FU1` (host BIOS flash, with `CS#` +
+       `HOLD#`);
+    2. **the ASpeed JTAG (full 7-wire TAP)** — the Pi acts as the TAP target so
+       the FPGA's JTAG-master RTL can scan it (`AST_JTAG1`
+       TCK/TMS/TDI/TDO/NTRST/SRST + `RTCK` echoed back);
     3. **the UARTs** — the Pi is the peer on each FPGA UART bridge (TTL side,
-       before the COM MAX3232s): `AST_UART1` (BMC console) + `COM1` + `COM2`;
+       before the COM MAX3232): `AST_UART1` (BMC console) + `COM1`;
     4. **the remaining straps** — read back the FPGA-driven `BMC_FW1`
        (IKVMEN#/BMC_PRESENT#/SOLEN#) and `JUMPERS`
        (VGA_SW1/IPMI_SEL/BIOS_RECOVERY#/CLRTC) straps to verify the GPIO
-       *output* RTL, and drive `PANEL1.PLED` to verify the GPIO *input* RTL.
-  The **AMD HDT JTAG is intentionally left unverified** — lowest priority, and
-  there are no spare pins. `dir` is Pi-relative (the mirror of the
+       output RTL.
+  **`COM2`, the `PANEL1` signals, and the AMD HDT JTAG are intentionally left
+  unverified** — lowest priority, and there are no spare pins (the flash
+  CS2/HOLD# and JTAG RTCK lines take precedence). `dir` is Pi-relative (the
+  mirror of the
   FPGA-relative `dir` in `pinmap.csv`). Non-SPI lines run over the RP1 PIO
   ([mithro/rp1-jtag](https://github.com/mithro/rp1-jtag),
   [rpi5-rp1-pio-bench](https://github.com/mithro/rpi5-rp1-pio-bench)), so only

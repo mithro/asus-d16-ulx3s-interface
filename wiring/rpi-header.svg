@@ -90,9 +90,9 @@
 <rect x="20" y="546" width="340" height="28" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
 <text x="26" y="558" fill="#4a148c" font-weight="bold">pin27 GPIO0 (ID_SD)</text>
 <text x="26" y="570" fill="#4a148c" font-size="9">CLRTC -&gt; JUMPERS CLRTC</text>
-<rect x="400" y="546" width="340" height="28" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
-<text x="406" y="558" fill="#4a148c" font-weight="bold">pin28 GPIO1 (ID_SC)</text>
-<text x="406" y="570" fill="#4a148c" font-size="9">PLED -&gt; PANEL1 PLED (Pi drives, verify FPGA input RTL)</text>
+<rect x="400" y="546" width="340" height="28" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="406" y="558" fill="#b71c1c" font-weight="bold">pin28 GPIO1 (ID_SC)</text>
+<text x="406" y="570" fill="#b71c1c" font-size="9">RTCK -&gt; AST_JTAG1 RTCK (TAP→FPGA return clk)</text>
 <rect x="20" y="580" width="340" height="28" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
 <text x="26" y="592" fill="#4a148c" font-weight="bold">pin29 GPIO5</text>
 <text x="26" y="604" fill="#4a148c" font-size="9">IKVMEN# -&gt; BMC_FW1 IKVMEN# (FPGA drives)</text>
@@ -112,12 +112,12 @@
 <rect x="20" y="682" width="340" height="28" fill="#43a047" fill-opacity="0.15" stroke="#43a047" stroke-width="1.5"  rx="3"/>
 <text x="26" y="694" fill="#43a047" font-weight="bold">pin35 GPIO19 (PCM_FS)</text>
 <text x="26" y="706" fill="#43a047" font-size="9">MISO -&gt; FU1 flash DO</text>
-<rect x="400" y="682" width="340" height="28" fill="#3949ab" fill-opacity="0.15" stroke="#3949ab" stroke-width="1.5"  rx="3"/>
-<text x="406" y="694" fill="#3949ab" font-weight="bold">pin36 GPIO16</text>
-<text x="406" y="706" fill="#3949ab" font-size="9">TX -&gt; COM2 → FPGA RX (TTL)</text>
-<rect x="20" y="716" width="340" height="28" fill="#3949ab" fill-opacity="0.15" stroke="#3949ab" stroke-width="1.5"  rx="3"/>
-<text x="26" y="728" fill="#3949ab" font-weight="bold">pin37 GPIO26</text>
-<text x="26" y="740" fill="#3949ab" font-size="9">RX -&gt; COM2 ← FPGA TX (TTL)</text>
+<rect x="400" y="682" width="340" height="28" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="406" y="694" fill="#1b5e20" font-weight="bold">pin36 GPIO16</text>
+<text x="406" y="706" fill="#1b5e20" font-size="9">CS2 -&gt; BMC_FW1 CS2 (2nd chip-select)</text>
+<rect x="20" y="716" width="340" height="28" fill="#43a047" fill-opacity="0.15" stroke="#43a047" stroke-width="1.5"  rx="3"/>
+<text x="26" y="728" fill="#43a047" font-weight="bold">pin37 GPIO26</text>
+<text x="26" y="740" fill="#43a047" font-size="9">HOLD# -&gt; FU1 HOLD# (flash hold line)</text>
 <rect x="400" y="716" width="340" height="28" fill="#43a047" fill-opacity="0.15" stroke="#43a047" stroke-width="1.5"  rx="3"/>
 <text x="406" y="728" fill="#43a047" font-weight="bold">pin38 GPIO20 (PCM_DIN)</text>
 <text x="406" y="740" fill="#43a047" font-size="9">MOSI -&gt; FU1 flash DI (verify SPI-slave)</text>

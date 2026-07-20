@@ -233,9 +233,11 @@ class PiSignal:
 def build_pi_pinmap() -> list[PiSignal]:
     """Pi 5 HIL harness: the Pi stands in for the DUT and exercises as much of
     the FPGA RTL as the 28 header GPIO allow, verifying it in priority order --
-    (1) BOTH SPI-flash emulations, (2) the ASpeed JTAG, (3) the UARTs, (4) the
-    remaining straps. The AMD HDT JTAG is intentionally left unverified (lowest
-    priority; no spare pins). All 28 BCM GPIO (0-27) are used.
+    (1) BOTH SPI-flash emulations (including their CS2 / HOLD# control lines),
+    (2) the ASpeed JTAG (full 7-wire TAP), (3) the UARTs, (4) the remaining
+    straps. The AMD HDT JTAG, COM2, and the PANEL1 signals are intentionally
+    left unverified (lowest priority; no spare pins). All 28 BCM GPIO (0-27) are
+    used.
 
     Non-SPI lines are driven by the RP1 PIO (mithro/rp1-jtag,
     rpi5-rp1-pio-bench), so only SPI0/UART0 need their native alt-function pins;
@@ -245,33 +247,34 @@ def build_pi_pinmap() -> list[PiSignal]:
     sig = PiSignal
     return [
         # 1. SPI-flash emulation x2 -- Pi masters each bus and reads back the
-        #    loaded image, verifying the FPGA's SPI-slave state machine.
+        #    loaded image; CS2 / HOLD# exercise the extra flash control lines.
         sig("SPI0 BMC-flash", "MOSI", 10, 19, "out", "BMC_FW1 flash DI (verify SPI-slave)", "SPI"),
         sig("SPI0 BMC-flash", "MISO", 9, 21, "in", "BMC_FW1 flash DO", "SPI"),
         sig("SPI0 BMC-flash", "SCLK", 11, 23, "out", "BMC_FW1 flash CLK", "SPI"),
         sig("SPI0 BMC-flash", "CE0", 8, 24, "out", "BMC_FW1 flash CS#", "SPI"),
+        sig("SPI0 BMC-flash", "CS2", 16, 36, "out", "BMC_FW1 CS2 (2nd chip-select)", "SPI"),
         sig("SPI1 BIOS-flash", "MOSI", 20, 38, "out", "FU1 flash DI (verify SPI-slave)", "SPI"),
         sig("SPI1 BIOS-flash", "MISO", 19, 35, "in", "FU1 flash DO", "SPI"),
         sig("SPI1 BIOS-flash", "SCLK", 21, 40, "out", "FU1 flash CLK", "SPI"),
         sig("SPI1 BIOS-flash", "CE0", 18, 12, "out", "FU1 flash CS#", "SPI"),
+        sig("SPI1 BIOS-flash", "HOLD#", 26, 37, "out", "FU1 HOLD# (flash hold line)", "SPI"),
         # 2. ASpeed JTAG -- Pi is the TAP target; the FPGA JTAG-master RTL scans
-        #    it (FPGA drives TCK/TMS/TDI/TRST/SRST, reads TDO).
+        #    it (FPGA drives TCK/TMS/TDI/TRST/SRST + reads TDO; Pi echoes RTCK).
         sig("ASpeed-JTAG (Pi=TAP)", "TCK", 4, 7, "in", "AST_JTAG1 TCK (FPGA drives)", "JTAG"),
         sig("ASpeed-JTAG (Pi=TAP)", "TMS", 17, 11, "in", "AST_JTAG1 TMS", "JTAG"),
         sig("ASpeed-JTAG (Pi=TAP)", "TDI", 27, 13, "in", "AST_JTAG1 TDI (FPGA→TAP)", "JTAG"),
         sig("ASpeed-JTAG (Pi=TAP)", "TDO", 22, 15, "out", "AST_JTAG1 TDO (TAP→FPGA)", "JTAG"),
         sig("ASpeed-JTAG (Pi=TAP)", "NTRST", 23, 16, "in", "AST_JTAG1 NTRST", "JTAG"),
         sig("ASpeed-JTAG (Pi=TAP)", "SRST", 24, 18, "in", "AST_JTAG1 SRST#", "JTAG"),
+        sig("ASpeed-JTAG (Pi=TAP)", "RTCK", 1, 28, "out", "AST_JTAG1 RTCK (TAP→FPGA return clk)", "JTAG"),
         # 3. UARTs -- Pi is the DUT peer on each FPGA UART bridge (TTL side,
-        #    before the COM1/COM2 MAX3232 level shifters).
+        #    before the COM1 MAX3232 level shifter). COM2 is dropped.
         sig("UART0 BMC-console", "TXD", 14, 8, "out", "AST_UART1 → FPGA UART RX", "UART"),
         sig("UART0 BMC-console", "RXD", 15, 10, "in", "AST_UART1 ← FPGA UART TX", "UART"),
         sig("UART COM1", "TX", 12, 32, "out", "COM1 → FPGA RX (TTL, pre-MAX3232)", "UART"),
         sig("UART COM1", "RX", 13, 33, "in", "COM1 ← FPGA TX (TTL)", "UART"),
-        sig("UART COM2", "TX", 16, 36, "out", "COM2 → FPGA RX (TTL)", "UART"),
-        sig("UART COM2", "RX", 26, 37, "in", "COM2 ← FPGA TX (TTL)", "UART"),
-        # 4. Straps -- read back FPGA-driven straps to verify the GPIO output
-        #    RTL; drive one FPGA input (PLED) to verify the GPIO input RTL.
+        # 4. Straps -- read back the FPGA-driven BMC_FW1 + JUMPERS straps to
+        #    verify the GPIO output RTL.
         sig("strap-verify", "IKVMEN#", 5, 29, "in", "BMC_FW1 IKVMEN# (FPGA drives)", "GPIO"),
         sig("strap-verify", "BMC_PRESENT#", 6, 31, "in", "BMC_FW1 BMC_PRESENT#", "GPIO"),
         sig("strap-verify", "SOLEN#", 7, 26, "in", "BMC_FW1 SOLEN#", "GPIO"),
@@ -279,7 +282,6 @@ def build_pi_pinmap() -> list[PiSignal]:
         sig("strap-verify", "IPMI_SEL", 2, 3, "in", "JUMPERS IPMI_SEL", "GPIO"),
         sig("strap-verify", "BIOS_RECOVERY#", 3, 5, "in", "JUMPERS BIOS_RECOVERY#", "GPIO"),
         sig("strap-verify", "CLRTC", 0, 27, "in", "JUMPERS CLRTC", "GPIO"),
-        sig("strap-verify", "PLED", 1, 28, "out", "PANEL1 PLED (Pi drives, verify FPGA input RTL)", "GPIO"),
     ]
 
 

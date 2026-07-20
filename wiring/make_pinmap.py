@@ -15,7 +15,10 @@ concurrently (no re-cabling between roles). This script:
   5. Prints a per-connector summary and writes wiring/pinmap.csv.
 
 Run with: uv run wiring/make_pinmap.py
-Run with: uv run wiring/make_pinmap.py --svg   (also renders wiring/harness.svg)
+Run with: uv run wiring/make_pinmap.py --svg       (also renders wiring/harness.svg)
+Run with: uv run wiring/make_pinmap.py --headers   (also renders wiring/ulx3s-headers.svg
+                                                     and wiring/rpi-header.svg, and writes
+                                                     wiring/pi_pinmap.csv)
 """
 
 from __future__ import annotations
@@ -52,6 +55,196 @@ ESP32_RESERVED: set[str] = {"gp11", "gp12", "gp13", "gn11", "gn12", "gn13"}
 USABLE_GPIO: list[str] = [p for p in ALL_GPIO if p not in ESP32_RESERVED]
 
 assert len(USABLE_GPIO) == 50, f"expected 50 usable GPIO, got {len(USABLE_GPIO)}"
+
+
+# ---------------------------------------------------------------------------
+# ULX3S physical GPIO header layout (--headers)
+# ---------------------------------------------------------------------------
+#
+# Source: emard/ulx3s doc/constraints/ulx3s_v20.lpf (FPGA ball assignments)
+# and emard/ulx3s MANUAL.md (the physical J1/J2 header split). Each index i
+# has a differential-capable gp[i]/gn[i] pair. J1 carries idx 0-13, J2
+# carries idx 14-27. The LPF/MANUAL do not give through-hole pin *numbers*,
+# only ball names -- so this table intentionally does not fabricate physical
+# pin numbers; positions should be confirmed against the ULX3S board
+# silkscreen when actually wiring.
+
+@dataclass
+class UlxHeaderPin:
+    idx: int
+    gp_ball: str
+    gn_ball: str
+    note: str = ""
+
+
+ULX3S_HEADER_PINS: list[UlxHeaderPin] = [
+    UlxHeaderPin(0, "B11", "C11", "PCLK"),
+    UlxHeaderPin(1, "A10", "A11", "PCLK"),
+    UlxHeaderPin(2, "A9", "B10", "GR_PCLK"),
+    UlxHeaderPin(3, "B9", "C10", ""),
+    UlxHeaderPin(4, "A7", "A8", ""),
+    UlxHeaderPin(5, "C8", "B8", ""),
+    UlxHeaderPin(6, "C6", "C7", ""),
+    UlxHeaderPin(7, "A6", "B6", ""),
+    UlxHeaderPin(8, "A4", "A5", "DIFF"),
+    UlxHeaderPin(9, "A2", "B1", "DIFF"),
+    UlxHeaderPin(10, "C4", "B4", "DIFF"),
+    UlxHeaderPin(11, "F4", "E3", "DIFF, ESP32 wifi_gpio26"),
+    UlxHeaderPin(12, "G3", "F3", "DIFF, ESP32 wifi_gpio33, PCLK"),
+    UlxHeaderPin(13, "H4", "G5", "DIFF, ESP32 wifi_gpio35"),
+    UlxHeaderPin(14, "U18", "U17", "DIFF, ADC AIN1/AIN0"),
+    UlxHeaderPin(15, "N17", "P16", "DIFF, ADC AIN3/AIN2"),
+    UlxHeaderPin(16, "N16", "M17", "DIFF, ADC AIN5/AIN4"),
+    UlxHeaderPin(17, "L16", "L17", "DIFF, ADC AIN7/AIN6, GR_PCLK"),
+    UlxHeaderPin(18, "H18", "H17", "DIFF"),
+    UlxHeaderPin(19, "F17", "G18", "DIFF"),
+    UlxHeaderPin(20, "D18", "E17", "DIFF"),
+    UlxHeaderPin(21, "C18", "D17", "DIFF"),
+    UlxHeaderPin(22, "B15", "C15", ""),
+    UlxHeaderPin(23, "B17", "C17", ""),
+    UlxHeaderPin(24, "C16", "D16", ""),
+    UlxHeaderPin(25, "D14", "E14", ""),
+    UlxHeaderPin(26, "B13", "C13", ""),
+    UlxHeaderPin(27, "D13", "E13", ""),
+]
+
+assert len(ULX3S_HEADER_PINS) == 28, f"expected 28 ULX3S header indices, got {len(ULX3S_HEADER_PINS)}"
+
+ULX3S_PIN_BY_IDX: dict[int, UlxHeaderPin] = {p.idx: p for p in ULX3S_HEADER_PINS}
+
+# J1 = idx 0-13, J2 = idx 14-27 (emard/ulx3s MANUAL.md).
+ULX3S_J1_IDX: range = range(0, 14)
+ULX3S_J2_IDX: range = range(14, 28)
+
+# gp/gn 11-13 are shared with the on-board ESP32 (see ESP32_RESERVED above).
+ULX3S_ESP32_IDX: set[int] = {11, 12, 13}
+
+# gp/gn 14-17 double as the onboard ADC channels (AIN0-7 across the four
+# differential pairs). The harness assigns these anyway (see pinmap.csv) --
+# a known, accepted tradeoff because this design never uses the ULX3S ADC.
+ULX3S_ADC_SHARED_IDX: set[int] = {14, 15, 16, 17}
+
+
+# ---------------------------------------------------------------------------
+# Raspberry Pi 40-pin J8 header (--headers)
+# ---------------------------------------------------------------------------
+#
+# Source: https://www.raspberrypi.com/documentation/computers/raspberry-pi.html
+# (GPIO section). This physical pinout is identical from the Pi B+ through
+# Pi 5 -- on the Pi 5, RP1 exposes BCM GPIO0-27 on these exact same physical
+# pins, so this table applies unchanged there too.
+
+@dataclass
+class PiPin:
+    phys: int
+    label: str
+    bcm: int | None  # None for power/ground rails (not a GPIO)
+
+
+RPI_J8_HEADER: list[PiPin] = [
+    PiPin(1, "3V3", None),
+    PiPin(2, "5V", None),
+    PiPin(3, "GPIO2 (SDA1)", 2),
+    PiPin(4, "5V", None),
+    PiPin(5, "GPIO3 (SCL1)", 3),
+    PiPin(6, "GND", None),
+    PiPin(7, "GPIO4 (GPCLK0)", 4),
+    PiPin(8, "GPIO14 (TXD0)", 14),
+    PiPin(9, "GND", None),
+    PiPin(10, "GPIO15 (RXD0)", 15),
+    PiPin(11, "GPIO17", 17),
+    PiPin(12, "GPIO18 (PCM_CLK)", 18),
+    PiPin(13, "GPIO27", 27),
+    PiPin(14, "GND", None),
+    PiPin(15, "GPIO22", 22),
+    PiPin(16, "GPIO23", 23),
+    PiPin(17, "3V3", None),
+    PiPin(18, "GPIO24", 24),
+    PiPin(19, "GPIO10 (SPI0 MOSI)", 10),
+    PiPin(20, "GND", None),
+    PiPin(21, "GPIO9 (SPI0 MISO)", 9),
+    PiPin(22, "GPIO25", 25),
+    PiPin(23, "GPIO11 (SPI0 SCLK)", 11),
+    PiPin(24, "GPIO8 (SPI0 CE0)", 8),
+    PiPin(25, "GND", None),
+    PiPin(26, "GPIO7 (SPI0 CE1)", 7),
+    PiPin(27, "GPIO0 (ID_SD)", 0),
+    PiPin(28, "GPIO1 (ID_SC)", 1),
+    PiPin(29, "GPIO5", 5),
+    PiPin(30, "GND", None),
+    PiPin(31, "GPIO6", 6),
+    PiPin(32, "GPIO12 (PWM0)", 12),
+    PiPin(33, "GPIO13 (PWM1)", 13),
+    PiPin(34, "GND", None),
+    PiPin(35, "GPIO19 (PCM_FS)", 19),
+    PiPin(36, "GPIO16", 16),
+    PiPin(37, "GPIO26", 26),
+    PiPin(38, "GPIO20 (PCM_DIN)", 20),
+    PiPin(39, "GND", None),
+    PiPin(40, "GPIO21 (PCM_DOUT)", 21),
+]
+
+assert len(RPI_J8_HEADER) == 40, f"expected 40 J8 physical pins, got {len(RPI_J8_HEADER)}"
+
+RPI_J8_BY_PHYS: dict[int, PiPin] = {p.phys: p for p in RPI_J8_HEADER}
+
+
+# ---------------------------------------------------------------------------
+# Pi5 -> DUT HIL wiring (--headers)
+# ---------------------------------------------------------------------------
+#
+# The committed default HIL wiring from the Pi5's J8 header to the ULX3S/DUT.
+# JTAG defaults verified against mithro/rp1-jtag's README (NeTV2 wiring);
+# rp1-jtag pins are runtime-configurable, so these are defaults, not a fixed
+# requirement.
+
+@dataclass
+class PiSignal:
+    role: str
+    pi_signal: str
+    bcm: int
+    phys_pin: int
+    dir: str  # Pi-relative: "out" = Pi drives, "in" = Pi reads
+    connects_to: str
+    domain: str  # SPI, UART, JTAG, GPIO
+
+
+def build_pi_pinmap() -> list[PiSignal]:
+    sig = PiSignal
+    return [
+        sig("SPI0-flash-readback", "MOSI", 10, 19, "out", "flash DI (ULX3S emulated flash)", "SPI"),
+        sig("SPI0-flash-readback", "MISO", 9, 21, "in", "flash DO (ULX3S emulated flash)", "SPI"),
+        sig("SPI0-flash-readback", "SCLK", 11, 23, "out", "flash CLK", "SPI"),
+        sig("SPI0-flash-readback", "CE0", 8, 24, "out", "flash CS#", "SPI"),
+        sig("UART0-console", "TXD", 14, 8, "out", "FPGA UART RX", "UART"),
+        sig("UART0-console", "RXD", 15, 10, "in", "FPGA UART TX", "UART"),
+        sig("JTAG", "TCK", 4, 7, "out", "AST_JTAG1 TCK", "JTAG"),
+        sig("JTAG", "TMS", 17, 11, "out", "AST_JTAG1 TMS", "JTAG"),
+        sig("JTAG", "TDI", 27, 13, "out", "AST_JTAG1 TDI", "JTAG"),
+        sig("JTAG", "TDO", 22, 15, "in", "AST_JTAG1 TDO", "JTAG"),
+        sig("JTAG", "TRST", 23, 16, "out", "AST_JTAG1 NTRST", "JTAG"),
+        sig("JTAG", "SRST", 24, 18, "out", "AST_JTAG1 SRST#", "JTAG"),
+        sig("GPIO-probe", "PROBE0", 5, 29, "in", "panel/LED probe", "GPIO"),
+        sig("GPIO-probe", "PROBE1", 6, 31, "out", "strap/button probe", "GPIO"),
+    ]
+
+
+def validate_pi_pinmap(pi_signals: list[PiSignal]) -> None:
+    """Cross-check every (bcm, phys_pin) against the canonical J8 table.
+
+    This catches a wrong Pi pin assignment: if someone edits build_pi_pinmap()
+    and gets the BCM number or physical pin wrong, this fails loud instead of
+    silently wiring the wrong Pi pin.
+    """
+    for s in pi_signals:
+        header_pin = RPI_J8_BY_PHYS.get(s.phys_pin)
+        assert header_pin is not None, (
+            f"{s.role}.{s.pi_signal}: phys pin {s.phys_pin} is not a valid J8 pin (1-40)"
+        )
+        assert header_pin.bcm == s.bcm, (
+            f"{s.role}.{s.pi_signal}: claims BCM{s.bcm} at phys pin {s.phys_pin}, "
+            f"but the J8 header has BCM{header_pin.bcm} at phys pin {s.phys_pin}"
+        )
 
 
 # ---------------------------------------------------------------------------
@@ -218,6 +411,14 @@ def write_csv(signals: list[Signal], path: Path) -> None:
             writer.writerow([s.connector, s.net, s.dir, s.via, s.gpio])
 
 
+def write_pi_csv(pi_signals: list[PiSignal], path: Path) -> None:
+    with path.open("w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["role", "pi_signal", "bcm", "phys_pin", "dir", "connects_to", "domain"])
+        for s in pi_signals:
+            writer.writerow([s.role, s.pi_signal, s.bcm, s.phys_pin, s.dir, s.connects_to, s.domain])
+
+
 # ---------------------------------------------------------------------------
 # SVG harness diagram
 # ---------------------------------------------------------------------------
@@ -246,6 +447,13 @@ DOMAIN_COLOR: dict[str, str] = {
 BG_COLOR = "#ffffff"
 TEXT_COLOR = "#111111"
 LINE_COLOR = "#444444"
+
+# Extra colours used only by the --headers diagrams (ulx3s-headers.svg,
+# rpi-header.svg), for categories that aren't a Signal domain.
+RESERVED_FILL = "#fbe9e7"  # light orange tint -- ESP32-reserved cell fill
+RESERVED_STROKE = "#e65100"  # dark orange -- ESP32-reserved cell border/text
+ADC_COLOR = "#e65100"  # dark orange -- ADC-shared corner marker (same hue as reserved)
+UNASSIGNED_STROKE = "#9e9e9e"  # mid grey -- unassigned/plain cell border
 
 
 def render_svg(signals: list[Signal], path: Path) -> None:
@@ -437,12 +645,278 @@ def render_svg(signals: list[Signal], path: Path) -> None:
     assert not missing, f"signal label(s) missing from SVG: {missing}"
 
 
+def render_ulx3s_headers(signals: list[Signal], path: Path) -> None:
+    """Render wiring/ulx3s-headers.svg: the physical ULX3S J1/J2 GPIO headers
+    (idx 0-13 / 14-27), with per-index gp/gn cells joined against `signals`
+    (the same in-memory list that produces pinmap.csv) to show what each pin
+    is assigned to.
+    """
+    gpio_to_signal: dict[str, Signal] = {s.gpio: s for s in signals if s.gpio is not None}
+
+    # ESP32-reserved indices must never appear in the assigned map -- this is
+    # already enforced by validate(), but re-check here since this diagram
+    # asserts it visually too.
+    for idx in ULX3S_ESP32_IDX:
+        for which in ("gp", "gn"):
+            name = f"{which}{idx}"
+            assert name not in gpio_to_signal, f"{name} is ESP32-reserved but was assigned to a signal"
+
+    MARGIN = 20
+    CELL_W = 280
+    CELL_H = 30
+    ROW_SPACING = 36
+    IDX_W = 46
+    GAP = 30
+    BLOCK_TITLE_H = 20
+    BLOCK_GAP = 30
+    TITLE_H = 30
+    SUBTITLE_H = 28
+    LEGEND_H = 20
+
+    ROW_W = IDX_W + CELL_W + GAP + CELL_W
+    CANVAS_W = ROW_W + 2 * MARGIN
+
+    top = MARGIN + TITLE_H + SUBTITLE_H + LEGEND_H + 20
+    rows_per_block = 14
+    block_h = BLOCK_TITLE_H + rows_per_block * ROW_SPACING
+    CANVAS_H = top + 2 * block_h + BLOCK_GAP + MARGIN
+
+    parts: list[str] = []
+    parts.append(
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{CANVAS_W}" height="{CANVAS_H}" '
+        f'viewBox="0 0 {CANVAS_W} {CANVAS_H}" font-family="monospace" font-size="10">'
+    )
+    parts.append(f'<rect x="0" y="0" width="{CANVAS_W}" height="{CANVAS_H}" fill="{BG_COLOR}"/>')
+    parts.append(
+        f'<text x="{MARGIN}" y="{MARGIN + 16}" font-size="16" font-weight="bold" fill="{TEXT_COLOR}">'
+        'ULX3S GPIO headers J1/J2 -- KGPE-D16 assignment</text>'
+    )
+    parts.append(
+        f'<text x="{MARGIN}" y="{MARGIN + 30}" fill="{TEXT_COLOR}">'
+        'J1 = gp/gn idx 0-13, J2 = gp/gn idx 14-27 (emard/ulx3s ulx3s_v20.lpf + MANUAL.md). '
+        'idx 11-13 shared with the on-board ESP32 (excluded from the usable pool).</text>'
+    )
+    parts.append(
+        f'<text x="{MARGIN}" y="{MARGIN + 42}" fill="{TEXT_COLOR}">'
+        'idx 14-17 double as onboard ADC AIN0-7 -- assigned anyway (ADC unused by this design). '
+        'No source gives through-hole pin numbers: confirm physical position against the silkscreen.</text>'
+    )
+
+    legend_y = MARGIN + TITLE_H + SUBTITLE_H
+    legend_x = MARGIN
+    for domain, color in DOMAIN_COLOR.items():
+        parts.append(
+            f'<rect x="{legend_x}" y="{legend_y}" width="12" height="12" '
+            f'fill="{color}" fill-opacity="0.2" stroke="{color}"/>'
+        )
+        parts.append(f'<text x="{legend_x + 16}" y="{legend_y + 10}" fill="{TEXT_COLOR}">{escape(domain)}</text>')
+        legend_x += 80
+    parts.append(
+        f'<rect x="{legend_x}" y="{legend_y}" width="12" height="12" '
+        f'fill="{RESERVED_FILL}" stroke="{RESERVED_STROKE}" stroke-dasharray="2,2"/>'
+    )
+    parts.append(f'<text x="{legend_x + 16}" y="{legend_y + 10}" fill="{TEXT_COLOR}">ESP32-reserved</text>')
+    legend_x += 120
+    parts.append(
+        f'<rect x="{legend_x}" y="{legend_y}" width="12" height="12" '
+        f'fill="none" stroke="{ADC_COLOR}" stroke-width="2"/>'
+    )
+    parts.append(f'<text x="{legend_x + 16}" y="{legend_y + 10}" fill="{TEXT_COLOR}">ADC-shared</text>')
+    legend_x += 100
+    parts.append(
+        f'<rect x="{legend_x}" y="{legend_y}" width="12" height="12" '
+        f'fill="none" stroke="{UNASSIGNED_STROKE}" stroke-dasharray="2,2"/>'
+    )
+    parts.append(f'<text x="{legend_x + 16}" y="{legend_y + 10}" fill="{TEXT_COLOR}">unassigned</text>')
+
+    cell_count = 0
+    y0 = top
+    for block_name, idx_range in (("J1", ULX3S_J1_IDX), ("J2", ULX3S_J2_IDX)):
+        parts.append(
+            f'<text x="{MARGIN}" y="{y0 + BLOCK_TITLE_H - 6}" font-weight="bold" fill="{TEXT_COLOR}">'
+            f'ULX3S {block_name}</text>'
+        )
+        y = y0 + BLOCK_TITLE_H
+        for idx in idx_range:
+            pin = ULX3S_PIN_BY_IDX[idx]
+            parts.append(f'<text x="{MARGIN}" y="{y + CELL_H / 2 + 4}" fill="{TEXT_COLOR}">idx{idx}</text>')
+
+            x = MARGIN + IDX_W
+            for which, ball in (("gp", pin.gp_ball), ("gn", pin.gn_ball)):
+                gpio_name = f"{which}{idx}"
+                sig = gpio_to_signal.get(gpio_name)
+                line1 = f"{gpio_name} ({ball})"
+
+                if idx in ULX3S_ESP32_IDX:
+                    fill_attr = f'fill="{RESERVED_FILL}"'
+                    stroke = RESERVED_STROKE
+                    dash_attr = 'stroke-dasharray="2,2"'
+                    text_color = RESERVED_STROKE
+                    line2 = "ESP32 reserved"
+                elif sig is not None:
+                    domain = DOMAIN_BY_CONNECTOR[sig.connector]
+                    color = DOMAIN_COLOR[domain]
+                    fill_attr = f'fill="{color}" fill-opacity="0.15"'
+                    stroke = color
+                    dash_attr = ""
+                    text_color = color
+                    line2 = f"{sig.connector}.{sig.net}"
+                else:
+                    fill_attr = 'fill="none"'
+                    stroke = UNASSIGNED_STROKE
+                    dash_attr = 'stroke-dasharray="2,2"'
+                    text_color = UNASSIGNED_STROKE
+                    line2 = pin.note if pin.note else "unassigned"
+
+                parts.append(
+                    f'<rect x="{x}" y="{y}" width="{CELL_W}" height="{CELL_H}" {fill_attr} '
+                    f'stroke="{stroke}" stroke-width="1.5" {dash_attr} rx="3"/>'
+                )
+                cell_count += 1
+                parts.append(
+                    f'<text x="{x + 6}" y="{y + 12}" fill="{text_color}" font-weight="bold">'
+                    f'{escape(line1)}</text>'
+                )
+                parts.append(f'<text x="{x + 6}" y="{y + 24}" fill="{text_color}">{escape(line2)}</text>')
+
+                if idx in ULX3S_ADC_SHARED_IDX:
+                    parts.append(
+                        f'<rect x="{x + CELL_W - 14}" y="{y + 2}" width="10" height="10" '
+                        f'fill="none" stroke="{ADC_COLOR}" stroke-width="2"/>'
+                    )
+
+                x += CELL_W + GAP
+
+            y += ROW_SPACING
+        y0 = y + BLOCK_GAP
+
+    parts.append('</svg>')
+    svg_text = "\n".join(parts)
+
+    assert cell_count == 56, f"ULX3S header cell count {cell_count} != 56 (28 gp + 28 gn)"
+    print(f"ULX3S header cells drawn: {cell_count} (expected 56)")
+
+    path.write_text(svg_text)
+    ET.parse(path)
+
+
+def render_rpi_header(pi_signals: list[PiSignal], path: Path) -> None:
+    """Render wiring/rpi-header.svg: the 40-pin Pi J8 header, in physical
+    pin order, with the HIL role/connects_to from `pi_signals` (the same
+    in-memory list that produces pi_pinmap.csv) overlaid on the pins in use.
+    """
+    phys_to_pi: dict[int, PiSignal] = {s.phys_pin: s for s in pi_signals}
+
+    MARGIN = 20
+    CELL_W = 340
+    CELL_H = 28
+    ROW_SPACING = 34
+    COL_GAP = 40
+    TITLE_H = 30
+    SUBTITLE_H = 14
+    LEGEND_H = 20
+    TOP = MARGIN + TITLE_H + SUBTITLE_H + LEGEND_H + 20
+    N_ROWS = 20
+
+    CANVAS_W = MARGIN * 2 + CELL_W * 2 + COL_GAP
+    CANVAS_H = TOP + N_ROWS * ROW_SPACING + MARGIN
+
+    parts: list[str] = []
+    parts.append(
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{CANVAS_W}" height="{CANVAS_H}" '
+        f'viewBox="0 0 {CANVAS_W} {CANVAS_H}" font-family="monospace" font-size="10">'
+    )
+    parts.append(f'<rect x="0" y="0" width="{CANVAS_W}" height="{CANVAS_H}" fill="{BG_COLOR}"/>')
+    parts.append(
+        f'<text x="{MARGIN}" y="{MARGIN + 16}" font-size="16" font-weight="bold" fill="{TEXT_COLOR}">'
+        'Raspberry Pi J8 header -- HIL wiring to the ULX3S/DUT</text>'
+    )
+    parts.append(
+        f'<text x="{MARGIN}" y="{MARGIN + 30}" fill="{TEXT_COLOR}">'
+        'Canonical 40-pin J8 (raspberrypi.com GPIO docs), identical Pi B+..Pi 5 (RP1 keeps this '
+        'layout). Highlighted pins are the committed pi_pinmap.csv defaults (rp1-jtag pins are '
+        'runtime-configurable).</text>'
+    )
+
+    legend_y = MARGIN + TITLE_H + SUBTITLE_H
+    legend_x = MARGIN
+    for domain, color in DOMAIN_COLOR.items():
+        parts.append(
+            f'<rect x="{legend_x}" y="{legend_y}" width="12" height="12" '
+            f'fill="{color}" fill-opacity="0.2" stroke="{color}"/>'
+        )
+        parts.append(f'<text x="{legend_x + 16}" y="{legend_y + 10}" fill="{TEXT_COLOR}">{escape(domain)}</text>')
+        legend_x += 80
+    parts.append(
+        f'<rect x="{legend_x}" y="{legend_y}" width="12" height="12" '
+        f'fill="none" stroke="{UNASSIGNED_STROKE}" stroke-dasharray="2,2"/>'
+    )
+    parts.append(f'<text x="{legend_x + 16}" y="{legend_y + 10}" fill="{TEXT_COLOR}">no HIL role</text>')
+
+    cell_count = 0
+    left_x = MARGIN
+    right_x = MARGIN + CELL_W + COL_GAP
+    for r in range(N_ROWS):
+        phys_left = 2 * r + 1
+        phys_right = 2 * r + 2
+        y = TOP + r * ROW_SPACING
+
+        for x, phys in ((left_x, phys_left), (right_x, phys_right)):
+            pin = RPI_J8_BY_PHYS[phys]
+            hil = phys_to_pi.get(phys)
+            line1 = f"pin{phys:<2} {pin.label}"
+
+            if hil is not None:
+                color = DOMAIN_COLOR[hil.domain]
+                fill_attr = f'fill="{color}" fill-opacity="0.15"'
+                stroke = color
+                dash_attr = ""
+                text_color = color
+                line2 = f"{hil.pi_signal} -> {hil.connects_to}"
+            else:
+                fill_attr = 'fill="none"'
+                stroke = UNASSIGNED_STROKE
+                dash_attr = 'stroke-dasharray="2,2"'
+                text_color = TEXT_COLOR
+                line2 = ""
+
+            parts.append(
+                f'<rect x="{x}" y="{y}" width="{CELL_W}" height="{CELL_H}" {fill_attr} '
+                f'stroke="{stroke}" stroke-width="1.5" {dash_attr} rx="3"/>'
+            )
+            cell_count += 1
+            parts.append(
+                f'<text x="{x + 6}" y="{y + 12}" fill="{text_color}" font-weight="bold">{escape(line1)}</text>'
+            )
+            if line2:
+                parts.append(
+                    f'<text x="{x + 6}" y="{y + 24}" fill="{text_color}" font-size="9">{escape(line2)}</text>'
+                )
+
+    parts.append('</svg>')
+    svg_text = "\n".join(parts)
+
+    assert cell_count == 40, f"RPi header cell count {cell_count} != 40"
+    print(f"RPi header cells drawn: {cell_count} (expected 40)")
+
+    path.write_text(svg_text)
+    ET.parse(path)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--svg",
         action="store_true",
         help="also render wiring/harness.svg from the same in-memory signal list",
+    )
+    parser.add_argument(
+        "--headers",
+        action="store_true",
+        help=(
+            "also render wiring/ulx3s-headers.svg and wiring/rpi-header.svg, and write "
+            "wiring/pi_pinmap.csv"
+        ),
     )
     args = parser.parse_args()
 
@@ -459,6 +933,22 @@ def main() -> None:
         svg_path = Path(__file__).parent / "harness.svg"
         render_svg(signals, svg_path)
         print(f"wrote {svg_path}")
+
+    if args.headers:
+        pi_signals = build_pi_pinmap()
+        validate_pi_pinmap(pi_signals)
+
+        pi_csv_path = Path(__file__).parent / "pi_pinmap.csv"
+        write_pi_csv(pi_signals, pi_csv_path)
+        print(f"wrote {pi_csv_path}")
+
+        ulx3s_svg_path = Path(__file__).parent / "ulx3s-headers.svg"
+        render_ulx3s_headers(signals, ulx3s_svg_path)
+        print(f"wrote {ulx3s_svg_path}")
+
+        rpi_svg_path = Path(__file__).parent / "rpi-header.svg"
+        render_rpi_header(pi_signals, rpi_svg_path)
+        print(f"wrote {rpi_svg_path}")
 
 
 if __name__ == "__main__":

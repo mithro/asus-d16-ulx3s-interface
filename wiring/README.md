@@ -80,6 +80,8 @@ viewer's light/dark theme.
 ```sh
 uv run wiring/make_pinmap.py           # validate + print summary + write pinmap.csv
 uv run wiring/make_pinmap.py --svg     # same, plus render wiring/harness.svg
+uv run wiring/make_pinmap.py --headers # same, plus render the two header diagrams
+                                        # (below) and write wiring/pi_pinmap.csv
 ```
 
 Both invocations fail loud (`AssertionError`) if the map is invalid — e.g. a
@@ -89,3 +91,74 @@ missing its required `via`. The `--svg` path additionally asserts the drawn
 row count equals the signal count (41), re-parses the written file as XML,
 and confirms every `connector.net` label from `pinmap.csv` appears in the
 rendered SVG text.
+
+## ULX3S and Raspberry Pi header reference (`--headers`)
+
+`wiring/make_pinmap.py --headers` renders two additional, physical-header
+diagrams and writes a second CSV, all derived the same way as the harness
+diagram above: from structured data in the script, cross-checked against the
+existing `pinmap.csv`/`Signal` data rather than duplicating it.
+
+### `wiring/ulx3s-headers.svg` — ULX3S J1/J2 GPIO headers
+
+The ULX3S exposes its 56 `gp[0..27]`/`gn[0..27]` GPIO on two 2.54&nbsp;mm
+double-row headers: **J1 carries idx 0-13, J2 carries idx 14-27** (per
+[emard/ulx3s](https://github.com/emard/ulx3s) `MANUAL.md`; FPGA ball
+assignments per `doc/constraints/ulx3s_v20.lpf`). The diagram shows every
+`gp`/`gn` cell for both headers, joined against the same in-memory signal
+list that produces `pinmap.csv` — any cell backed by an assigned signal is
+coloured by domain and labelled `connector.net`; unassigned cells are grey.
+
+Two things worth calling out explicitly:
+
+- **`gp`/`gn` idx 11-13 are shared with the on-board ESP32** (`wifi_gpio26`/
+  `33`/`35`) and are excluded from the usable pool entirely (`ESP32_RESERVED`
+  in `make_pinmap.py`, `validate()` asserts no signal ever lands there). The
+  diagram shades these distinctly and never shows them as assigned.
+- **`gp`/`gn` idx 14-17 double as the onboard ADC channels** (`AIN0`-`AIN7`
+  across the four differential pairs, per `ulx3s_v20.lpf`). The harness
+  *does* assign these four indices (see `pinmap.csv`: `gp14`-`gp17`,
+  `gn14`-`gn17`) — that's an accepted tradeoff, not an oversight: this
+  design never uses the ULX3S's onboard ADC, so sacrificing it to gain four
+  more usable GPIO is free. The diagram marks these cells with a small
+  orange corner marker (legend: "ADC-shared") regardless of whether they're
+  currently assigned.
+
+The LPF/MANUAL give FPGA ball names and the J1/J2 split, but no through-hole
+pin *numbers* — the diagram deliberately labels pins by `gp`/`gn` index and
+FPGA ball only; confirm physical pin position against the ULX3S board
+silkscreen before actually wiring.
+
+### `wiring/rpi-header.svg` — Raspberry Pi J8 header + HIL wiring
+
+The Raspberry Pi's 40-pin J8 GPIO header has an identical physical pinout
+from the Pi B+ through the Pi 5 — on the Pi 5, RP1 exposes BCM `GPIO0`-`27`
+on these same physical pins (source:
+[raspberrypi.com GPIO docs](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html)).
+`make_pinmap.py` hard-codes this reference table (`RPI_J8_HEADER`) and draws
+all 40 pins in physical order (odd column left, even column right); pins
+used for hardware-in-the-loop (HIL) control are overlaid from
+`wiring/pi_pinmap.csv` and coloured by domain.
+
+- **`wiring/pi_pinmap.csv`** — the committed default Pi5 &rarr; DUT HIL
+  wiring: `role,pi_signal,bcm,phys_pin,dir,connects_to,domain` per row.
+  Covers SPI0 flash read-back (MOSI/MISO/SCLK/CE0), a UART0 console
+  (TXD/RXD), the 6-signal JTAG bundle (TCK/TMS/TDI/TDO/TRST/SRST), and two
+  spare GPIO probes. Written from a hard-coded list in `make_pinmap.py`
+  (`build_pi_pinmap()`) — same pattern as `pinmap.csv`, no data duplicated
+  in the SVG renderer.
+- The JTAG pin defaults are verified against
+  [mithro/rp1-jtag](https://github.com/mithro/rp1-jtag)'s README (NeTV2
+  wiring). **rp1-jtag's pins are runtime-configurable** — this CSV records
+  the committed defaults for this harness, not a hard requirement.
+- `validate_pi_pinmap()` cross-checks every `(bcm, phys_pin)` pair in
+  `pi_pinmap.csv` against the canonical `RPI_J8_HEADER` table and fails
+  loud (`AssertionError`) on any mismatch — this is what catches a wrong Pi
+  pin assignment (e.g. claiming a BCM number lives on a physical pin it
+  doesn't).
+
+Both `--headers` SVGs share the same conventions as `harness.svg`: an
+explicit white background rect (theme-safe), a legend, and a fail-loud
+drawn-cell-count assertion (56 = 28 `gp` + 28 `gn` for the ULX3S headers, 40
+for the Pi J8) followed by re-parsing the written file with
+`xml.etree.ElementTree` to confirm it's valid XML.

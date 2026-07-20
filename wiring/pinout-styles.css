@@ -1,0 +1,141 @@
+/* Shared stylesheet for the pinout-library-generated diagrams in this
+ * directory (rpi-pinout.svg, ulx3s-pinout.svg, asus-headers-pinout.svg).
+ * Embedded inline via Diagram.add_stylesheet(path, embed=True) so each SVG
+ * stays a single self-contained file (renders correctly on GitHub, which
+ * strips <link> stylesheets from embedded SVG).
+ *
+ * Domain colours match wiring/make_pinmap.py DOMAIN_COLOR so a signal's
+ * colour is identical across harness.svg, ulx3s-headers.svg, rpi-header.svg
+ * and these pinout-library diagrams.
+ */
+
+svg {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #ffffff;
+}
+
+/* -- page chrome -------------------------------------------------------- */
+
+.h1 {
+    font-size: 20px;
+    font-weight: bold;
+    fill: #111111;
+}
+
+.h2 {
+    font-size: 11px;
+    fill: #333333;
+}
+
+.connector-title {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.legend-text {
+    font-size: 11px;
+    fill: #111111;
+}
+
+/* -- connector body graphic ---------------------------------------------
+ * Dark body, gold pin holes -- reads like a real pin header on a white
+ * page.
+ */
+
+.board,
+.connector-body {
+    fill: #263238;
+    stroke: #10151a;
+    stroke-width: 1;
+}
+
+.hole {
+    fill: #d9b310;
+    stroke: #7a5c00;
+    stroke-width: 0.5;
+}
+
+/* -- pin labels: rounded body, white text, light leaderlines ------------- */
+
+rect.pinlabel__body {
+    rx: 6;
+    ry: 6;
+}
+
+.pinlabel__text {
+    fill: #ffffff;
+    font-size: 11px;
+    /* pinout positions each label's text at its body's horizontal centre
+     * (body.width/2 + body.x) -- that math only lands correctly with
+     * text-anchor: middle. Without it, text renders "start"-anchored and
+     * (combined with the mirrored fan on the left side) overflows toward
+     * the pin instead of centering in the pill. */
+    text-anchor: middle;
+}
+
+path.pinlabel__leader,
+.pinlabel__leaderline {
+    stroke: #bbbbbb;
+    stroke-width: 1.25;
+    fill: none;
+}
+
+/* Signal-domain fills (see wiring/make_pinmap.py DOMAIN_COLOR). */
+.spi rect.pinlabel__body { fill: #1b5e20; }
+.uart rect.pinlabel__body { fill: #0d47a1; }
+.jtag rect.pinlabel__body { fill: #b71c1c; }
+.gpio rect.pinlabel__body { fill: #4a148c; }
+
+/* Matching text colours, for use on connector titles / legend swatches
+ * drawn directly on the white page background (not inside a coloured
+ * label body).
+ */
+.spi-text { fill: #1b5e20; }
+.uart-text { fill: #0d47a1; }
+.jtag-text { fill: #b71c1c; }
+.gpio-text { fill: #4a148c; }
+
+/* Unassigned / power / ground / spare pins. */
+.nc rect.pinlabel__body,
+.spare rect.pinlabel__body {
+    fill: #9e9e9e;
+}
+
+/* ESP32-shared ULX3S GPIO (gp/gn 11-13) -- distinguishable from a plain
+ * spare pin. */
+.esp32 rect.pinlabel__body {
+    fill: #757575;
+}
+.esp32-text {
+    fill: #616161;
+}
+
+/* ADC-shared ULX3S GPIO (gp/gn 14-17) -- dashed accent outline layered on
+ * top of whatever fill the pin already has (domain colour or grey). */
+.adc rect.pinlabel__body {
+    stroke: #e65100;
+    stroke-width: 2;
+    stroke-dasharray: 3,2;
+}
+
+/* -- legend swatches (plain rects, not pinlabel bodies) ------------------ */
+
+.legend-swatch {
+    stroke: #333333;
+    stroke-width: 0.5;
+    rx: 3;
+    ry: 3;
+}
+.legend-swatch.spi { fill: #1b5e20; }
+.legend-swatch.uart { fill: #0d47a1; }
+.legend-swatch.jtag { fill: #b71c1c; }
+.legend-swatch.gpio { fill: #4a148c; }
+.legend-swatch.nc,
+.legend-swatch.spare { fill: #9e9e9e; }
+.legend-swatch.esp32 { fill: #757575; }
+.legend-swatch.adc {
+    fill: #ffffff;
+    stroke: #e65100;
+    stroke-width: 2;
+    stroke-dasharray: 3,2;
+}

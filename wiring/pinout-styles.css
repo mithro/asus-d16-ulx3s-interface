@@ -4,9 +4,10 @@
  * stays a single self-contained file (renders correctly on GitHub, which
  * strips <link> stylesheets from embedded SVG).
  *
- * Domain colours match wiring/make_pinmap.py DOMAIN_COLOR so a signal's
- * colour is identical across harness.svg, ulx3s-headers.svg, rpi-header.svg
- * and these pinout-library diagrams.
+ * Colour keys match wiring/make_pinmap.py KEY_COLOR so a signal's colour is
+ * identical across harness.svg, ulx3s-headers.svg, rpi-header.svg and these
+ * pinout-library diagrams. SPI and UART are split per-connector (spi0/spi1,
+ * uartbmc/com1/com2); JTAG and GPIO stay single-colour.
  */
 
 svg {
@@ -80,18 +81,32 @@ path.pinlabel__leader,
     fill: none;
 }
 
-/* Signal-domain fills (see wiring/make_pinmap.py DOMAIN_COLOR). */
-.spi rect.pinlabel__body { fill: #1b5e20; }
-.uart rect.pinlabel__body { fill: #0d47a1; }
+/* Per-connector fills (see wiring/make_pinmap.py KEY_COLOR). */
+.spi0 rect.pinlabel__body { fill: #1b5e20; }
+.spi1 rect.pinlabel__body { fill: #43a047; }
+.uartbmc rect.pinlabel__body { fill: #0d47a1; }
+.com1 rect.pinlabel__body { fill: #1e88e5; }
+.com2 rect.pinlabel__body { fill: #3949ab; }
 .jtag rect.pinlabel__body { fill: #b71c1c; }
 .gpio rect.pinlabel__body { fill: #4a148c; }
+
+/* Matching leaderline colours, so a pin's leaderline reads as the same
+ * colour as its label body. */
+.spi0 path.pinlabel__leaderline { stroke: #1b5e20; }
+.spi1 path.pinlabel__leaderline { stroke: #43a047; }
+.uartbmc path.pinlabel__leaderline { stroke: #0d47a1; }
+.com1 path.pinlabel__leaderline { stroke: #1e88e5; }
+.com2 path.pinlabel__leaderline { stroke: #3949ab; }
 
 /* Matching text colours, for use on connector titles / legend swatches
  * drawn directly on the white page background (not inside a coloured
  * label body).
  */
-.spi-text { fill: #1b5e20; }
-.uart-text { fill: #0d47a1; }
+.spi0-text { fill: #1b5e20; }
+.spi1-text { fill: #43a047; }
+.uartbmc-text { fill: #0d47a1; }
+.com1-text { fill: #1e88e5; }
+.com2-text { fill: #3949ab; }
 .jtag-text { fill: #b71c1c; }
 .gpio-text { fill: #4a148c; }
 
@@ -126,8 +141,11 @@ path.pinlabel__leader,
     rx: 3;
     ry: 3;
 }
-.legend-swatch.spi { fill: #1b5e20; }
-.legend-swatch.uart { fill: #0d47a1; }
+.legend-swatch.spi0 { fill: #1b5e20; }
+.legend-swatch.spi1 { fill: #43a047; }
+.legend-swatch.uartbmc { fill: #0d47a1; }
+.legend-swatch.com1 { fill: #1e88e5; }
+.legend-swatch.com2 { fill: #3949ab; }
 .legend-swatch.jtag { fill: #b71c1c; }
 .legend-swatch.gpio { fill: #4a148c; }
 .legend-swatch.nc,

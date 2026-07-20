@@ -146,7 +146,9 @@ def build_rpi_diagram() -> tuple[Diagram, list[str]]:
         "even fan right. Coloured pins carry the committed HIL role from "
         "wiring/pi_pinmap.csv.", x=30, y=62, tag="h2"))
 
-    legend_entries = [(d, d.lower()) for d in mp.DOMAIN_COLOR] + [(NC_LABEL, "nc")]
+    legend_entries = [
+        (label, key) for (label, _color), key in zip(mp.SIGNAL_LEGEND, mp.KEY_COLOR)
+    ] + [(NC_LABEL, "nc")]
     add_legend(diagram, 30, 82, legend_entries)
 
     add_connector_body(diagram, board_x, board_y, BOARD_W, N, ROWH, [0.28, 0.72])
@@ -162,7 +164,7 @@ def build_rpi_diagram() -> tuple[Diagram, list[str]]:
             expected_strings.append(str(pin.phys))
             role = role_by_bcm.get(pin.bcm) if pin.bcm is not None else None
             if role is not None:
-                tag = role.domain.lower()
+                tag = mp.pi_role_key(role.role)
                 content2 = f"{role.role} → {role.connects_to}"
                 out.append([
                     (content1, tag, {"body": {"width": LABEL1_W}}),
@@ -260,7 +262,7 @@ def build_ulx3s_diagram() -> tuple[Diagram, list[str], float]:
         "embedded board render below for the real layout.", x=30, y=62, tag="h2"))
 
     legend_entries = (
-        [(d, d.lower()) for d in mp.DOMAIN_COLOR]
+        [(label, key) for (label, _color), key in zip(mp.SIGNAL_LEGEND, mp.KEY_COLOR)]
         + [(SPARE_LABEL, "spare"), (ESP32_LABEL, "esp32"), (ADC_LABEL, "adc"), (RAIL_LABEL, "rail")]
     )
     add_legend(diagram, 30, 82, legend_entries)
@@ -281,11 +283,11 @@ def build_ulx3s_diagram() -> tuple[Diagram, list[str], float]:
 
         sig = gpio_to_signal.get(name)
         if sig is not None:
-            domain_tag = mp.DOMAIN_BY_CONNECTOR[sig.connector].lower()
+            key_tag = mp.connector_key(sig.connector)
             content2 = f"{sig.connector}.{sig.net}"
             return [
-                (content1, f"{domain_tag}{adc_tag}", {"body": {"width": LABEL1_W}}),
-                (content2, f"{domain_tag}{adc_tag}", {"body": {"width": LABEL2_W}}),
+                (content1, f"{key_tag}{adc_tag}", {"body": {"width": LABEL1_W}}),
+                (content2, f"{key_tag}{adc_tag}", {"body": {"width": LABEL2_W}}),
             ]
 
         return [(content1, f"spare{adc_tag}", {"body": {"width": LABEL1_W}})]
@@ -439,7 +441,7 @@ def build_asus_diagram() -> tuple[Diagram, list[str]]:
         "This is the DUT side of the harness -- compare with ulx3s-pinout.svg.",
         x=30, y=76, tag="h2"))
 
-    legend_entries = [(d, d.lower()) for d in mp.DOMAIN_COLOR]
+    legend_entries = [(label, key) for (label, _color), key in zip(mp.SIGNAL_LEGEND, mp.KEY_COLOR)]
     add_legend(diagram, 30, 96, legend_entries)
 
     expected_strings: list[str] = []
@@ -450,9 +452,9 @@ def build_asus_diagram() -> tuple[Diagram, list[str]]:
         cell_x = 30 + col * (CELL_W + COL_GAP)
         cell_y = TOP + row * (CELL_H + ROW_GAP)
 
-        domain = mp.DOMAIN_BY_CONNECTOR[connector]
+        key_tag = mp.connector_key(connector)
         diagram.add(TextBlock(
-            connector, x=cell_x, y=cell_y + 12, tag=f"connector-title {domain.lower()}-text"))
+            connector, x=cell_x, y=cell_y + 12, tag=f"connector-title {key_tag}-text"))
 
         board_y = cell_y + 30
         add_connector_body(diagram, cell_x, board_y, BOARD_W, len(sigs), ROWH, [0.5])
@@ -461,7 +463,7 @@ def build_asus_diagram() -> tuple[Diagram, list[str]]:
         for s in sigs:
             content = f"{s.connector}.{s.net} → {s.gpio}"
             expected_strings.append(f"{s.connector}.{s.net}")
-            row_labels.append([(content, domain.lower(), {"body": {"width": LABEL_W}})])
+            row_labels.append([(content, key_tag, {"body": {"width": LABEL_W}})])
 
         diagram.add(PinLabelGroup(
             x=cell_x + BOARD_W * 0.5,

@@ -164,7 +164,7 @@ def label_for(net: str) -> tuple[str, str]:
     low = n.lower()  # GP7 -> gp7
     if low in gts:
         s = gts[low]
-        return f"{low}  {s.connector}.{s.net}", mp.DOMAIN_BY_CONNECTOR[s.connector].lower()
+        return f"{low}  {s.connector}.{s.net}", mp.connector_key(s.connector)
     if low.startswith(("gp", "gn")):
         return f"{low} (spare)", "spare"
     return n, "spare"
@@ -221,8 +221,11 @@ svg { font-family: sans-serif; }
 .pinlabel__text { text-anchor: middle; fill: #fff; font-size: 14px; font-weight:600; }
 rect.pinlabel__body { rx:3; }
 path.pinlabel__leader, path.pinlabel__leaderline { stroke:#555; stroke-width:1.6; fill:none; }
-.spi rect.pinlabel__body { fill:#1b5e20; } .spi path.pinlabel__leaderline{stroke:#1b5e20;}
-.uart rect.pinlabel__body { fill:#0d47a1; } .uart path.pinlabel__leaderline{stroke:#0d47a1;}
+.spi0 rect.pinlabel__body { fill:#1b5e20; } .spi0 path.pinlabel__leaderline{stroke:#1b5e20;}
+.spi1 rect.pinlabel__body { fill:#43a047; } .spi1 path.pinlabel__leaderline{stroke:#43a047;}
+.uartbmc rect.pinlabel__body { fill:#0d47a1; } .uartbmc path.pinlabel__leaderline{stroke:#0d47a1;}
+.com1 rect.pinlabel__body { fill:#1e88e5; } .com1 path.pinlabel__leaderline{stroke:#1e88e5;}
+.com2 rect.pinlabel__body { fill:#3949ab; } .com2 path.pinlabel__leaderline{stroke:#3949ab;}
 .jtag rect.pinlabel__body { fill:#b71c1c; } .jtag path.pinlabel__leaderline{stroke:#b71c1c;}
 .gpio rect.pinlabel__body { fill:#4a148c; } .gpio path.pinlabel__leaderline{stroke:#4a148c;}
 .power rect.pinlabel__body { fill:#e65100; } .power path.pinlabel__leaderline{stroke:#e65100;}
@@ -240,19 +243,23 @@ finally:
     Path(css_path).unlink()
     Path(crop_path).unlink()
 
-# splice a title + legend into the top band
-LEG = [("SPI", "#1b5e20"), ("UART", "#0d47a1"), ("JTAG", "#b71c1c"),
-       ("GPIO", "#4a148c"), ("power", "#e65100"), ("GND", "#111"), ("spare", "#9e9e9e")]
+# splice a title + legend into the top band. LEG combines the split SPI/UART
+# signal legend (mp.SIGNAL_LEGEND: spi0/spi1/uartbmc/com1/com2 + unchanged
+# jtag/gpio) with this diagram's own power/GND/spare entries. Per-entry width
+# scales with label length since "SPI1 BIOS-flash" etc. are wider than the
+# old 4-word domain labels.
+LEG = list(mp.SIGNAL_LEGEND) + [("power", "#e65100"), ("GND", "#111"), ("spare", "#9e9e9e")]
+entry_w = [36 + 8 * len(name) for name, _ in LEG]
 hdr = ['<rect x="0" y="0" width="%d" height="52" fill="#ffffff"/>' % CANVAS_W,
        '<text x="20" y="34" font-family="sans-serif" font-size="24" font-weight="bold" '
        'fill="#111">ULX3S J1/J2 &#8212; KGPE-D16 assignment, labels fan off each pad '
        '(board render: emard/ulx3s @6a92cec, MIT)</text>']
-lx = CANVAS_W - len(LEG) * 120 - 20
-for name, col in LEG:
+lx = CANVAS_W - sum(entry_w) - 20
+for (name, col), w in zip(LEG, entry_w):
     hdr.append('<rect x="%d" y="18" width="16" height="16" fill="%s"/>' % (lx, col))
     hdr.append('<text x="%d" y="31" font-family="sans-serif" font-size="14" fill="#111">%s</text>'
                % (lx + 20, name))
-    lx += 120
+    lx += w
 svg = svg.replace("</svg>", "\n".join(hdr) + "\n</svg>")
 
 OUT_SVG.write_text(svg)

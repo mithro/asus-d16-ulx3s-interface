@@ -1,0 +1,15 @@
+role,pi_signal,bcm,phys_pin,dir,connects_to,domain
+SPI0-flash-readback,MOSI,10,19,out,flash DI (ULX3S emulated flash),SPI
+SPI0-flash-readback,MISO,9,21,in,flash DO (ULX3S emulated flash),SPI
+SPI0-flash-readback,SCLK,11,23,out,flash CLK,SPI
+SPI0-flash-readback,CE0,8,24,out,flash CS#,SPI
+UART0-console,TXD,14,8,out,FPGA UART RX,UART
+UART0-console,RXD,15,10,in,FPGA UART TX,UART
+JTAG,TCK,4,7,out,AST_JTAG1 TCK,JTAG
+JTAG,TMS,17,11,out,AST_JTAG1 TMS,JTAG
+JTAG,TDI,27,13,out,AST_JTAG1 TDI,JTAG
+JTAG,TDO,22,15,in,AST_JTAG1 TDO,JTAG
+JTAG,TRST,23,16,out,AST_JTAG1 NTRST,JTAG
+JTAG,SRST,24,18,out,AST_JTAG1 SRST#,JTAG
+GPIO-probe,PROBE0,5,29,in,panel/LED probe,GPIO
+GPIO-probe,PROBE1,6,31,out,strap/button probe,GPIO

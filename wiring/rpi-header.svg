@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="804" viewBox="0 0 760 804" font-family="monospace" font-size="10">
+<rect x="0" y="0" width="760" height="804" fill="#ffffff"/>
+<text x="20" y="36" font-size="16" font-weight="bold" fill="#111111">Raspberry Pi J8 header -- HIL wiring to the ULX3S/DUT</text>
+<text x="20" y="50" fill="#111111">Canonical 40-pin J8 (raspberrypi.com GPIO docs), identical Pi B+..Pi 5 (RP1 keeps this layout). Highlighted pins are the committed pi_pinmap.csv defaults (rp1-jtag pins are runtime-configurable).</text>
+<rect x="20" y="64" width="12" height="12" fill="#1b5e20" fill-opacity="0.2" stroke="#1b5e20"/>
+<text x="36" y="74" fill="#111111">SPI</text>
+<rect x="100" y="64" width="12" height="12" fill="#0d47a1" fill-opacity="0.2" stroke="#0d47a1"/>
+<text x="116" y="74" fill="#111111">UART</text>
+<rect x="180" y="64" width="12" height="12" fill="#b71c1c" fill-opacity="0.2" stroke="#b71c1c"/>
+<text x="196" y="74" fill="#111111">JTAG</text>
+<rect x="260" y="64" width="12" height="12" fill="#4a148c" fill-opacity="0.2" stroke="#4a148c"/>
+<text x="276" y="74" fill="#111111">GPIO</text>
+<rect x="340" y="64" width="12" height="12" fill="none" stroke="#9e9e9e" stroke-dasharray="2,2"/>
+<text x="356" y="74" fill="#111111">no HIL role</text>
+<rect x="20" y="104" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="26" y="116" fill="#111111" font-weight="bold">pin1  3V3</text>
+<rect x="400" y="104" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="406" y="116" fill="#111111" font-weight="bold">pin2  5V</text>
+<rect x="20" y="138" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="26" y="150" fill="#111111" font-weight="bold">pin3  GPIO2 (SDA1)</text>
+<rect x="400" y="138" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="406" y="150" fill="#111111" font-weight="bold">pin4  5V</text>
+<rect x="20" y="172" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="26" y="184" fill="#111111" font-weight="bold">pin5  GPIO3 (SCL1)</text>
+<rect x="400" y="172" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="406" y="184" fill="#111111" font-weight="bold">pin6  GND</text>
+<rect x="20" y="206" width="340" height="28" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="26" y="218" fill="#b71c1c" font-weight="bold">pin7  GPIO4 (GPCLK0)</text>
+<text x="26" y="230" fill="#b71c1c" font-size="9">TCK -&gt; AST_JTAG1 TCK</text>
+<rect x="400" y="206" width="340" height="28" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
+<text x="406" y="218" fill="#0d47a1" font-weight="bold">pin8  GPIO14 (TXD0)</text>
+<text x="406" y="230" fill="#0d47a1" font-size="9">TXD -&gt; FPGA UART RX</text>
+<rect x="20" y="240" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="26" y="252" fill="#111111" font-weight="bold">pin9  GND</text>
+<rect x="400" y="240" width="340" height="28" fill="#0d47a1" fill-opacity="0.15" stroke="#0d47a1" stroke-width="1.5"  rx="3"/>
+<text x="406" y="252" fill="#0d47a1" font-weight="bold">pin10 GPIO15 (RXD0)</text>
+<text x="406" y="264" fill="#0d47a1" font-size="9">RXD -&gt; FPGA UART TX</text>
+<rect x="20" y="274" width="340" height="28" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="26" y="286" fill="#b71c1c" font-weight="bold">pin11 GPIO17</text>
+<text x="26" y="298" fill="#b71c1c" font-size="9">TMS -&gt; AST_JTAG1 TMS</text>
+<rect x="400" y="274" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="406" y="286" fill="#111111" font-weight="bold">pin12 GPIO18 (PCM_CLK)</text>
+<rect x="20" y="308" width="340" height="28" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="26" y="320" fill="#b71c1c" font-weight="bold">pin13 GPIO27</text>
+<text x="26" y="332" fill="#b71c1c" font-size="9">TDI -&gt; AST_JTAG1 TDI</text>
+<rect x="400" y="308" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="406" y="320" fill="#111111" font-weight="bold">pin14 GND</text>
+<rect x="20" y="342" width="340" height="28" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="26" y="354" fill="#b71c1c" font-weight="bold">pin15 GPIO22</text>
+<text x="26" y="366" fill="#b71c1c" font-size="9">TDO -&gt; AST_JTAG1 TDO</text>
+<rect x="400" y="342" width="340" height="28" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="406" y="354" fill="#b71c1c" font-weight="bold">pin16 GPIO23</text>
+<text x="406" y="366" fill="#b71c1c" font-size="9">TRST -&gt; AST_JTAG1 NTRST</text>
+<rect x="20" y="376" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="26" y="388" fill="#111111" font-weight="bold">pin17 3V3</text>
+<rect x="400" y="376" width="340" height="28" fill="#b71c1c" fill-opacity="0.15" stroke="#b71c1c" stroke-width="1.5"  rx="3"/>
+<text x="406" y="388" fill="#b71c1c" font-weight="bold">pin18 GPIO24</text>
+<text x="406" y="400" fill="#b71c1c" font-size="9">SRST -&gt; AST_JTAG1 SRST#</text>
+<rect x="20" y="410" width="340" height="28" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="26" y="422" fill="#1b5e20" font-weight="bold">pin19 GPIO10 (SPI0 MOSI)</text>
+<text x="26" y="434" fill="#1b5e20" font-size="9">MOSI -&gt; flash DI (ULX3S emulated flash)</text>
+<rect x="400" y="410" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="406" y="422" fill="#111111" font-weight="bold">pin20 GND</text>
+<rect x="20" y="444" width="340" height="28" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="26" y="456" fill="#1b5e20" font-weight="bold">pin21 GPIO9 (SPI0 MISO)</text>
+<text x="26" y="468" fill="#1b5e20" font-size="9">MISO -&gt; flash DO (ULX3S emulated flash)</text>
+<rect x="400" y="444" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="406" y="456" fill="#111111" font-weight="bold">pin22 GPIO25</text>
+<rect x="20" y="478" width="340" height="28" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="26" y="490" fill="#1b5e20" font-weight="bold">pin23 GPIO11 (SPI0 SCLK)</text>
+<text x="26" y="502" fill="#1b5e20" font-size="9">SCLK -&gt; flash CLK</text>
+<rect x="400" y="478" width="340" height="28" fill="#1b5e20" fill-opacity="0.15" stroke="#1b5e20" stroke-width="1.5"  rx="3"/>
+<text x="406" y="490" fill="#1b5e20" font-weight="bold">pin24 GPIO8 (SPI0 CE0)</text>
+<text x="406" y="502" fill="#1b5e20" font-size="9">CE0 -&gt; flash CS#</text>
+<rect x="20" y="512" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="26" y="524" fill="#111111" font-weight="bold">pin25 GND</text>
+<rect x="400" y="512" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="406" y="524" fill="#111111" font-weight="bold">pin26 GPIO7 (SPI0 CE1)</text>
+<rect x="20" y="546" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="26" y="558" fill="#111111" font-weight="bold">pin27 GPIO0 (ID_SD)</text>
+<rect x="400" y="546" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="406" y="558" fill="#111111" font-weight="bold">pin28 GPIO1 (ID_SC)</text>
+<rect x="20" y="580" width="340" height="28" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="26" y="592" fill="#4a148c" font-weight="bold">pin29 GPIO5</text>
+<text x="26" y="604" fill="#4a148c" font-size="9">PROBE0 -&gt; panel/LED probe</text>
+<rect x="400" y="580" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="406" y="592" fill="#111111" font-weight="bold">pin30 GND</text>
+<rect x="20" y="614" width="340" height="28" fill="#4a148c" fill-opacity="0.15" stroke="#4a148c" stroke-width="1.5"  rx="3"/>
+<text x="26" y="626" fill="#4a148c" font-weight="bold">pin31 GPIO6</text>
+<text x="26" y="638" fill="#4a148c" font-size="9">PROBE1 -&gt; strap/button probe</text>
+<rect x="400" y="614" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="406" y="626" fill="#111111" font-weight="bold">pin32 GPIO12 (PWM0)</text>
+<rect x="20" y="648" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="26" y="660" fill="#111111" font-weight="bold">pin33 GPIO13 (PWM1)</text>
+<rect x="400" y="648" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="406" y="660" fill="#111111" font-weight="bold">pin34 GND</text>
+<rect x="20" y="682" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="26" y="694" fill="#111111" font-weight="bold">pin35 GPIO19 (PCM_FS)</text>
+<rect x="400" y="682" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="406" y="694" fill="#111111" font-weight="bold">pin36 GPIO16</text>
+<rect x="20" y="716" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="26" y="728" fill="#111111" font-weight="bold">pin37 GPIO26</text>
+<rect x="400" y="716" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="406" y="728" fill="#111111" font-weight="bold">pin38 GPIO20 (PCM_DIN)</text>
+<rect x="20" y="750" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="26" y="762" fill="#111111" font-weight="bold">pin39 GND</text>
+<rect x="400" y="750" width="340" height="28" fill="none" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="2,2" rx="3"/>
+<text x="406" y="762" fill="#111111" font-weight="bold">pin40 GPIO21 (PCM_DOUT)</text>
+</svg>

@@ -1,20 +1,18 @@
-# Provenance: `ulx3s-gpio-schematic.svg`
+# Provenance: `ulx3s-board-render.png`
 
-This file is the **GPIO sheet** of the official ULX3S KiCad hardware design,
-rendered directly from the vendor schematic source -- it is not hand-drawn or
-reconstructed.
+This file is a **3D top render of the ULX3S PCB**, produced directly from the
+official ULX3S KiCad hardware design -- it is not hand-drawn or reconstructed.
 
 - Source repository: <https://github.com/emard/ulx3s>
 - Pinned commit: `6a92cec6b177191c5b0f80e260013a1f8ec147dd` (2025-04-27)
-- Source file: `gpio.sch` (the `gpio` hierarchical sheet of `ulx3s.sch`)
-- Rendered with: `kicad-cli sch export svg ulx3s.sch -o <out-dir>` (KiCad 9.0.2),
-  which exports every hierarchical sheet; the sheet of interest is the
-  produced `ulx3s-gpio.svg`.
-- Regeneration: see `wiring/render_ulx3s_schematic.py` in this directory.
+- Source file: `ulx3s.kicad_pcb`
+- Rendered with: `kicad-cli pcb render --side top --background transparent
+  --quality high` (KiCad 9.0.2).
+- Regeneration: see `wiring/render_ulx3s_board.py` in this directory.
 
 ## License
 
-The ULX3S hardware design (including this schematic) is MIT-licensed:
+The ULX3S hardware design (including this PCB and its render) is MIT-licensed:
 
 > Copyright (c) 2016-2018 EMARD
 >

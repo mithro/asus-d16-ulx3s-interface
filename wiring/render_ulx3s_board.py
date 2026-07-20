@@ -2,15 +2,15 @@
 # requires-python = ">=3.11"
 # dependencies = []
 # ///
-"""Regenerate wiring/ulx3s-gpio-schematic.svg from the upstream ULX3S KiCad
+"""Regenerate wiring/ulx3s-board-render.png from the upstream ULX3S KiCad
 hardware design, for provenance/reproducibility.
 
-This shallow-clones emard/ulx3s at the pinned commit, exports the schematic
-hierarchy to SVG with `kicad-cli` (KiCad 9.0.2+, must be on PATH), and copies
-the GPIO sheet's rendered SVG into wiring/. See wiring/ULX3S-SCHEMATIC-NOTICE.md
-for the source/license details.
+This shallow-clones emard/ulx3s at the pinned commit, renders the PCB's top
+side to a transparent PNG with `kicad-cli` (KiCad 9.0.2+, must be on PATH),
+and copies the result into wiring/. See wiring/ULX3S-BOARD-NOTICE.md for the
+source/license details.
 
-Run with: uv run wiring/render_ulx3s_schematic.py
+Run with: uv run wiring/render_ulx3s_board.py
 """
 from __future__ import annotations
 
@@ -22,13 +22,12 @@ from pathlib import Path
 
 REPO_URL = "https://github.com/emard/ulx3s"
 PINNED_COMMIT = "6a92cec6b177191c5b0f80e260013a1f8ec147dd"
-TOP_SCH = "ulx3s.sch"
-GPIO_SHEET_SVG = "ulx3s-gpio.svg"
+PCB_FILE = "ulx3s.kicad_pcb"
 
 WIRING = Path(__file__).resolve().parent
 REPO_ROOT = WIRING.parent
 TMP_ROOT = REPO_ROOT / "tmp"
-OUT_SVG = WIRING / "ulx3s-gpio-schematic.svg"
+OUT_PNG = WIRING / "ulx3s-board-render.png"
 
 
 def run(cmd: list[str], **kwargs) -> None:
@@ -47,8 +46,7 @@ def main() -> None:
     with tempfile.TemporaryDirectory(dir=TMP_ROOT) as tmp_dir_str:
         tmp_dir = Path(tmp_dir_str)
         clone_dir = tmp_dir / "ulx3s-src"
-        svg_out_dir = tmp_dir / "sch-svg"
-        svg_out_dir.mkdir()
+        render_out = tmp_dir / "ulx3s-board-render.png"
 
         # (a) shallow-clone the pinned commit only.
         clone_dir.mkdir()
@@ -70,23 +68,31 @@ def main() -> None:
                 f"commit {PINNED_COMMIT!r}"
             )
 
-        # (b) export the schematic hierarchy to SVG (fail loud on non-zero exit).
+        pcb_path = clone_dir / PCB_FILE
+        if not pcb_path.exists():
+            raise RuntimeError(f"expected {pcb_path} in the clone, but it does not exist")
+
+        # (b) render the PCB's top side to a transparent PNG (fail loud on
+        # non-zero exit).
         run([
-            "kicad-cli", "sch", "export", "svg",
-            str(clone_dir / TOP_SCH),
-            "-o", str(svg_out_dir),
+            "kicad-cli", "pcb", "render",
+            "--side", "top",
+            "--background", "transparent",
+            "--quality", "high",
+            "--width", "2600",
+            "--height", "1500",
+            "-o", str(render_out),
+            str(pcb_path),
         ])
 
-        produced = svg_out_dir / GPIO_SHEET_SVG
-        if not produced.exists():
+        if not render_out.exists():
             raise RuntimeError(
-                f"expected {produced} after kicad-cli export, but it was not produced "
-                f"(found: {sorted(p.name for p in svg_out_dir.iterdir())})"
+                f"expected {render_out} after kicad-cli render, but it was not produced"
             )
 
-        # (c) copy the GPIO sheet's SVG into wiring/ as the committed asset.
-        shutil.copyfile(produced, OUT_SVG)
-        print(f"wrote {OUT_SVG} (from {REPO_URL}@{PINNED_COMMIT[:12]})")
+        # (c) copy the rendered PNG into wiring/ as the committed asset.
+        shutil.copyfile(render_out, OUT_PNG)
+        print(f"wrote {OUT_PNG} (from {REPO_URL}@{PINNED_COMMIT[:12]})")
 
 
 if __name__ == "__main__":

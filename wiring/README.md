@@ -226,3 +226,67 @@ uv run wiring/pinout_diagrams.py
 
 These are an alternative "pretty" view; the plain `harness.svg` /
 `*-headers.svg` renders remain the compact reference.
+
+## Board-image pinout (`board_pinout.py`)
+
+`wiring/ulx3s-board-pinout.svg` is a third view of the same J1/J2 assignment,
+one step more literal than `ulx3s-pinout.svg`: instead of a drawn connector
+body, every label's leaderline fans off the pad's **actual physical
+position** on the ULX3S 3D board render (J1 pads to the left, J2 pads to the
+right), so you can match a label directly to a pad on the real board or in
+the photo, not just to a schematic position. Generate/regenerate with:
+
+```sh
+uv run wiring/board_pinout.py
+```
+
+This is a two-stage pipeline, because the geometry source (`pcbnew`) isn't
+`uv`-installable:
+
+1. **`wiring/extract_ulx3s_pads.py`** — a `pcbnew` script that loads
+   `ulx3s.kicad_pcb` (emard/ulx3s @6a92cec, MIT — see
+   `wiring/ULX3S-BOARD-NOTICE.md`) and dumps every J1/J2 pad's number,
+   mm position, and net, plus the four M3 mounting-hole positions and the
+   board edge bounding box, to **`wiring/ulx3s-pads.json`** (vendored,
+   committed). **`pcbnew` needs KiCad's own Python, not `uv run`** — invoke
+   it with system `python3`:
+
+   ```sh
+   python3 wiring/extract_ulx3s_pads.py <path/to/ulx3s.kicad_pcb> wiring/ulx3s-pads.json
+   ```
+
+   Only re-run this if the upstream board design changes (e.g. a re-pin of
+   the pinned commit); `wiring/ulx3s-pads.json` is otherwise static.
+
+2. **`wiring/board_pinout.py`** (the `uv` script above) reads
+   `wiring/ulx3s-pads.json` and `wiring/ulx3s-board-render.png` (the same
+   render `ulx3s-pinout.svg` embeds — see `render_ulx3s_board.py` /
+   `ULX3S-BOARD-NOTICE.md`), imports the KGPE-D16 assignment from
+   `make_pinmap.py` (`build_inventory()`, `DOMAIN_BY_CONNECTOR` — the same
+   single source of truth as every other diagram here), and calibrates
+   mm &rarr; pixel **at runtime**: it detects the four gold mounting-hole
+   blobs in the render (largest connected components, ported from the
+   original scratch tool `tmp/detect_holes.py`), matches them to the four
+   `holes` entries in the JSON by corner (top-left/top-right/bottom-left/
+   bottom-right), and solves a least-squares affine transform from the
+   matched points. It then places a curved-leaderline label at every J1/J2
+   pad's projected position, colour-coded by domain, and splices in a
+   title + legend, writing the fully self-contained
+   `wiring/ulx3s-board-pinout.svg` (render and stylesheet both embedded).
+
+   This fails loud (`AssertionError`) if: the mounting-hole detection
+   doesn't land on a clean top-4 (a real gap between the 4th and 5th
+   largest gold blob, and the top 4 similar in size to each other); the 4
+   detected blobs and the 4 JSON holes don't match up to exactly the 4
+   corners; the solved affine doesn't reproduce each mounting hole to
+   within 5px; any J1/J2 pad projects outside the render's bounds; the
+   written SVG isn't valid XML; or any of the 41 `connector.net` signals
+   from `build_inventory()` is missing from the rendered labels. It also
+   prints the detected hole pixel coordinates, the solved affine
+   coefficients, and the pad/label counts, so a bad calibration is visible
+   immediately rather than silently producing a misaligned diagram.
+
+`wiring/ulx3s-pinout.svg` (schematic-style, above) and
+`wiring/ulx3s-board-pinout.svg` (board-image, this section) are both kept —
+the schematic view is easier to scan top-to-bottom by index, the board-image
+view is easier to physically locate a pad on the hardware.

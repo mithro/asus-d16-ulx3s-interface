@@ -231,57 +231,61 @@ class PiSignal:
 
 
 def build_pi_pinmap() -> list[PiSignal]:
-    """Pi 5 HIL harness: the Pi stands in for the DUT and exercises as much of
-    the FPGA RTL as the 28 header GPIO allow, verifying it in priority order --
-    (1) BOTH SPI-flash emulations (including their CS2 / HOLD# control lines),
-    (2) the ASpeed JTAG (full 7-wire TAP), (3) the UARTs, (4) the remaining
-    straps. The AMD HDT JTAG, COM2, and the PANEL1 signals are intentionally
-    left unverified (lowest priority; no spare pins). All 28 BCM GPIO (0-27) are
-    used.
+    """Pi 5 HIL harness: the Pi stands in for the DUT and exercises the FPGA RTL
+    in priority order -- both SPI-flash emulations (with their CS2 / HOLD#
+    control lines), the ASpeed JTAG (full 7-wire TAP), the UARTs, then the
+    remaining straps. COM2, the PANEL1 signals, and the AMD HDT JTAG are
+    intentionally left unverified. All 28 BCM GPIO (0-27) are used.
 
-    Non-SPI lines are driven by the RP1 PIO (mithro/rp1-jtag,
-    rpi5-rp1-pio-bench), so only SPI0/UART0 need their native alt-function pins;
-    the rest are flexible. `dir` is Pi-relative and is the mirror of the
-    FPGA-relative `dir` in pinmap.csv (an FPGA output is a Pi input, etc.).
+    Each interface occupies a *contiguous* block of BCM GPIO, so a single RP1
+    PIO state machine can drive/read the whole interface -- PIO addresses pins
+    as base+count, so a scattered interface can't be handled by one program.
+    BCM blocks:
+
+        JTAG   0-6  | SPI0 7-11 | COM1 12-13 | UART0 14-15 | SPI1 16-20 | straps 21-27
+
+    (`validate_pi_pinmap()` fails loud if any interface's BCMs aren't contiguous.)
+    As a bonus, SPI0's core pins land on the Pi's hardware SPI0 (BCM 8-11) and
+    UART0 on the hardware UART0 (BCM 14-15), so those two can use either the
+    fixed peripheral or PIO; the rest are PIO-driven. `dir` is Pi-relative (the
+    mirror of the FPGA-relative `dir` in pinmap.csv).
     """
     sig = PiSignal
     return [
-        # 1. SPI-flash emulation x2 -- Pi masters each bus and reads back the
-        #    loaded image; CS2 / HOLD# exercise the extra flash control lines.
-        sig("SPI0 BMC-flash", "MOSI", 10, 19, "out", "BMC_FW1 flash DI (verify SPI-slave)", "SPI"),
-        sig("SPI0 BMC-flash", "MISO", 9, 21, "in", "BMC_FW1 flash DO", "SPI"),
-        sig("SPI0 BMC-flash", "SCLK", 11, 23, "out", "BMC_FW1 flash CLK", "SPI"),
+        # ASpeed JTAG -- BCM 0-6 (Pi is the TAP target the JTAG-master scans)
+        sig("ASpeed-JTAG (Pi=TAP)", "TCK", 0, 27, "in", "AST_JTAG1 TCK (FPGA drives)", "JTAG"),
+        sig("ASpeed-JTAG (Pi=TAP)", "TMS", 1, 28, "in", "AST_JTAG1 TMS", "JTAG"),
+        sig("ASpeed-JTAG (Pi=TAP)", "TDI", 2, 3, "in", "AST_JTAG1 TDI (FPGA→TAP)", "JTAG"),
+        sig("ASpeed-JTAG (Pi=TAP)", "TDO", 3, 5, "out", "AST_JTAG1 TDO (TAP→FPGA)", "JTAG"),
+        sig("ASpeed-JTAG (Pi=TAP)", "NTRST", 4, 7, "in", "AST_JTAG1 NTRST", "JTAG"),
+        sig("ASpeed-JTAG (Pi=TAP)", "SRST", 5, 29, "in", "AST_JTAG1 SRST#", "JTAG"),
+        sig("ASpeed-JTAG (Pi=TAP)", "RTCK", 6, 31, "out", "AST_JTAG1 RTCK (TAP→FPGA return clk)", "JTAG"),
+        # SPI0 BMC-flash -- BCM 7-11 (CE0/MISO/MOSI/SCLK on native hardware SPI0)
+        sig("SPI0 BMC-flash", "CS2", 7, 26, "out", "BMC_FW1 CS2 (2nd chip-select)", "SPI"),
         sig("SPI0 BMC-flash", "CE0", 8, 24, "out", "BMC_FW1 flash CS#", "SPI"),
-        sig("SPI0 BMC-flash", "CS2", 16, 36, "out", "BMC_FW1 CS2 (2nd chip-select)", "SPI"),
-        sig("SPI1 BIOS-flash", "MOSI", 20, 38, "out", "FU1 flash DI (verify SPI-slave)", "SPI"),
-        sig("SPI1 BIOS-flash", "MISO", 19, 35, "in", "FU1 flash DO", "SPI"),
-        sig("SPI1 BIOS-flash", "SCLK", 21, 40, "out", "FU1 flash CLK", "SPI"),
-        sig("SPI1 BIOS-flash", "CE0", 18, 12, "out", "FU1 flash CS#", "SPI"),
-        sig("SPI1 BIOS-flash", "HOLD#", 26, 37, "out", "FU1 HOLD# (flash hold line)", "SPI"),
-        # 2. ASpeed JTAG -- Pi is the TAP target; the FPGA JTAG-master RTL scans
-        #    it (FPGA drives TCK/TMS/TDI/TRST/SRST + reads TDO; Pi echoes RTCK).
-        sig("ASpeed-JTAG (Pi=TAP)", "TCK", 4, 7, "in", "AST_JTAG1 TCK (FPGA drives)", "JTAG"),
-        sig("ASpeed-JTAG (Pi=TAP)", "TMS", 17, 11, "in", "AST_JTAG1 TMS", "JTAG"),
-        sig("ASpeed-JTAG (Pi=TAP)", "TDI", 27, 13, "in", "AST_JTAG1 TDI (FPGA→TAP)", "JTAG"),
-        sig("ASpeed-JTAG (Pi=TAP)", "TDO", 22, 15, "out", "AST_JTAG1 TDO (TAP→FPGA)", "JTAG"),
-        sig("ASpeed-JTAG (Pi=TAP)", "NTRST", 23, 16, "in", "AST_JTAG1 NTRST", "JTAG"),
-        sig("ASpeed-JTAG (Pi=TAP)", "SRST", 24, 18, "in", "AST_JTAG1 SRST#", "JTAG"),
-        sig("ASpeed-JTAG (Pi=TAP)", "RTCK", 1, 28, "out", "AST_JTAG1 RTCK (TAP→FPGA return clk)", "JTAG"),
-        # 3. UARTs -- Pi is the DUT peer on each FPGA UART bridge (TTL side,
-        #    before the COM1 MAX3232 level shifter). COM2 is dropped.
-        sig("UART0 BMC-console", "TXD", 14, 8, "out", "AST_UART1 → FPGA UART RX", "UART"),
-        sig("UART0 BMC-console", "RXD", 15, 10, "in", "AST_UART1 ← FPGA UART TX", "UART"),
+        sig("SPI0 BMC-flash", "MISO", 9, 21, "in", "BMC_FW1 flash DO", "SPI"),
+        sig("SPI0 BMC-flash", "MOSI", 10, 19, "out", "BMC_FW1 flash DI (verify SPI-slave)", "SPI"),
+        sig("SPI0 BMC-flash", "SCLK", 11, 23, "out", "BMC_FW1 flash CLK", "SPI"),
+        # UART COM1 -- BCM 12-13
         sig("UART COM1", "TX", 12, 32, "out", "COM1 → FPGA RX (TTL, pre-MAX3232)", "UART"),
         sig("UART COM1", "RX", 13, 33, "in", "COM1 ← FPGA TX (TTL)", "UART"),
-        # 4. Straps -- read back the FPGA-driven BMC_FW1 + JUMPERS straps to
-        #    verify the GPIO output RTL.
-        sig("strap-verify", "IKVMEN#", 5, 29, "in", "BMC_FW1 IKVMEN# (FPGA drives)", "GPIO"),
-        sig("strap-verify", "BMC_PRESENT#", 6, 31, "in", "BMC_FW1 BMC_PRESENT#", "GPIO"),
-        sig("strap-verify", "SOLEN#", 7, 26, "in", "BMC_FW1 SOLEN#", "GPIO"),
-        sig("strap-verify", "VGA_SW1", 25, 22, "in", "JUMPERS VGA_SW1", "GPIO"),
-        sig("strap-verify", "IPMI_SEL", 2, 3, "in", "JUMPERS IPMI_SEL", "GPIO"),
-        sig("strap-verify", "BIOS_RECOVERY#", 3, 5, "in", "JUMPERS BIOS_RECOVERY#", "GPIO"),
-        sig("strap-verify", "CLRTC", 0, 27, "in", "JUMPERS CLRTC", "GPIO"),
+        # UART0 BMC-console -- BCM 14-15 (native hardware UART0)
+        sig("UART0 BMC-console", "TXD", 14, 8, "out", "AST_UART1 → FPGA UART RX", "UART"),
+        sig("UART0 BMC-console", "RXD", 15, 10, "in", "AST_UART1 ← FPGA UART TX", "UART"),
+        # SPI1 BIOS-flash -- BCM 16-20 (PIO-driven; CE0/MISO/MOSI on native SPI1)
+        sig("SPI1 BIOS-flash", "HOLD#", 16, 36, "out", "FU1 HOLD# (flash hold line)", "SPI"),
+        sig("SPI1 BIOS-flash", "SCLK", 17, 11, "out", "FU1 flash CLK", "SPI"),
+        sig("SPI1 BIOS-flash", "CE0", 18, 12, "out", "FU1 flash CS#", "SPI"),
+        sig("SPI1 BIOS-flash", "MISO", 19, 35, "in", "FU1 flash DO", "SPI"),
+        sig("SPI1 BIOS-flash", "MOSI", 20, 38, "out", "FU1 flash DI (verify SPI-slave)", "SPI"),
+        # straps -- BCM 21-27 (read back FPGA-driven BMC_FW1 + JUMPERS straps)
+        sig("strap-verify", "IKVMEN#", 21, 40, "in", "BMC_FW1 IKVMEN# (FPGA drives)", "GPIO"),
+        sig("strap-verify", "BMC_PRESENT#", 22, 15, "in", "BMC_FW1 BMC_PRESENT#", "GPIO"),
+        sig("strap-verify", "SOLEN#", 23, 16, "in", "BMC_FW1 SOLEN#", "GPIO"),
+        sig("strap-verify", "VGA_SW1", 24, 18, "in", "JUMPERS VGA_SW1", "GPIO"),
+        sig("strap-verify", "IPMI_SEL", 25, 22, "in", "JUMPERS IPMI_SEL", "GPIO"),
+        sig("strap-verify", "BIOS_RECOVERY#", 26, 37, "in", "JUMPERS BIOS_RECOVERY#", "GPIO"),
+        sig("strap-verify", "CLRTC", 27, 13, "in", "JUMPERS CLRTC", "GPIO"),
     ]
 
 
@@ -310,6 +314,19 @@ def validate_pi_pinmap(pi_signals: list[PiSignal]) -> None:
             f"phys pin {s.phys_pin} assigned to both {prev} and {s.role}.{s.pi_signal}"
         )
         seen_phys[s.phys_pin] = f"{s.role}.{s.pi_signal}"
+
+    # Each interface (role) must occupy a CONTIGUOUS block of BCM GPIO so a
+    # single RP1 PIO state machine can drive/read it (PIO addresses pins as
+    # base+count). Fails loud if an interface's pins are scattered.
+    bcms_by_role: dict[str, list[int]] = {}
+    for s in pi_signals:
+        bcms_by_role.setdefault(s.role, []).append(s.bcm)
+    for role, bcms in bcms_by_role.items():
+        assert len(set(bcms)) == len(bcms), f"{role}: duplicate BCM in {sorted(bcms)}"
+        assert max(bcms) - min(bcms) + 1 == len(bcms), (
+            f"{role}: BCM pins {sorted(bcms)} are not a contiguous block -- one RP1 "
+            f"PIO state machine cannot drive a scattered interface"
+        )
 
 
 # ---------------------------------------------------------------------------

@@ -207,17 +207,34 @@ used for hardware-in-the-loop (HIL) control are overlaid from
   **`COM2`, the `PANEL1` signals, and the AMD HDT JTAG are intentionally left
   unverified** — lowest priority, and there are no spare pins (the flash
   CS2/HOLD# and JTAG RTCK lines take precedence). `dir` is Pi-relative (the
-  mirror of the
-  FPGA-relative `dir` in `pinmap.csv`). Non-SPI lines run over the RP1 PIO
+  mirror of the FPGA-relative `dir` in `pinmap.csv`).
+- **Each interface occupies a *contiguous* block of BCM GPIO** so a single RP1
+  PIO state machine can drive/read it — PIO addresses pins as base+count, so a
+  scattered interface can't be handled by one program. The blocks are:
+
+  | interface | BCM block |
+  |-----------|-----------|
+  | ASpeed JTAG | 0–6 |
+  | SPI0 BMC-flash | 7–11 |
+  | COM1 | 12–13 |
+  | UART0 (BMC) | 14–15 |
+  | SPI1 BIOS-flash | 16–20 |
+  | straps | 21–27 |
+
+  Note these are contiguous in *BCM/GPIO* number, not in physical header
+  position (the J8 header interleaves BCM numbers), so each interface still
+  looks physically spread out in the diagram — but that's what the PIO needs.
+  As a bonus, SPI0's core pins land on the Pi's hardware SPI0 (BCM 8–11) and
+  UART0 on hardware UART0 (BCM 14–15), so those two can use either the fixed
+  peripheral or PIO; everything else is PIO-driven
   ([mithro/rp1-jtag](https://github.com/mithro/rp1-jtag),
-  [rpi5-rp1-pio-bench](https://github.com/mithro/rpi5-rp1-pio-bench)), so only
-  `SPI0`/`UART0` need their native alt-function pins; the rest are flexible.
-  Written from a hard-coded list in `make_pinmap.py` (`build_pi_pinmap()`).
+  [rpi5-rp1-pio-bench](https://github.com/mithro/rpi5-rp1-pio-bench)). Written
+  from a hard-coded list in `make_pinmap.py` (`build_pi_pinmap()`).
 - `validate_pi_pinmap()` cross-checks every `(bcm, phys_pin)` pair in
-  `pi_pinmap.csv` against the canonical `RPI_J8_HEADER` table and fails
-  loud (`AssertionError`) on any mismatch — this is what catches a wrong Pi
-  pin assignment (e.g. claiming a BCM number lives on a physical pin it
-  doesn't).
+  `pi_pinmap.csv` against the canonical `RPI_J8_HEADER` table, rejects
+  duplicate pins, **and asserts each interface's BCMs form a contiguous block**
+  — failing loud (`AssertionError`) on any mismatch (a wrong Pi pin, or an
+  interface that got scattered and would break single-PIO-SM control).
 
 Both `--headers` SVGs share the same conventions as `harness.svg`: an
 explicit white background rect (theme-safe), a legend, and a fail-loud

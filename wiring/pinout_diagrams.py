@@ -17,6 +17,7 @@ Run with: uv run wiring/pinout_diagrams.py
 """
 from __future__ import annotations
 
+import re
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -38,6 +39,55 @@ NC_LABEL = "Power / GND / unused"
 ESP32_LABEL = "ESP32-reserved"
 ADC_LABEL = "ADC-shared"
 SPARE_LABEL = "spare"
+RAIL_LABEL = "supply / GND"
+
+# ---------------------------------------------------------------------------
+# ULX3S J1/J2 supply/GND rail cells + embedded KiCad schematic
+# ---------------------------------------------------------------------------
+#
+# emard/ulx3s J1 and J2 are Conn_02x20_Odd_Even 40-pin headers; besides the
+# gp/gn signals they each carry power/GND rails (source: the ULX3S KiCad
+# design, emard/ulx3s @6a92cec, gpio.sch). No source gives the physical
+# pin-1..40 numbers for these rails, so they are drawn as named rail cells
+# rather than fabricated pin positions -- see wiring/ULX3S-SCHEMATIC-NOTICE.md
+# and the embedded schematic panel in ulx3s-pinout.svg for the real layout.
+ULX3S_RAIL_NAMES: dict[str, list[str]] = {
+    "J1": ["2V5_3V3", "GND"],  # jumper-selectable 2.5V/3.3V supply + GND
+    "J2": ["+5V", "+3V3", "GND"],  # +5V via STPS2L40AF diodes, +3V3, GND
+}
+RAIL_NOTE = "supply/GND rail — see schematic below"
+
+SCHEMATIC_SVG_PATH = WIRING / "ulx3s-gpio-schematic.svg"
+SCHEMATIC_VIEWBOX_W = 297.0022
+SCHEMATIC_VIEWBOX_H = 210.0072
+SCHEMATIC_CAPTION = (
+    "Official ULX3S GPIO header schematic — emard/ulx3s @6a92cec (MIT). "
+    "J1/J2 shown with their 2V5_3V3 supply and GND pins."
+)
+
+# Rail-cell CSS is injected only into ulx3s-pinout.svg (see embed_schematic()),
+# rather than added to the shared pinout-styles.css -- that file is embedded
+# verbatim into all three diagrams, and adding an ULX3S-only class there would
+# needlessly perturb rpi-pinout.svg and asus-headers-pinout.svg.
+RAIL_CSS = """
+/* Power/GND supply-rail cells (J1/J2 connector ends) -- black fill + bold
+ * gold text is a deliberately "not a signal" look, distinct from every
+ * domain colour used for gp/gn signal pins. */
+.rail rect.pinlabel__body {
+    fill: #000000;
+    stroke: #ffca28;
+    stroke-width: 1.5;
+}
+.rail .pinlabel__text {
+    fill: #ffca28;
+    font-weight: bold;
+}
+.legend-swatch.rail {
+    fill: #000000;
+    stroke: #ffca28;
+    stroke-width: 1.5;
+}
+"""
 
 
 def add_connector_body(diagram: Diagram, x: float, y: float, width: float, n_holes: int,
@@ -146,7 +196,15 @@ def build_rpi_diagram() -> tuple[Diagram, list[str]]:
 # (b) ULX3S J1 / J2
 # ---------------------------------------------------------------------------
 
-def build_ulx3s_diagram() -> tuple[Diagram, list[str]]:
+def build_ulx3s_diagram() -> tuple[Diagram, list[str], float]:
+    """Build the ULX3S J1/J2 diagram, sized to also hold an embedded
+    schematic panel below the connectors.
+
+    Returns (diagram, expected_gp_gn_strings, schematic_panel_y) -- the third
+    value is the y-coordinate reserved for the embedded KiCad schematic panel
+    (see embed_schematic()), computed here so the Diagram can be constructed
+    at its final, full height up front.
+    """
     signals = mp.build_inventory()
     mp.assign_gpios(signals)
     mp.validate(signals)
@@ -161,10 +219,30 @@ def build_ulx3s_diagram() -> tuple[Diagram, list[str]]:
     BLOCK_GAP = 90
     board_y = 170
 
+    # Extra headroom above `board_y` so the tallest rail block (J2: +5V/+3V3/
+    # GND, 3 rows) fits between the header text and the signal rows without
+    # overlapping either; rail rows are then bottom-aligned to `board_y` so
+    # each block's rail cells sit flush against its gp0/gn0 row.
+    max_rail_rows = max(len(v) for v in ULX3S_RAIL_NAMES.values())
+    board_y += max_rail_rows * ROWH
+
     block_half_span = DX + LABEL1_W + LABEL2_W  # outward reach of one side's fan
     block_span = 2 * block_half_span + BOARD_W
     CANVAS_W = 2 * block_span + BLOCK_GAP + 60
-    CANVAS_H = board_y + ROWS * ROWH + 50
+    # Height of the pinout content alone (connectors + rail cells), before
+    # the embedded schematic panel.
+    content_h = board_y + ROWS * ROWH + max_rail_rows * ROWH + 50
+
+    # Reserve room below the pinout content for the embedded KiCad schematic
+    # panel: a caption line, then the panel itself sized to the schematic's
+    # own 297.0022 x 210.0072 aspect ratio at (canvas width - margins).
+    SCHEMATIC_GAP = 30
+    CAPTION_H = 20
+    PANEL_MARGIN = 30
+    panel_w = CANVAS_W - 2 * PANEL_MARGIN
+    panel_h = panel_w * (SCHEMATIC_VIEWBOX_H / SCHEMATIC_VIEWBOX_W)
+    panel_y = content_h + SCHEMATIC_GAP + CAPTION_H
+    CANVAS_H = panel_y + panel_h + PANEL_MARGIN
 
     diagram = Diagram(CANVAS_W, CANVAS_H, tag="pinout-ulx3s")
     diagram.add_stylesheet(str(STYLESHEET), embed=True)
@@ -174,11 +252,14 @@ def build_ulx3s_diagram() -> tuple[Diagram, list[str]]:
     diagram.add(TextBlock(
         "J1 = gp/gn idx 0-13 (ASpeed/BMC side), J2 = gp/gn idx 14-27 (host/other side). "
         "gp fans left, gn fans right. idx 11-13 reserved for the on-board ESP32; "
-        "idx 14-17 double as the onboard ADC (AIN0-7).", x=30, y=62, tag="h2"))
+        "idx 14-17 double as the onboard ADC (AIN0-7). Each header also carries "
+        "power/GND rails at both physical ends (2V5_3V3/GND on J1; +5V/+3V3/GND "
+        "on J2) -- no source gives their physical pin numbers, so see the "
+        "embedded schematic below for the real layout.", x=30, y=62, tag="h2"))
 
     legend_entries = (
         [(d, d.lower()) for d in mp.DOMAIN_COLOR]
-        + [(SPARE_LABEL, "spare"), (ESP32_LABEL, "esp32"), (ADC_LABEL, "adc")]
+        + [(SPARE_LABEL, "spare"), (ESP32_LABEL, "esp32"), (ADC_LABEL, "adc"), (RAIL_LABEL, "rail")]
     )
     add_legend(diagram, 30, 82, legend_entries)
 
@@ -207,10 +288,44 @@ def build_ulx3s_diagram() -> tuple[Diagram, list[str]]:
 
         return [(content1, f"spare{adc_tag}", {"body": {"width": LABEL1_W}})]
 
+    def rail_labels(names: list[str]) -> list[list[tuple]]:
+        # One wide cell (not the usual name+note two-cell chain) -- the note
+        # text is too long to fit LABEL2_W's normal signal-name width.
+        return [
+            [(f"{name} — {RAIL_NOTE}", "rail", {"body": {"width": LABEL1_W + LABEL2_W}})]
+            for name in names
+        ]
+
+    def add_rail_fans(x: float, y: float, names: list[str]) -> None:
+        """Draw `names` as a rail-styled extension of the connector body at
+        `x, y` (top-left corner), fanned identically to both the gp (left)
+        and gn (right) sides -- rails apply to the whole connector, not to
+        one signal column."""
+        n = len(names)
+        add_connector_body(diagram, x, y, BOARD_W, n, ROWH, [0.5])
+        labels = rail_labels(names)
+        for scale in (-1, 1):
+            diagram.add(PinLabelGroup(
+                x=x + BOARD_W * 0.5,
+                y=y + ROWH / 2,
+                pin_pitch=(0, ROWH),
+                label_start=(DX, 0),
+                label_pitch=(0, ROWH),
+                scale=(scale, 1),
+                labels=labels,
+            ))
+
     block_x = 30 + block_half_span
     for block_name, idx_range in (("J1", mp.ULX3S_J1_IDX), ("J2", mp.ULX3S_J2_IDX)):
-        diagram.add(TextBlock(block_name, x=block_x + BOARD_W / 2 - 8, y=board_y - 14, tag="h1"))
+        rails = ULX3S_RAIL_NAMES[block_name]
+        y_top_rail = board_y - len(rails) * ROWH
+        y_bottom_rail = board_y + ROWS * ROWH
+
+        diagram.add(TextBlock(block_name, x=block_x + BOARD_W / 2 - 8, y=y_top_rail - 14, tag="h1"))
+
+        add_rail_fans(block_x, y_top_rail, rails)
         add_connector_body(diagram, block_x, board_y, BOARD_W, ROWS, ROWH, [0.5])
+        add_rail_fans(block_x, y_bottom_rail, rails)
 
         left_labels = [pin_labels("gp", idx) for idx in idx_range]
         right_labels = [pin_labels("gn", idx) for idx in idx_range]
@@ -237,7 +352,58 @@ def build_ulx3s_diagram() -> tuple[Diagram, list[str]]:
         block_x += block_span + BLOCK_GAP
 
     assert len(expected_strings) == 56, f"expected 56 gp/gn names, got {len(expected_strings)}"
-    return diagram, expected_strings
+    return diagram, expected_strings, panel_y
+
+
+def embed_schematic(svg_text: str, canvas_w: float, panel_y: float) -> tuple[str, float]:
+    """Splice the vendored ULX3S KiCad GPIO schematic into `svg_text` as a
+    nested <svg> panel (with its own viewBox, so its internal coordinates
+    render correctly regardless of the outer pinout diagram's coordinate
+    system), plus a caption, inserted just before the closing </svg>.
+
+    Returns (new_svg_text, panel_h).
+    """
+    raw = SCHEMATIC_SVG_PATH.read_text(encoding="utf-8")
+
+    # Strip the leading <?xml ...?> declaration and <!DOCTYPE ...> lines,
+    # keeping the <svg ...>...</svg> root and its children.
+    svg_start = raw.index("<svg")
+    schematic_svg = raw[svg_start:]
+
+    PANEL_MARGIN = 30
+    panel_x = PANEL_MARGIN
+    panel_w = canvas_w - 2 * PANEL_MARGIN
+    panel_h = panel_w * (SCHEMATIC_VIEWBOX_H / SCHEMATIC_VIEWBOX_W)
+
+    # The schematic's own root <svg> tag declares its size in mm
+    # (width="297.0022mm" height="210.0072mm"). Nested inside another <svg>,
+    # that becomes the panel's on-page size, so re-point width/height to the
+    # panel's pixel size and add x/y placement + preserveAspectRatio. Its
+    # viewBox is left untouched -- that's what keeps the schematic's internal
+    # coordinates correctly scaled inside the new width/height.
+    open_tag_end = schematic_svg.index(">")
+    open_tag = schematic_svg[:open_tag_end]
+    open_tag = re.sub(r'\s+width="[0-9.]+mm"', "", open_tag)
+    open_tag = re.sub(r'\s+height="[0-9.]+mm"', "", open_tag)
+    open_tag += (
+        f' x="{panel_x}" y="{panel_y}" width="{panel_w:.4f}" height="{panel_h:.4f}" '
+        'preserveAspectRatio="xMidYMid meet"'
+    )
+    schematic_svg = open_tag + schematic_svg[open_tag_end:]
+
+    caption_y = panel_y - 10
+    caption = f'<text x="{panel_x}" y="{caption_y}" class="h2">{SCHEMATIC_CAPTION}</text>'
+
+    # Rail-cell CSS as its own <style> block (see RAIL_CSS's docstring for
+    # why this isn't added to the shared pinout-styles.css instead).
+    rail_style = f'<style type="text/css" media="screen"><![CDATA[{RAIL_CSS}]]></style>'
+
+    insert_at = svg_text.rindex("</svg>")
+    new_svg_text = (
+        svg_text[:insert_at] + rail_style + schematic_svg + caption + svg_text[insert_at:]
+    )
+
+    return new_svg_text, panel_h
 
 
 # ---------------------------------------------------------------------------
@@ -346,9 +512,36 @@ def render_and_verify(name: str, build_fn) -> None:
           f"{len(expected_strings)} expected strings present")
 
 
+def render_ulx3s_and_verify() -> None:
+    """Like render_and_verify(), but for ulx3s-pinout.svg specifically: after
+    rendering the pinout diagram, splices in the embedded KiCad schematic
+    panel (see embed_schematic()) before writing and verifying the file.
+    """
+    name = "ulx3s-pinout.svg"
+    diagram, expected_strings, panel_y = build_ulx3s_diagram()
+    svg_text = diagram.render()
+    svg_text, panel_h = embed_schematic(svg_text, float(diagram.width), panel_y)
+
+    out_path = WIRING / name
+    out_path.write_text(svg_text, encoding="utf-8")
+
+    # Fail loud if the written file isn't valid XML (the nested <svg> must
+    # keep the document well-formed).
+    root = ET.parse(out_path).getroot()
+    width = root.get("width")
+    height = root.get("height")
+
+    all_expected = expected_strings + [SCHEMATIC_CAPTION, str(SCHEMATIC_VIEWBOX_W)]
+    missing = [s for s in all_expected if s not in svg_text]
+    assert not missing, f"{name}: missing expected content: {missing}"
+
+    print(f"wrote {out_path}  ({width} x {height})  schematic panel height {panel_h:.1f}  "
+          f"{len(expected_strings)} gp/gn strings + schematic + caption present")
+
+
 def main() -> None:
     render_and_verify("rpi-pinout.svg", build_rpi_diagram)
-    render_and_verify("ulx3s-pinout.svg", build_ulx3s_diagram)
+    render_ulx3s_and_verify()
     render_and_verify("asus-headers-pinout.svg", build_asus_diagram)
 
 

@@ -1,0 +1,4027 @@
+
+<svg  
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    x="0"
+    y="0"
+    width="1350" 
+    height="870" 
+    viewBox="0 0 1350 870"
+    class="pinout-rpi"
+>
+
+<defs>
+    
+</defs>
+
+
+    <style type="text/css" media="screen">  
+    <![CDATA[  
+    /* Shared stylesheet for the pinout-library-generated diagrams in this
+ * directory (rpi-pinout.svg, ulx3s-pinout.svg, asus-headers-pinout.svg).
+ * Embedded inline via Diagram.add_stylesheet(path, embed=True) so each SVG
+ * stays a single self-contained file (renders correctly on GitHub, which
+ * strips <link> stylesheets from embedded SVG).
+ *
+ * Domain colours match wiring/make_pinmap.py DOMAIN_COLOR so a signal's
+ * colour is identical across harness.svg, ulx3s-headers.svg, rpi-header.svg
+ * and these pinout-library diagrams.
+ */
+
+svg {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #ffffff;
+}
+
+/* -- page chrome -------------------------------------------------------- */
+
+.h1 {
+    font-size: 20px;
+    font-weight: bold;
+    fill: #111111;
+}
+
+.h2 {
+    font-size: 11px;
+    fill: #333333;
+}
+
+.connector-title {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.legend-text {
+    font-size: 11px;
+    fill: #111111;
+}
+
+/* -- connector body graphic ---------------------------------------------
+ * Dark body, gold pin holes -- reads like a real pin header on a white
+ * page.
+ */
+
+.board,
+.connector-body {
+    fill: #263238;
+    stroke: #10151a;
+    stroke-width: 1;
+}
+
+.hole {
+    fill: #d9b310;
+    stroke: #7a5c00;
+    stroke-width: 0.5;
+}
+
+/* -- pin labels: rounded body, white text, light leaderlines ------------- */
+
+rect.pinlabel__body {
+    rx: 6;
+    ry: 6;
+}
+
+.pinlabel__text {
+    fill: #ffffff;
+    font-size: 11px;
+    /* pinout positions each label's text at its body's horizontal centre
+     * (body.width/2 + body.x) -- that math only lands correctly with
+     * text-anchor: middle. Without it, text renders "start"-anchored and
+     * (combined with the mirrored fan on the left side) overflows toward
+     * the pin instead of centering in the pill. */
+    text-anchor: middle;
+}
+
+path.pinlabel__leader,
+.pinlabel__leaderline {
+    stroke: #bbbbbb;
+    stroke-width: 1.25;
+    fill: none;
+}
+
+/* Signal-domain fills (see wiring/make_pinmap.py DOMAIN_COLOR). */
+.spi rect.pinlabel__body { fill: #1b5e20; }
+.uart rect.pinlabel__body { fill: #0d47a1; }
+.jtag rect.pinlabel__body { fill: #b71c1c; }
+.gpio rect.pinlabel__body { fill: #4a148c; }
+
+/* Matching text colours, for use on connector titles / legend swatches
+ * drawn directly on the white page background (not inside a coloured
+ * label body).
+ */
+.spi-text { fill: #1b5e20; }
+.uart-text { fill: #0d47a1; }
+.jtag-text { fill: #b71c1c; }
+.gpio-text { fill: #4a148c; }
+
+/* Unassigned / power / ground / spare pins. */
+.nc rect.pinlabel__body,
+.spare rect.pinlabel__body {
+    fill: #9e9e9e;
+}
+
+/* ESP32-shared ULX3S GPIO (gp/gn 11-13) -- distinguishable from a plain
+ * spare pin. */
+.esp32 rect.pinlabel__body {
+    fill: #757575;
+}
+.esp32-text {
+    fill: #616161;
+}
+
+/* ADC-shared ULX3S GPIO (gp/gn 14-17) -- dashed accent outline layered on
+ * top of whatever fill the pin already has (domain colour or grey). */
+.adc rect.pinlabel__body {
+    stroke: #e65100;
+    stroke-width: 2;
+    stroke-dasharray: 3,2;
+}
+
+/* -- legend swatches (plain rects, not pinlabel bodies) ------------------ */
+
+.legend-swatch {
+    stroke: #333333;
+    stroke-width: 0.5;
+    rx: 3;
+    ry: 3;
+}
+.legend-swatch.spi { fill: #1b5e20; }
+.legend-swatch.uart { fill: #0d47a1; }
+.legend-swatch.jtag { fill: #b71c1c; }
+.legend-swatch.gpio { fill: #4a148c; }
+.legend-swatch.nc,
+.legend-swatch.spare { fill: #9e9e9e; }
+.legend-swatch.esp32 { fill: #757575; }
+.legend-swatch.adc {
+    fill: #ffffff;
+    stroke: #e65100;
+    stroke-width: 2;
+    stroke-dasharray: 3,2;
+}
+
+    ]]>  
+</style>
+<g 
+        class="h1 textblock"
+transform="
+    translate(30 40) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_3"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <text
+
+        class="textblock"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_329"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    Raspberry Pi J8 — HIL wiring to the ULX3S/DUT
+</text>
+</g><g 
+        class="h2 textblock"
+transform="
+    translate(30 62) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_4"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <text
+
+        class="textblock"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_330"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    Canonical 40-pin J8 (identical Pi B+..Pi 5). Odd physical pins fan left, even fan right. Coloured pins carry the committed HIL role from wiring/pi_pinmap.csv.
+</text>
+</g><rect
+
+        class="legend-swatch spi"
+transform="
+    translate(30 82) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_5"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="14" 
+    height="14" 
+    rx="3" 
+    ry="3" 
+/><g 
+        class="legend-text textblock"
+transform="
+    translate(50 93) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_6"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <text
+
+        class="textblock"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_331"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    SPI
+</text>
+</g><rect
+
+        class="legend-swatch uart"
+transform="
+    translate(100 82) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_7"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="14" 
+    height="14" 
+    rx="3" 
+    ry="3" 
+/><g 
+        class="legend-text textblock"
+transform="
+    translate(120 93) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_8"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <text
+
+        class="textblock"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_332"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    UART
+</text>
+</g><rect
+
+        class="legend-swatch jtag"
+transform="
+    translate(178 82) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_9"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="14" 
+    height="14" 
+    rx="3" 
+    ry="3" 
+/><g 
+        class="legend-text textblock"
+transform="
+    translate(198 93) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_10"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <text
+
+        class="textblock"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_333"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    JTAG
+</text>
+</g><rect
+
+        class="legend-swatch gpio"
+transform="
+    translate(256 82) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_11"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="14" 
+    height="14" 
+    rx="3" 
+    ry="3" 
+/><g 
+        class="legend-text textblock"
+transform="
+    translate(276 93) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_12"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <text
+
+        class="textblock"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_334"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    GPIO
+</text>
+</g><rect
+
+        class="legend-swatch nc"
+transform="
+    translate(334 82) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_13"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="14" 
+    height="14" 
+    rx="3" 
+    ry="3" 
+/><g 
+        class="legend-text textblock"
+transform="
+    translate(354 93) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_14"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <text
+
+        class="textblock"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_335"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    Power / GND / unused
+</text>
+</g><g 
+transform="
+    translate(640 140) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_15"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class="connector-body"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_16"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="70" 
+    height="680" 
+    rx="4" 
+    ry="4" 
+/><circle
+        class="hole"
+transform="
+    translate(19.6 17.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_17"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 17.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_18"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 51.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_19"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 51.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_20"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 85.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_21"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 85.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_22"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 119.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_23"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 119.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_24"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 153.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_25"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 153.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_26"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 187.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_27"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 187.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_28"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 221.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_29"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 221.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_30"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 255.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_31"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 255.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_32"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 289.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_33"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 289.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_34"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 323.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_35"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 323.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_36"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 357.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_37"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 357.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_38"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 391.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_39"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 391.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_40"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 425.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_41"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 425.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_42"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 459.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_43"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 459.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_44"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 493.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_45"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 493.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_46"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 527.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_47"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 527.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_48"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 561.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_49"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 561.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_50"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 595.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_51"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 595.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_52"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 629.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_53"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 629.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_54"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(19.6 663.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_55"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/><circle
+        class="hole"
+transform="
+    translate(50.4 663.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_56"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    cx="0" 
+    cy="0" 
+    r="4"
+/>
+</g><g 
+transform="
+    translate(659.6 157.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_57"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_58"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_59"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_338"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_336"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    1 3V3
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_61"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_63"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 34) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_64"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_341"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_339"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    3 GPIO2 (SDA1)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_66"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_68"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 68) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_69"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_344"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_342"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    5 GPIO3 (SCL1)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_71"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_73"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel jtag"
+transform="
+    translate(0 102) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_74"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_347"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_345"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    7 GPIO4 (GPCLK0)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_76"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel jtag"
+transform="
+    translate(-226.0 102) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_78"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_350"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_348"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    JTAG → AST_JTAG1 TCK
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_82"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_83"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 136) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_84"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_353"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_351"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    9 GND
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_86"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_88"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel jtag"
+transform="
+    translate(0 170) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_89"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_356"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_354"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    11 GPIO17
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_91"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel jtag"
+transform="
+    translate(-226.0 170) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_93"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_359"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_357"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    JTAG → AST_JTAG1 TMS
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_97"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_98"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel jtag"
+transform="
+    translate(0 204) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_99"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_362"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_360"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    13 GPIO27
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_101"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel jtag"
+transform="
+    translate(-226.0 204) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_103"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_365"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_363"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    JTAG → AST_JTAG1 TDI
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_107"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_108"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel jtag"
+transform="
+    translate(0 238) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_109"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_368"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_366"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    15 GPIO22
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_111"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel jtag"
+transform="
+    translate(-226.0 238) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_113"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_371"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_369"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    JTAG → AST_JTAG1 TDO
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_117"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_118"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 272) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_119"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_374"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_372"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    17 3V3
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_121"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_123"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel spi"
+transform="
+    translate(0 306) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_124"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_377"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_375"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    19 GPIO10 (SPI0 MOSI)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_126"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel spi"
+transform="
+    translate(-226.0 306) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_128"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_380"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_378"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    SPI0-flash-readback → flash DI (ULX3S emulated flash)
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_132"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_133"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel spi"
+transform="
+    translate(0 340) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_134"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_383"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_381"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    21 GPIO9 (SPI0 MISO)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_136"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel spi"
+transform="
+    translate(-226.0 340) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_138"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_386"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_384"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    SPI0-flash-readback → flash DO (ULX3S emulated flash)
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_142"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_143"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel spi"
+transform="
+    translate(0 374) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_144"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_389"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_387"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    23 GPIO11 (SPI0 SCLK)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_146"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel spi"
+transform="
+    translate(-226.0 374) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_148"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_392"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_390"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    SPI0-flash-readback → flash CLK
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_152"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_153"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 408) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_154"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_395"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_393"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    25 GND
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_156"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_158"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 442) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_159"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_398"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_396"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    27 GPIO0 (ID_SD)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_161"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_163"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel gpio"
+transform="
+    translate(0 476) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_164"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_401"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_399"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    29 GPIO5
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_166"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel gpio"
+transform="
+    translate(-226.0 476) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_168"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_404"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_402"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    GPIO-probe → panel/LED probe
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_172"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_173"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel gpio"
+transform="
+    translate(0 510) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_174"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_407"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_405"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    31 GPIO6
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_176"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel gpio"
+transform="
+    translate(-226.0 510) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_178"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_410"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_408"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    GPIO-probe → strap/button probe
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_182"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_183"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 544) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_184"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_413"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_411"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    33 GPIO13 (PWM1)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_186"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_188"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 578) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_189"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_416"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_414"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    35 GPIO19 (PCM_FS)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_191"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_193"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 612) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_194"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_419"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_417"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    37 GPIO26
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_196"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_198"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 646) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_199"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_422"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(-1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_420"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    39 GND
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_201"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g>
+</g><g 
+transform="
+    translate(690.4 157.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_203"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_204"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_205"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_425"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_423"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    2 5V
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_207"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_209"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 34) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_210"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_428"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_426"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    4 5V
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_212"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_214"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 68) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_215"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_431"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_429"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    6 GND
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_217"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_219"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel uart"
+transform="
+    translate(0 102) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_220"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_434"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_432"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    8 GPIO14 (TXD0)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_222"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel uart"
+transform="
+    translate(226.0 102) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_224"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_437"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_435"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    UART0-console → FPGA UART RX
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_228"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_229"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel uart"
+transform="
+    translate(0 136) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_230"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_440"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_438"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    10 GPIO15 (RXD0)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_232"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel uart"
+transform="
+    translate(226.0 136) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_234"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_443"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_441"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    UART0-console → FPGA UART TX
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_238"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_239"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 170) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_240"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_446"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_444"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    12 GPIO18 (PCM_CLK)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_242"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_244"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 204) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_245"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_449"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_447"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    14 GND
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_247"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_249"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel jtag"
+transform="
+    translate(0 238) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_250"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_452"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_450"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    16 GPIO23
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_252"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel jtag"
+transform="
+    translate(226.0 238) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_254"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_455"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_453"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    JTAG → AST_JTAG1 NTRST
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_258"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_259"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel jtag"
+transform="
+    translate(0 272) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_260"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_458"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_456"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    18 GPIO24
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_262"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel jtag"
+transform="
+    translate(226.0 272) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_264"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_461"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_459"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    JTAG → AST_JTAG1 SRST#
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_268"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_269"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 306) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_270"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_464"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_462"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    20 GND
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_272"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_274"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 340) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_275"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_467"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_465"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    22 GPIO25
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_277"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_279"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel spi"
+transform="
+    translate(0 374) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_280"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_470"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_468"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    24 GPIO8 (SPI0 CE0)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_282"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g><g 
+        class=" pinlabel spi"
+transform="
+    translate(226.0 374) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_284"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(6 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_473"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="360" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(186.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_471"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    SPI0-flash-readback → flash CS#
+</text><path 
+
+        class=" pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_288"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 6 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_289"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 408) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_290"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_476"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_474"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    26 GPIO7 (SPI0 CE1)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_292"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_294"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 442) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_295"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_479"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_477"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    28 GPIO1 (ID_SC)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_297"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_299"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 476) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_300"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_482"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_480"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    30 GND
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_302"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_304"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 510) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_305"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_485"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_483"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    32 GPIO12 (PWM0)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_307"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_309"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 544) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_310"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_488"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_486"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    34 GND
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_312"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_314"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 578) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_315"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_491"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_489"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    36 GPIO16
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_317"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_319"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 612) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_320"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_494"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_492"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    38 GPIO20 (PCM_DIN)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_322"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g><g 
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_324"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <g 
+        class=" pinlabel nc"
+transform="
+    translate(0 646) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_325"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+        <rect
+
+        class=" pinlabel__body"
+transform="
+    translate(46 -13.0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_497"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    width="180" 
+    height="26" 
+    rx="3" 
+    ry="3" 
+/><text
+
+        class="pinlabel__text"
+transform="
+    translate(136.0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_495"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision">
+    40 GPIO21 (PCM_DOUT)
+</text><path 
+
+        class="pinlabel__leader"
+transform="
+    translate(0 0) 
+    scale(1 1)
+    rotate(0)
+"
+id="85de946c-0d1e-4b98-9e5b-196d8c60ffe3_327"
+clipPathUnits="userSpaceOnUse"
+shape-rendering="geometricPrecision"    
+    d="M 0.0 0.0 L 5.75 0.0 C 23.0 0.0 23.0 0.0 40.25 0.0 L 46 0.0" 
+/>
+</g>
+</g>
+</g>
+    
+</svg>
